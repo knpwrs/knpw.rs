@@ -9,17 +9,25 @@ const Footer = g.footer(({ theme }) => ({
   textTransform: 'uppercase',
   textAlign: 'center',
   opacity: 0.35,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
+const P = g.p(({ theme }) => ({
+  margin: `${theme.spacingPx / 2}px 0`,
 }));
 
 const SiteFooter = () => (
   <Footer>
-    <p>&copy; 2017 Kenneth Powers</p>
-    <p>
+    <P>&copy; 2017 Kenneth Powers</P>
+    <P>
       <small>
         This site is built with <A inline href="https://www.gatsbyjs.org/">GatsbyJS</A>.
         You can find the <A inline href="https://github.com/knpwrs/knpw.rs">source code on GitHub</A>.
       </small>
-    </p>
+    </P>
   </Footer>
 );
 

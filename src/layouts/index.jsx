@@ -24,6 +24,7 @@ const maxWidthPx = 960;
 const spacingPx = 10;
 
 const theme = {
+  spacingPx,
   spacing: `${spacingPx}px`,
   headerHeight: '75px',
   textColor: '#333',
