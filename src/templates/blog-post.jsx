@@ -30,7 +30,7 @@ const Header = g.header(({ theme }) => ({
 }));
 
 const HeaderTitle = g.h1(({ theme }) => ({
-  width: '50%',
+  width: '85%',
   marginBottom: theme.spacing,
   [theme.smallMedia]: {
     width: '100%',
@@ -40,7 +40,7 @@ const HeaderTitle = g.h1(({ theme }) => ({
 }));
 
 const HeaderDate = g.time(({ theme }) => ({
-  width: '50%',
+  width: '15%',
   textAlign: 'right',
   [theme.smallMedia]: {
     width: '100%',
@@ -60,15 +60,6 @@ const PostWrap = g.section(({ theme }) => ({
     width: '100vw',
     ':not(.gatsby-highlight)': {
       ...theme.centerPadding,
-    },
-    '> a': {
-      textDecoration: 'none',
-      fontWeight: 'bold',
-      color: theme.textColor,
-      transition: 'color 250ms linear',
-      ':hover': {
-        color: theme.accentColor,
-      },
     },
   },
   '> .gatsby-highlight > pre': {

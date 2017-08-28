@@ -29,13 +29,15 @@ const spacingPx = 10;
 const centerPadding = `calc((100vw - ${maxWidthPx - (2 * spacingPx)}px) / 2)`;
 const smallMedia = `@media(max-width: ${minWidthPx}px)`;
 const largeMedia = `@media(min-width: ${maxWidthPx}px)`;
+const textColor = '#333';
+const accentColor = '#ab4642';
 
 const theme = {
   spacingPx,
   spacing: `${spacingPx}px`,
   headerHeight: '75px',
-  textColor: '#333',
-  accentColor: '#ab4642',
+  textColor,
+  accentColor,
   maxWidthPx,
   minWidthPx,
   smallMedia,
@@ -48,6 +50,17 @@ const theme = {
     },
   },
 };
+
+css.global('a', {
+  textDecoration: 'none',
+  fontWeight: 'bold',
+  color: textColor,
+  transition: 'color 250ms linear',
+});
+
+css.global('a:hover', {
+  color: accentColor,
+});
 
 const Layout = ({ children, data: { site: { siteMetadata: site } } }) => (
   <ThemeProvider theme={theme}>
