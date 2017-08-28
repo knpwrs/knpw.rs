@@ -12,7 +12,7 @@ const Tags = ({ pathContext: { posts, tag }, data: { site: { siteMetadata: site 
     <Helmet>
       <title>{tag} &middot; {site.title}</title>
     </Helmet>
-    <h1>{tag}</h1>
+    <h2>{tag}</h2>
     <section>
       {posts.length} {posts.length !== 0 ? 'post' : 'posts'} in {tag}.
     </section>

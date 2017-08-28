@@ -1,7 +1,7 @@
 ---
-title: "My Post About Foo"
+title: "My Post About Foo and Foo and Foo and Foo and Foo and Foo"
 path: "/blog/foo"
-date: "2017-08-24"
+date: "2015-08-24"
 tags: foo
 ---
 

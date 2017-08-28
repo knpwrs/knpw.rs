@@ -7,6 +7,7 @@ import postShape from '../shapes/post';
 
 const Index = ({ data: { allMarkdownRemark: { edges: posts } } }) => (
   <CenterWrap>
+    <h2>Blog</h2>
     <Posts posts={posts.map(post => post.node)} />
   </CenterWrap>
 );
