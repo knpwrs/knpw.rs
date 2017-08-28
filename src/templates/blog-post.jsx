@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import graphql from 'graphql-tag';
 import dateformat from 'dateformat';
-import { ShareButtons } from 'react-share';
 import ReactDisqusThread from 'react-disqus-thread';
 import g from 'glamorous';
 import site from '../shapes/site';
@@ -12,13 +11,6 @@ import TagsList from '../components/tags-list';
 import PostNav from '../components/post-nav';
 import pathContextShape from '../shapes/path-context';
 import postShape from '../shapes/post';
-
-const {
-  FacebookShareButton,
-  GooglePlusShareButton,
-  TwitterShareButton,
-  RedditShareButton,
-} = ShareButtons;
 
 const Main = g.main(({ theme }) => ({
   color: theme.textColor,
@@ -90,10 +82,6 @@ const PostWrap = g.section(({ theme }) => ({
   },
 }));
 
-const H3 = g.h3({
-  textTransform: 'uppercase',
-});
-
 const PostNavWrap = g.div(({ theme }) => ({
   ...theme.centerPadding,
   display: 'flex',
@@ -126,30 +114,6 @@ const BlogPost = ({ data, pathContext }) => {
         </Header>
         <PostWrap dangerouslySetInnerHTML={{ __html: post.html }} />
         <Footer>
-          <H3>Share This Post</H3>
-          <TwitterShareButton
-            url={fullUrl}
-            title={post.frontmatter.title}
-            via="knpwrs"
-          >
-            <span>Twitter</span>
-          </TwitterShareButton>
-          <FacebookShareButton
-            url={fullUrl}
-          >
-            <span>Facebook</span>
-          </FacebookShareButton>
-          <GooglePlusShareButton
-            url={fullUrl}
-          >
-            <span>Google+</span>
-          </GooglePlusShareButton>
-          <RedditShareButton
-            url={fullUrl}
-          >
-            <span>Reddit</span>
-          </RedditShareButton>
-          <H3>Comments</H3>
           {isProduction &&
             <ReactDisqusThread
               shortname="kenpowers"

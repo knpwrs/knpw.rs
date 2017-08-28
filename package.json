@@ -22,7 +22,6 @@
     "react": "^15.6.1",
     "react-disqus-thread": "^0.4.0",
     "react-helmet": "^5.1.3",
-    "react-share": "^1.15.1",
     "sanitize.css": "^5.0.0"
   },
   "devDependencies": {
