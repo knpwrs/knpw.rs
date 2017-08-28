@@ -9,6 +9,7 @@ import 'lato-font/css/lato-font.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import siteShape from '../shapes/site';
+import '../glamor/code';
 
 css.global('html, body', {
   width: '100vw',
