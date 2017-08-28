@@ -1,0 +1,47 @@
+{
+  "name": "knpw.rs",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.jsx src",
+    "build": "gatsby build",
+    "clean": "rimraf public .cache",
+    "dev": "gatsby develop",
+    "preserve": "npm run build",
+    "serve": "gatsby serve"
+  },
+  "author": "Kenneth Powers <ken@kenpowers.net>",
+  "license": "MIT",
+  "dependencies": {
+    "dateformat": "^2.0.0",
+    "gatsby-link": "^1.0.1",
+    "graphql-tag": "^2.4.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-disqus-thread": "^0.4.0",
+    "react-helmet": "^5.1.3",
+    "react-share": "^1.15.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "gatsby": "^1.0.5",
+    "gatsby-cli": "^1.1.3",
+    "gatsby-plugin-canonical-urls": "^1.0.2",
+    "gatsby-plugin-catch-links": "^1.0.1",
+    "gatsby-plugin-feed": "^1.3.4",
+    "gatsby-plugin-google-analytics": "^1.0.3",
+    "gatsby-plugin-nprogress": "^1.0.2",
+    "gatsby-plugin-react-helmet": "^1.0.1",
+    "gatsby-plugin-sharp": "^1.0.1",
+    "gatsby-plugin-sitemap": "^1.2.1",
+    "gatsby-remark-copy-linked-files": "^1.5.1",
+    "gatsby-remark-images": "^1.2.0",
+    "gatsby-remark-prismjs": "^1.2.0",
+    "gatsby-source-filesystem": "^1.0.1",
+    "gatsby-transformer-remark": "^1.1.0",
+    "rimraf": "^2.6.1"
+  }
+}
