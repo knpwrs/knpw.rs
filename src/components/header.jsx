@@ -20,7 +20,7 @@ const Header = g.header(({ theme }) => ({
     lineHeight: '20px',
   },
   [theme.largeMedia]: {
-    padding: `0 ${theme.centerPadding}`,
+    ...theme.centerPadding,
   },
 }));
 

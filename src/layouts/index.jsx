@@ -22,6 +22,9 @@ css.global('html, body', {
 const minWidthPx = 680;
 const maxWidthPx = 960;
 const spacingPx = 10;
+const centerPadding = `calc((100vw - ${maxWidthPx - (2 * spacingPx)}px) / 2)`;
+const smallMedia = `@media(max-width: ${minWidthPx}px)`;
+const largeMedia = `@media(min-width: ${maxWidthPx}px)`;
 
 const theme = {
   spacingPx,
@@ -31,9 +34,15 @@ const theme = {
   accentColor: '#ab4642',
   maxWidthPx,
   minWidthPx,
-  smallMedia: `@media(max-width: ${minWidthPx}px)`,
-  largeMedia: `@media(min-width: ${maxWidthPx}px)`,
-  centerPadding: `calc((100vw - ${maxWidthPx - (2 * spacingPx)}px) / 2)`,
+  smallMedia,
+  largeMedia,
+  centerPadding: {
+    padding: `0 ${spacingPx}px`,
+    [largeMedia]: {
+      paddingLeft: centerPadding,
+      paddingRight: centerPadding,
+    },
+  },
 };
 
 const Layout = ({ children, data: { site: { siteMetadata: site } } }) => (

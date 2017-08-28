@@ -20,20 +20,12 @@ const {
   RedditShareButton,
 } = ShareButtons;
 
-const calcPadding = theme => ({
-  padding: `0 ${theme.spacing}`,
-  [theme.largeMedia]: {
-    paddingLeft: theme.centerPadding,
-    paddingRight: theme.centerPadding,
-  },
-});
-
 const Main = g.main(({ theme }) => ({
   color: theme.textColor,
 }));
 
 const Header = g.header(({ theme }) => ({
-  ...calcPadding(theme),
+  ...theme.centerPadding,
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -66,7 +58,7 @@ const HeaderDate = g.time(({ theme }) => ({
 }));
 
 const Footer = g.footer(({ theme }) => ({
-  ...calcPadding(theme),
+  ...theme.centerPadding,
 }));
 
 const PostWrap = g.section(({ theme }) => ({
@@ -79,7 +71,7 @@ const PostWrap = g.section(({ theme }) => ({
   '>*': {
     width: '100vw',
     ':not(.gatsby-highlight)': {
-      ...calcPadding(theme),
+      ...theme.centerPadding,
     },
     '> a': {
       textDecoration: 'none',
@@ -92,7 +84,7 @@ const PostWrap = g.section(({ theme }) => ({
     },
   },
   '> .gatsby-highlight > pre': {
-    ...calcPadding(theme),
+    ...theme.centerPadding,
     paddingTop: theme.spacing,
     paddingBottom: theme.spacing,
   },
@@ -103,7 +95,7 @@ const H3 = g.h3({
 });
 
 const PostNavWrap = g.div(({ theme }) => ({
-  ...calcPadding(theme),
+  ...theme.centerPadding,
   display: 'flex',
   justifyContent: 'space-between',
   flexDirection: 'row',
