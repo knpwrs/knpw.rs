@@ -19,11 +19,20 @@ css.global('html, body', {
   fontFamily: 'Lato',
 });
 
+const minWidthPx = 680;
+const maxWidthPx = 960;
+const spacingPx = 10;
+
 const theme = {
-  spacing: '10px',
+  spacing: `${spacingPx}px`,
   headerHeight: '75px',
   textColor: '#333',
   highlightColor: '#ab4642',
+  maxWidthPx,
+  minWidthPx,
+  smallMedia: `@media(max-width: ${minWidthPx}px)`,
+  largeMedia: `@media(min-width: ${maxWidthPx}px)`,
+  centerPadding: `calc((100vw - ${maxWidthPx - (2 * spacingPx)}px) / 2)`,
 };
 
 const Layout = ({ children, data: { site: { siteMetadata: site } } }) => (

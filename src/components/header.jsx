@@ -3,8 +3,6 @@ import React from 'react';
 import g from 'glamorous';
 import A from './header-footer-anchor';
 
-const maxWidth = '@media(max-width: 680px)';
-
 const Header = g.header(({ theme }) => ({
   textTransform: 'uppercase',
   padding: `0 ${theme.spacing}`,
@@ -14,22 +12,25 @@ const Header = g.header(({ theme }) => ({
   height: theme.headerHeight,
   lineHeight: theme.headerHeight,
   color: theme.textColor,
-  [maxWidth]: {
+  [theme.smallMedia]: {
     flexDirection: 'column',
     textAlign: 'center',
     justifyContent: 'space-between',
     height: '50px',
     lineHeight: '20px',
   },
+  [theme.largeMedia]: {
+    padding: `0 ${theme.centerPadding}`,
+  },
 }));
 
-const H1 = g.h1({
+const H1 = g.h1(({ theme }) => ({
   fontSize: '1.25rem',
   margin: 0,
-  [maxWidth]: {
+  [theme.smallMedia]: {
     fontSize: '1rem',
   },
-});
+}));
 
 const Small = g.small({
   fontSize: '75%',

@@ -7,6 +7,7 @@ import dateformat from 'dateformat';
 import { ShareButtons } from 'react-share';
 import ReactDisqusThread from 'react-disqus-thread';
 import GatsbyLink from 'gatsby-link';
+import g from 'glamorous';
 import site from '../shapes/site';
 import TagsList from '../components/tags-list';
 import pathContextShape from '../shapes/path-context';
@@ -19,6 +20,47 @@ const {
   RedditShareButton,
 } = ShareButtons;
 
+const calcPadding = theme => ({
+  padding: `0 ${theme.spacing}`,
+  [theme.largeMedia]: {
+    paddingLeft: theme.centerPadding,
+    paddingRight: theme.centerPadding,
+  },
+});
+
+const Main = g.main(({ theme }) => ({
+  color: theme.textColor,
+}));
+
+const Header = g.header(({ theme }) => ({
+  ...calcPadding(theme),
+}));
+
+const Footer = g.footer(({ theme }) => ({
+  ...calcPadding(theme),
+}));
+
+const SpaceDiv = g.div(({ theme }) => ({
+  ...calcPadding(theme),
+}));
+
+const PostWrap = g.section(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  '>*': {
+    width: '100vw',
+    ':not(.gatsby-highlight)': {
+      ...calcPadding(theme),
+    },
+  },
+  '> .gatsby-highlight > pre': {
+    ...calcPadding(theme),
+    paddingTop: theme.spacing,
+    paddingBottom: theme.spacing,
+  },
+}));
+
 const BlogPost = ({ data, pathContext }) => {
   const { markdownRemark: post } = data;
   const { title, siteUrl } = data.site.siteMetadata;
@@ -28,12 +70,12 @@ const BlogPost = ({ data, pathContext }) => {
   const fullUrl = `${siteUrl}${post.frontmatter.path}`;
 
   return (
-    <main>
+    <Main>
       <Helmet>
         <title>{post.frontmatter.title} &middot; {title}</title>
       </Helmet>
       <article>
-        <header>
+        <Header>
           <h1>
             {post.frontmatter.title}
           </h1>
@@ -41,11 +83,9 @@ const BlogPost = ({ data, pathContext }) => {
             {dateformat(post.frontmatter.date, 'mmmm d, yyyy')}
           </time>
           <TagsList tags={post.frontmatter.tags} />
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        <footer>
+        </Header>
+        <PostWrap dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Footer>
           <h3>Share this post on</h3>
           <TwitterShareButton
             url={fullUrl}
@@ -70,6 +110,7 @@ const BlogPost = ({ data, pathContext }) => {
             <span>Reddit</span>
           </RedditShareButton>
           <h3>Comments</h3>
+
           {isProduction &&
             <ReactDisqusThread
               shortname="kenpowers"
@@ -77,9 +118,9 @@ const BlogPost = ({ data, pathContext }) => {
               title={post.frontmatter.title}
               url={fullUrl}
             />}
-        </footer>
+        </Footer>
       </article>
-      <div>
+      <SpaceDiv>
         {prev &&
           <GatsbyLink to={prev.frontmatter.path}>
             Previous Post <small>{prev.frontmatter.title}</small>
@@ -90,8 +131,8 @@ const BlogPost = ({ data, pathContext }) => {
             Next Post <small>{next.frontmatter.title}</small>
           </GatsbyLink>
         }
-      </div>
-    </main>
+      </SpaceDiv>
+    </Main>
   );
 };
 

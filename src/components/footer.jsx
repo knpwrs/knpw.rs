@@ -4,6 +4,7 @@ import g from 'glamorous';
 import A from './header-footer-anchor';
 
 const Footer = g.footer(({ theme }) => ({
+  color: theme.textColor,
   height: theme.headerHeight,
   textTransform: 'uppercase',
   textAlign: 'center',

@@ -17,7 +17,6 @@ css.global('code[class*="language-"],pre[class*="language-"]', {
 });
 
 css.global('pre[class*="language-"]', {
-  padding: '1em',
   margin: '.5em 0',
   overflow: 'auto',
 });
@@ -27,7 +26,6 @@ css.global(':not(pre) > code[class*="language-"], pre[class*="language-"]', {
 });
 
 css.global(':not(pre) > code[class*="language-"]', {
-  padding: '.1em',
   whiteSpace: 'normal',
 });
 
