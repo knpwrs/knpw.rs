@@ -6,10 +6,10 @@ import graphql from 'graphql-tag';
 import dateformat from 'dateformat';
 import { ShareButtons } from 'react-share';
 import ReactDisqusThread from 'react-disqus-thread';
-import GatsbyLink from 'gatsby-link';
 import g from 'glamorous';
 import site from '../shapes/site';
 import TagsList from '../components/tags-list';
+import PostNav from '../components/post-nav';
 import pathContextShape from '../shapes/path-context';
 import postShape from '../shapes/post';
 
@@ -34,13 +34,38 @@ const Main = g.main(({ theme }) => ({
 
 const Header = g.header(({ theme }) => ({
   ...calcPadding(theme),
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
+  [theme.smallMedia]: {
+    flexDirection: 'column',
+    flexWrap: 'nowrap',
+  },
+}));
+
+const HeaderTitle = g.h1(({ theme }) => ({
+  width: '50%',
+  marginBottom: theme.spacing,
+  textTransform: 'uppercase',
+  [theme.smallMedia]: {
+    width: '100%',
+    textAlign: 'center',
+    marginBottom: 0,
+  },
+}));
+
+const HeaderDate = g.time(({ theme }) => ({
+  width: '50%',
+  textAlign: 'right',
+  [theme.smallMedia]: {
+    width: '100%',
+    textAlign: 'center',
+  },
 }));
 
 const Footer = g.footer(({ theme }) => ({
-  ...calcPadding(theme),
-}));
-
-const SpaceDiv = g.div(({ theme }) => ({
   ...calcPadding(theme),
 }));
 
@@ -48,10 +73,22 @@ const PostWrap = g.section(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  '>h1,>h2,>h3,>h4': {
+    textTransform: 'uppercase',
+  },
   '>*': {
     width: '100vw',
     ':not(.gatsby-highlight)': {
       ...calcPadding(theme),
+    },
+    '> a': {
+      textDecoration: 'none',
+      fontWeight: 'bold',
+      color: theme.textColor,
+      transition: 'color 250ms linear',
+      ':hover': {
+        color: theme.accentColor,
+      },
     },
   },
   '> .gatsby-highlight > pre': {
@@ -59,6 +96,17 @@ const PostWrap = g.section(({ theme }) => ({
     paddingTop: theme.spacing,
     paddingBottom: theme.spacing,
   },
+}));
+
+const H3 = g.h3({
+  textTransform: 'uppercase',
+});
+
+const PostNavWrap = g.div(({ theme }) => ({
+  ...calcPadding(theme),
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'row',
 }));
 
 const BlogPost = ({ data, pathContext }) => {
@@ -76,17 +124,17 @@ const BlogPost = ({ data, pathContext }) => {
       </Helmet>
       <article>
         <Header>
-          <h1>
+          <HeaderTitle>
             {post.frontmatter.title}
-          </h1>
-          <time dateTime={dateformat(post.frontmatter.date, 'isoDateTime')}>
+          </HeaderTitle>
+          <HeaderDate dateTime={dateformat(post.frontmatter.date, 'isoDateTime')}>
             {dateformat(post.frontmatter.date, 'mmmm d, yyyy')}
-          </time>
+          </HeaderDate>
           <TagsList tags={post.frontmatter.tags} />
         </Header>
         <PostWrap dangerouslySetInnerHTML={{ __html: post.html }} />
         <Footer>
-          <h3>Share this post on</h3>
+          <H3>Share This Post</H3>
           <TwitterShareButton
             url={fullUrl}
             title={post.frontmatter.title}
@@ -109,8 +157,7 @@ const BlogPost = ({ data, pathContext }) => {
           >
             <span>Reddit</span>
           </RedditShareButton>
-          <h3>Comments</h3>
-
+          <H3>Comments</H3>
           {isProduction &&
             <ReactDisqusThread
               shortname="kenpowers"
@@ -120,18 +167,10 @@ const BlogPost = ({ data, pathContext }) => {
             />}
         </Footer>
       </article>
-      <SpaceDiv>
-        {prev &&
-          <GatsbyLink to={prev.frontmatter.path}>
-            Previous Post <small>{prev.frontmatter.title}</small>
-          </GatsbyLink>
-        }
-        {next &&
-          <GatsbyLink to={next.frontmatter.path}>
-            Next Post <small>{next.frontmatter.title}</small>
-          </GatsbyLink>
-        }
-      </SpaceDiv>
+      <PostNavWrap>
+        <PostNav prev post={prev} />
+        <PostNav next post={next} />
+      </PostNavWrap>
     </Main>
   );
 };

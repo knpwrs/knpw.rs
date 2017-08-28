@@ -6,6 +6,6 @@ export default g.a(({ inline, theme }) => ({
   color: theme.textColor,
   transition: 'color 250ms linear',
   ':hover': {
-    color: theme.highlightColor,
+    color: theme.accentColor,
   },
 }));

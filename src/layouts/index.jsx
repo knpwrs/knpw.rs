@@ -28,7 +28,7 @@ const theme = {
   spacing: `${spacingPx}px`,
   headerHeight: '75px',
   textColor: '#333',
-  highlightColor: '#ab4642',
+  accentColor: '#ab4642',
   maxWidthPx,
   minWidthPx,
   smallMedia: `@media(max-width: ${minWidthPx}px)`,

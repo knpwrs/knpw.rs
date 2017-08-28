@@ -1,18 +1,30 @@
 import React from 'react';
-import GatsbyLink from 'gatsby-link';
 import PropTypes from 'prop-types';
+import g from 'glamorous';
+
+const Small = g.small({
+  textTransform: 'uppercase',
+});
+
+const A = g.a(({ theme }) => ({
+  textDecoration: 'none',
+  color: theme.textColor,
+  transition: 'color 250ms linear',
+  ':hover': {
+    textDecoration: 'underline',
+    color: theme.accentColor,
+  },
+}));
 
 const CommaSeparatedTags = ({ tags }) => (
-  <div>
+  <Small>Topics:{' '}
     {tags.split(', ').map((tag, index, array) => (
       <span key={tag}>
-        <GatsbyLink to={`/tag/${tag}/`}>
-          {tag}
-        </GatsbyLink>
+        <A href={`/tag/${tag}/`}>{tag}</A>
         {index < array.length - 1 ? ', ' : ''}
       </span>
     ))}
-  </div>
+  </Small>
 );
 
 CommaSeparatedTags.propTypes = {

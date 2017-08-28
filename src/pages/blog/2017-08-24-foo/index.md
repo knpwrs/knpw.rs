@@ -12,3 +12,7 @@ console.log('Foo');
 ```
 
 More about foo here.
+
+## Foo foo foo foo foo
+
+[Foo][http://foo.com]

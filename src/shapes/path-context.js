@@ -1,12 +1,8 @@
 import PropTypes from 'prop-types';
+import frontmatter from './frontmatter';
 
 const context = PropTypes.oneOfType([PropTypes.bool, PropTypes.shape({
-  frontmatter: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    tags: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }),
+  frontmatter,
   html: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
