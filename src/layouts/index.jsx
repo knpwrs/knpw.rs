@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import graphql from 'graphql-tag';
+import 'sanitize.css/sanitize.css';
+import 'lato-font/css/lato-font.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import siteShape from '../shapes/site';

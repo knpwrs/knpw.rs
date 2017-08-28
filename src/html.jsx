@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const PROD = process.env.NODE_ENV === 'production';
+
 const Html = ({ body, headComponents, postBodyComponents }) => (
   <html lang="en">
     <head>
@@ -12,6 +14,7 @@ const Html = ({ body, headComponents, postBodyComponents }) => (
         content="width=device-width, initial-scale=1.0"
       />
       {headComponents}
+      {PROD && <link rel="stylesheet" href="/styles.css" />}
     </head>
     <body>
       <div
