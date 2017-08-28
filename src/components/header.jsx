@@ -4,7 +4,6 @@ import g from 'glamorous';
 import A from './header-footer-anchor';
 
 const Header = g.header(({ theme }) => ({
-  textTransform: 'uppercase',
   padding: `0 ${theme.spacing}`,
   display: 'flex',
   flexDirection: 'row',
@@ -41,6 +40,7 @@ const Nav = g.nav({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
+  textTransform: 'uppercase',
 });
 
 const SiteHeader = () => (

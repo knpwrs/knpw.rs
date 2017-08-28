@@ -19,6 +19,10 @@ css.global('html, body', {
   fontFamily: 'Lato',
 });
 
+css.global('h1,h2,h3,h4', {
+  textTransform: 'uppercase',
+});
+
 const minWidthPx = 680;
 const maxWidthPx = 960;
 const spacingPx = 10;

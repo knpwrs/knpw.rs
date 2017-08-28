@@ -32,7 +32,6 @@ const Header = g.header(({ theme }) => ({
 const HeaderTitle = g.h1(({ theme }) => ({
   width: '50%',
   marginBottom: theme.spacing,
-  textTransform: 'uppercase',
   [theme.smallMedia]: {
     width: '100%',
     textAlign: 'center',
@@ -57,9 +56,6 @@ const PostWrap = g.section(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  '>h1,>h2,>h3,>h4': {
-    textTransform: 'uppercase',
-  },
   '>*': {
     width: '100vw',
     ':not(.gatsby-highlight)': {

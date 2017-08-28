@@ -2,16 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import graphql from 'graphql-tag';
+import CenterWrap from '../components/center-wrap';
 import siteShape from '../shapes/site';
 
 const About = ({ data: { site: { siteMetadata: site } } }) => (
-  <main>
+  <CenterWrap>
     <Helmet>
       <title>About &middot; {site.title}</title>
     </Helmet>
     <h2>About</h2>
     <p>All about me.</p>
-  </main>
+  </CenterWrap>
 );
 
 About.propTypes = {

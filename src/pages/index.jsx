@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import graphql from 'graphql-tag';
+import CenterWrap from '../components/center-wrap';
 import Posts from '../components/posts';
 import postShape from '../shapes/post';
 
 const Index = ({ data: { allMarkdownRemark: { edges: posts } } }) => (
-  <Posts posts={posts.map(post => post.node)} />
+  <CenterWrap>
+    <Posts posts={posts.map(post => post.node)} />
+  </CenterWrap>
 );
 
 Index.propTypes = {

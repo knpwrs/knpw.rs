@@ -2,23 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import graphql from 'graphql-tag';
+import CenterWrap from '../components/center-wrap';
 import pathContextShape from '../shapes/path-context';
 import siteShape from '../shapes/site';
 import Posts from '../components/posts';
 
 const Tags = ({ pathContext: { posts, tag }, data: { site: { siteMetadata: site } } }) => (
-  <main>
+  <CenterWrap>
     <Helmet>
       <title>{tag} &middot; {site.title}</title>
     </Helmet>
     <h1>{tag}</h1>
     <section>
-      A {posts.length} posts collection
+      {posts.length} {posts.length !== 0 ? 'post' : 'posts'} in {tag}.
     </section>
     <section>
       <Posts posts={posts} />
     </section>
-  </main>
+  </CenterWrap>
 );
 
 Tags.propTypes = {
