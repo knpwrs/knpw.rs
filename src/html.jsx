@@ -1,4 +1,7 @@
 /* eslint-disable react/no-danger */
+/* eslint-disable import/no-webpack-loader-syntax */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable global-require */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -13,8 +16,8 @@ const Html = ({ body, headComponents, postBodyComponents }) => (
         name="viewport"
         content="width=device-width, initial-scale=1.0"
       />
+      {PROD && <style dangerouslySetInnerHTML={{ __html: require('!raw!../public/styles.css') }} />}
       {headComponents}
-      {PROD && <link rel="stylesheet" href="/styles.css" />}
     </head>
     <body>
       <div
