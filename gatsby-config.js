@@ -43,11 +43,6 @@ module.exports = {
         siteUrl: 'http://knpw.rs',
       },
     }, {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: 'tomato',
-      },
-    }, {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `{
