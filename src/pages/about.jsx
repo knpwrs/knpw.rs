@@ -8,12 +8,6 @@ import CenterWrap from '../components/center-wrap';
 import siteShape from '../shapes/site';
 import excelSetupPng from '../images/excel-setup-diagram.png';
 
-const Quote = g.blockquote(({ theme }) => ({
-  background: '#F9F9F9',
-  padding: `${theme.spacingPx * 2}px`,
-  margin: 0,
-}));
-
 const maLink = <a href="https://www.youtube.com/watch?v=JvUMV1N7eGM">Massachusetts</a>;
 const ghLink = <a href="https://github.com/knpwrs">my GitHub</a>;
 const patsLink = <a href="http://www.patriots.com/">New England Patriots</a>;
@@ -35,11 +29,14 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       <title>About &middot; {site.title}</title>
     </Helmet>
     <h2>About</h2>
-    <Quote>
-      &quot;Far away across the oceans. An undiscovered paradise. Forget New
-      York and California. There’s a better place – now close your eyes. Take
-      my hand.  We are almost there. Our favorite place on Earth.&quot; - Ylvis
-    </Quote>
+    <blockquote>
+      <p>
+        &quot;Far away across the oceans. An undiscovered paradise. Forget New
+        York and California. There’s a better place – now close your eyes. Take
+        my hand.  We are almost there. Our favorite place on Earth.&quot; -
+        Ylvis
+      </p>
+    </blockquote>
     <p>
       I am a software engineer living and working in {maLink}. I work
       extensively in Universal JavaScript and HTML5 and have experience in many

@@ -5,7 +5,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PROD = process.env.NODE_ENV === 'production';
+let css;
+if (process.env.NODE_ENV === 'production') {
+  css = (
+    <style dangerouslySetInnerHTML={{ __html: require('!raw!../public/styles.css') }} />
+  );
+}
 
 const Html = ({ body, headComponents, postBodyComponents }) => (
   <html lang="en">
@@ -16,7 +21,7 @@ const Html = ({ body, headComponents, postBodyComponents }) => (
         name="viewport"
         content="width=device-width, initial-scale=1.0"
       />
-      {PROD && <style dangerouslySetInnerHTML={{ __html: require('!raw!../public/styles.css') }} />}
+      {css}
       {headComponents}
     </head>
     <body>

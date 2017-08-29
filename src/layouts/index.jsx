@@ -62,6 +62,12 @@ css.global('a:hover', {
   color: accentColor,
 });
 
+css.global('blockquote', {
+  background: '#F9F9F9',
+  padding: `${spacingPx * 2}px`,
+  margin: 0,
+});
+
 const Layout = ({ children, data: { site: { siteMetadata: site } } }) => (
   <ThemeProvider theme={theme}>
     <main>

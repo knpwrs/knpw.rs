@@ -24,6 +24,9 @@ module.exports = {
           options: {
             classPrefix: 'language-',
           },
+        }, {
+          resolve: 'gatsby-remark-images',
+          maxWidth: 950,
         }],
       },
     }, {
@@ -32,7 +35,7 @@ module.exports = {
         trackingId: 'UA-46190412-1',
       },
     }, {
-      resolve: 'gatsby-plugin-sitemap'
+      resolve: 'gatsby-plugin-sitemap',
     }, {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
@@ -56,17 +59,13 @@ module.exports = {
           }
         }`,
         feeds: [{
-          serialize: ({ query: { site, allMarkdownRemark } }) => {
-            return allMarkdownRemark.edges
-            .map(edge => {
-              return Object.assign({}, edge.node.frontmatter, {
-                description: edge.node.html,
-                url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
-              });
-            });
-          },
+          serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map(
+            edge => Object.assign({}, edge.node.frontmatter, {
+              description: edge.node.html,
+              url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+              guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+              custom_elements: [{ 'content:encoded': edge.node.html }],
+            })),
           query: `{
             allMarkdownRemark(
               limit: 1000,
@@ -84,8 +83,8 @@ module.exports = {
               }
             }
           }`,
-        output: '/rss.xml'
-      }],
-    },
-  }],
+          output: '/rss.xml',
+        }],
+      },
+    }],
 };

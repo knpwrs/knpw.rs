@@ -3,10 +3,9 @@ import Helmet from 'react-helmet';
 
 export default () => (
   <div>
-    <Helmet
-      title="404 &middot; Ken Powers"
-      meta={[{ name: 'description', content: 'Not found' }]}
-    />
+    <Helmet>
+      <title>404 &middot; Ken Powers</title>
+    </Helmet>
     <section>
       <div>
         <header>
