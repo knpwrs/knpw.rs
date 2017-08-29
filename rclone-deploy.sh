@@ -24,9 +24,13 @@ wget https://github.com/ncw/rclone/releases/download/v$RCLONE_VERSION/$RCLONE_ZI
 unzip $RCLONE_ZIP
 
 # Sync with S3
+echo "Syncing with S3..."
 ./$RCLONE_DIR/rclone --config $CONFIG_FILE sync ./public s3:knpw.rs
+echo "Done syncing with S3"
 
 # Delete configuration and binaries
+echo "Cleaning up rclone files..."
 rm rclone.conf
 rm $RCLONE_ZIP
 rm -r $RCLONE_DIR
+echo "Done cleaning up rclone files..."
