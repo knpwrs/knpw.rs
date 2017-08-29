@@ -21,6 +21,7 @@ css.global('html, body', {
 
 css.global('h1,h2,h3,h4', {
   textTransform: 'uppercase',
+  marginBottom: 0,
 });
 
 const minWidthPx = 680;

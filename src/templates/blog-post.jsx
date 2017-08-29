@@ -56,7 +56,7 @@ const PostWrap = g.section(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  '>*': {
+  '> *': {
     width: '100vw',
     ':not(.gatsby-highlight)': {
       ...theme.centerPadding,
@@ -67,6 +67,9 @@ const PostWrap = g.section(({ theme }) => ({
     paddingTop: theme.spacing,
     paddingBottom: theme.spacing,
   },
+  '>ul,>ol': {
+    marginLeft: `${theme.spacingPx * 4}px`,
+  },
 }));
 
 const PostNavWrap = g.div(({ theme }) => ({
@@ -74,6 +77,7 @@ const PostNavWrap = g.div(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   flexDirection: 'row',
+  marginTop: theme.spacing,
 }));
 
 const BlogPost = ({ data, pathContext }) => {
