@@ -9,4 +9,4 @@ This is the source code for my [personal website][web]. Built with [GatsbyJS].
 **MIT**
 
 [GatsbyJS]: https://www.gatsbyjs.org/ "GatsbyJS"
-[web]: http://knpw.rs "Personal Website"
+[web]: https://knpw.rs "Personal Website"
