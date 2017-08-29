@@ -3,11 +3,11 @@ import Helmet from 'react-helmet';
 import CenterWrap from '../components/center-wrap';
 
 export default () => (
-<CenterWrap>
-  <Helmet>
-    <title>404 &middot; Ken Powers</title>
-  </Helmet>
-  <h2>404</h2>
-  <p>Whoops! I can't find what you're looking for.</p>
-</CenterWrap>
+  <CenterWrap>
+    <Helmet>
+      <title>404 &middot; Ken Powers</title>
+    </Helmet>
+    <h2>404</h2>
+    <p>Whoops! I can&#8217;t find what you&#8217;re looking for.</p>
+  </CenterWrap>
 );

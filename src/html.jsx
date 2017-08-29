@@ -2,6 +2,7 @@
 /* eslint-disable import/no-webpack-loader-syntax */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable global-require */
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 
