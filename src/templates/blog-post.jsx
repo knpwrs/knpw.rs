@@ -58,6 +58,7 @@ const PostWrap = g.section(({ theme }) => ({
   alignItems: 'center',
   '> *': {
     width: '100vw',
+    wordWrap: 'break-word',
     ':not(.gatsby-highlight)': {
       ...theme.centerPadding,
     },
@@ -69,6 +70,7 @@ const PostWrap = g.section(({ theme }) => ({
   },
   '>ul,>ol': {
     marginLeft: `${theme.spacingPx * 4}px`,
+    width: `calc(100% - ${theme.spacingPx * 4}px)`,
   },
 }));
 
