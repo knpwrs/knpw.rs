@@ -148,7 +148,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
     <H4>Volunteer Work</H4>
     <ResumeHeader>
       <h5>ExcelChurch &middot; Technical Director &middot; Leominster, MA</h5>
-      <h5>February 2013 - Present</h5>
+      <h5>February 2014 - Present</h5>
     </ResumeHeader>
     <Ul>
       <li>Designed and implemented live production setup using ProPresenter, Reaper, Lightkey, and Wirecast.</li>
