@@ -10,7 +10,7 @@ import excelSetupPng from '../images/excel-setup-diagram.png';
 const maLink = <a href="https://www.youtube.com/watch?v=JvUMV1N7eGM">Massachusetts</a>;
 const ghLink = <a href="https://github.com/knpwrs">my GitHub</a>;
 const patsLink = <a href="http://www.patriots.com/">New England Patriots</a>;
-const cdpLink = <a href="http://cursordanceparty.com">New England Patriots</a>;
+const cdpLink = <a href="http://cursordanceparty.com">Cursor Dance Party</a>;
 const esdLink = <a href={excelSetupPng}>full setup diagram</a>;
 
 const ResumeHeader = g.header(({ theme }) => ({
