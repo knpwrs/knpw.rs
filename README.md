@@ -2,16 +2,13 @@
 
 With Ken Powers comes Ken Responsibility.
 
-This is the source code for my [personal website][web]. Built with [GatsbyJS],
-deployed to [S3] with [Travis] and [rclone], and served with [Cloudflare].
+This is the source code for my [personal website][web]. Built with [GatsbyJS]
+and deployed to [Netlify].
 
 ## License
 
 **MIT**
 
-[Cloudflare]: https://www.cloudflare.com/ "Cloudflare"
-[GatsbyJS]: https://www.gatsbyjs.org/ "GatsbyJS"
-[Travis]: https://travis-ci.org/ "Travis CI"
-[rclone]: https://rclone.org/ "rclone"
-[s3]: https://aws.amazon.com/s3/ "AWS S3"
-[web]: https://knpw.rs "knpw.rs"
+[GatsbyJS]: https://www.gatsbyjs.org/ "GatsbyJS: Blazing-fast static site generator for React"
+[Netlify]: https://www.netlify.com/ "Netlify: All-in-one platform for automating modern web projects."
+[web]: https://knpw.rs "knpwrs"
