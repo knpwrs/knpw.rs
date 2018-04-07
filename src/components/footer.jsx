@@ -21,7 +21,7 @@ const P = g.p(({ theme }) => ({
 
 const SiteFooter = () => (
   <Footer>
-    <P>&copy; 2017 Kenneth Powers</P>
+    <P>&copy; 2018 Kenneth Powers</P>
     <P>
       <small>
         This site is built with <A inline href="https://www.gatsbyjs.org/">GatsbyJS</A>.
