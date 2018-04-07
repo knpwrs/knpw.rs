@@ -83,6 +83,18 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
     </Ul>
     <H4>Experience</H4>
     <ResumeHeader>
+      <h5>SHIFT Media &middot; Front End Lead &middot; Boston, MA</h5>
+      <h5>September 2018 - Present</h5>
+    </ResumeHeader>
+    <Ul>
+      <li>Worked with React, Redux, Electron, and modern JavaScript (TypeScript, Flow, JSX).</li>
+      <li>Designed and implemented WebSocket communication layer with sagas.</li>
+      <li>Designed and implemented generic upload queueing system with sagas.</li>
+      <li>Designed and implemented SVG-based annotation tools.</li>
+      <li>Mentored junior engineers and presented multiple talks about advanced concepts in JavaScript.</li>
+      <li>Hired as Senior Software Engineer. Promoted to Lead Software Engineer in March 2018.</li>
+    </Ul>
+    <ResumeHeader>
       <h5>Candescent Health &middot; Software Engineer &middot; Remote (Waltham, MA)</h5>
       <h5>April 2016 - August 2017</h5>
     </ResumeHeader>
