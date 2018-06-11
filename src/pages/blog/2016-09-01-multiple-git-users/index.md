@@ -78,6 +78,8 @@ contents:
 ```sh
 export GIT_AUTHOR_NAME="Foo Barrington"
 export GIT_AUTHOR_EMAIL="bears@banana.dev"
+export GIT_COMMITTER_NAME="Foo Barrington"
+export GIT_COMMITTER_EMAIL="bears@banana.dev"
 ```
 
 Now whenever we change in to this directory, *or any directory underneath this
@@ -100,7 +102,7 @@ you have new variables in your shell:
 
 ```sh
 direnv: loading .envrc
-direnv: export +GIT_AUTHOR_EMAIL +GIT_AUTHOR_NAME
+direnv: export +GIT_AUTHOR_EMAIL +GIT_AUTHOR_NAME +GIT_COMMITTER_EMAIL +GIT_COMMITTER_NAME
 ```
 
 Let's whitelist that `.envrc` file, initialize a new git repository, and make
@@ -109,7 +111,7 @@ an initial commit:
 ```sh
 $ direnv allow
 direnv: loading .envrc
-direnv: export +GIT_AUTHOR_EMAIL +GIT_AUTHOR_NAME
+direnv: export +GIT_AUTHOR_EMAIL +GIT_AUTHOR_NAME +GIT_COMMITTER_EMAIL +GIT_COMMITTER_NAME
 $ git init foo
 Initialized empty Git repository in /Users/kpowers/Workspace/tmp/foo/.git/
 $ cd foo
