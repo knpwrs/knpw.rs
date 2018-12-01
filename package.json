@@ -48,6 +48,7 @@
     "gatsby-remark-prismjs": "^1.2.0",
     "gatsby-source-filesystem": "^1.0.1",
     "gatsby-transformer-remark": "^1.7.4",
+    "node": "^8.13.0",
     "rimraf": "^2.6.1"
   }
 }
