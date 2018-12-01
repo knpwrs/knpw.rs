@@ -72,7 +72,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
     <H4>Languages</H4>
     <Ul>
       <li>Proficient in: JavaScript (Universal Node / Browser, TypeScript, React), HTML5, CSS3 (SCSS)</li>
-      <li>Familiar with: C# and .NET Framework, Java, Scala, Ruby, Swift, SQL</li>
+      <li>Familiar with: C# and .NET Framework, Java, Scala, Ruby, Swift, Rust, SQL</li>
     </Ul>
     <H4>Software</H4>
     <Ul>
