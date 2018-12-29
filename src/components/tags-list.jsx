@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import g from 'glamorous';
+import styled from '@emotion/styled';
 
-const Small = g.small({
+const Small = styled.small({
   textTransform: 'uppercase',
 });
 
-const A = g.a(({ theme }) => ({
+const A = styled.a(({ theme }) => ({
   textDecoration: 'none',
   color: theme.textColor,
   transition: 'color 250ms linear',

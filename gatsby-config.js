@@ -8,8 +8,8 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-favicon',
-    'gatsby-plugin-glamor',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp', {
       resolve: 'gatsby-source-filesystem',

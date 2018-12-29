@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import g from 'glamorous';
+import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import siteShape from '../shapes/site';
 import excelSetupPng from '../images/excel-setup-diagram.png';
@@ -14,7 +14,7 @@ const patsLink = <a href="http://www.patriots.com/">New England Patriots</a>;
 const cdpLink = <a href="http://cursordanceparty.com">Cursor Dance Party</a>;
 const esdLink = <a href={excelSetupPng}>full setup diagram</a>;
 
-const ResumeHeader = g.header(({ theme }) => ({
+const ResumeHeader = styled.header(({ theme }) => ({
   ...theme.centerPadding,
   display: 'flex',
   flexDirection: 'row',
@@ -24,22 +24,22 @@ const ResumeHeader = g.header(({ theme }) => ({
   },
 }));
 
-const H2 = g.h2(({ theme }) => ({
+const H2 = styled.h2(({ theme }) => ({
   ...theme.centerPadding,
   marginBottom: theme.spacing,
 }));
-const H3 = g.h3(({ theme }) => ({
+const H3 = styled.h3(({ theme }) => ({
   ...theme.centerPadding,
   marginBottom: theme.spacing,
 }));
-const H4 = g.h4(({ theme }) => ({
+const H4 = styled.h4(({ theme }) => ({
   ...theme.centerPadding,
   marginBottom: theme.spacing,
 }));
-const P = g.p(({ theme }) => ({
+const P = styled.p(({ theme }) => ({
   ...theme.centerPadding,
 }));
-const Ul = g.ul(({ theme }) => ({
+const Ul = styled.ul(({ theme }) => ({
   ...theme.centerPadding,
   marginBottom: theme.spacing,
   marginLeft: `${theme.spacingPx * 4}px`,

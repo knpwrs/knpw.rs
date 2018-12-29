@@ -1,5 +1,5 @@
-import g from 'glamorous';
+import styled from '@emotion/styled';
 
-export default g.main(({ theme }) => ({
+export default styled.main(({ theme }) => ({
   ...theme.centerPadding,
 }));

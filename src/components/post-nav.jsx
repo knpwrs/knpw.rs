@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import g from 'glamorous';
+import styled from '@emotion/styled';
 import { context } from '../shapes/page-context';
 
-const Wrap = g.div(({ prev }) => ({
+const Wrap = styled.div(({ prev }) => ({
   textAlign: prev ? 'left' : 'right',
   display: 'flex',
   flexDirection: 'column',
@@ -11,13 +11,13 @@ const Wrap = g.div(({ prev }) => ({
   textTransform: 'uppercase',
 }));
 
-const Span = g.span(({ theme }) => ({
+const Span = styled.span(({ theme }) => ({
   color: theme.textColor,
   opacity: 0.35,
   fontWeight: 'bold',
 }));
 
-const A = g.a(({ theme }) => ({
+const A = styled.a(({ theme }) => ({
   color: theme.textColor,
   textDecoration: 'none',
   fontWeight: 'bold',

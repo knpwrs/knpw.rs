@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import g from 'glamorous';
+import styled from '@emotion/styled';
 import A from './header-footer-anchor';
 
-const Header = g.header(({ theme }) => ({
+const Header = styled.header(({ theme }) => ({
   padding: `0 ${theme.spacing}`,
   display: 'flex',
   flexDirection: 'row',
@@ -23,7 +23,7 @@ const Header = g.header(({ theme }) => ({
   },
 }));
 
-const H1 = g.h1(({ theme }) => ({
+const H1 = styled.h1(({ theme }) => ({
   fontSize: '1.25rem',
   margin: 0,
   [theme.smallMedia]: {
@@ -31,12 +31,12 @@ const H1 = g.h1(({ theme }) => ({
   },
 }));
 
-const Small = g.small({
+const Small = styled.small({
   fontSize: '75%',
   opacity: 0.35,
 });
 
-const Nav = g.nav({
+const Nav = styled.nav({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',

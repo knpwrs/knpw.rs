@@ -2,26 +2,12 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { css } from 'glamor';
-import { ThemeProvider } from 'glamorous';
+import { Global } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
 import 'sanitize.css/sanitize.css';
 import 'lato-font/css/lato-font.css';
 import Header from './header';
 import Footer from './footer';
-import '../glamor/code';
-
-css.global('html, body', {
-  width: '100vw',
-  height: '100vh',
-  margin: 0,
-  padding: 0,
-  fontFamily: 'Lato',
-});
-
-css.global('h1,h2,h3,h4', {
-  textTransform: 'uppercase',
-  marginBottom: 0,
-});
 
 const minWidthPx = 680;
 const maxWidthPx = 960;
@@ -51,25 +37,37 @@ const theme = {
   },
 };
 
-css.global('a', {
-  textDecoration: 'none',
-  fontWeight: 'bold',
-  color: textColor,
-  transition: 'color 250ms linear',
-});
-
-css.global('a:hover', {
-  color: accentColor,
-});
-
-css.global('blockquote', {
-  background: '#F9F9F9',
-  padding: `${spacingPx * 2}px`,
-  margin: 0,
-});
-
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
+    <Global
+      styles={{
+        'html, body': {
+          width: '100vw',
+          height: '100vh',
+          margin: 0,
+          padding: 0,
+          fontFamily: 'Lato',
+        },
+        'h1,h2,h3,h4': {
+          textTransform: 'uppercase',
+          marginBottom: 0,
+        },
+        a: {
+          textDecoration: 'none',
+          fontWeight: 'bold',
+          color: textColor,
+          transition: 'color 250ms linear',
+          ':hover': {
+            color: accentColor,
+          },
+        },
+        blockquote: {
+          background: '#F9F9F9',
+          padding: `${spacingPx * 2}px`,
+          margin: 0,
+        },
+      }}
+    />
     <StaticQuery
       query={graphql`
         query IndexLayoutQuery {

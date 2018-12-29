@@ -1,6 +1,6 @@
-import g from 'glamorous';
+import styled from '@emotion/styled';
 
-export default g.a(({ inline, theme }) => ({
+export default styled.a(({ inline, theme }) => ({
   marginLeft: inline ? null : theme.spacing,
   textDecoration: 'none',
   color: theme.textColor,

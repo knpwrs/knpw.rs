@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import g from 'glamorous';
+import styled from '@emotion/styled';
 import A from './header-footer-anchor';
 
-const Footer = g.footer(({ theme }) => ({
+const Footer = styled.footer(({ theme }) => ({
   color: theme.textColor,
   height: theme.headerHeight,
   textTransform: 'uppercase',
@@ -15,7 +15,7 @@ const Footer = g.footer(({ theme }) => ({
   alignItems: 'center',
 }));
 
-const P = g.p(({ theme }) => ({
+const P = styled.p(({ theme }) => ({
   margin: `${theme.spacingPx / 2}px 0`,
 }));
 

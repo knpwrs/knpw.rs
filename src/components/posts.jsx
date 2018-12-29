@@ -1,14 +1,14 @@
 import React from 'react';
 import dateformat from 'dateformat';
 import PropTypes from 'prop-types';
-import g from 'glamorous';
+import styled from '@emotion/styled';
 import groupBy from 'lodash/groupBy';
 import last from 'lodash/last';
 import TagsList from './tags-list';
 
 const groupPosts = posts => groupBy(posts, p => last(p.frontmatter.date.split(' ')));
 
-const Header = g.header(({ theme }) => ({
+const Header = styled.header(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -19,19 +19,19 @@ const Header = g.header(({ theme }) => ({
   },
 }));
 
-const H3 = g.h4(({ theme }) => ({
+const H3 = styled.h4(({ theme }) => ({
   marginBottom: theme.spacing,
 }));
 
-const Article = g.article(({ theme }) => ({
+const Article = styled.article(({ theme }) => ({
   marginBottom: theme.spacing,
 }));
 
-const H4 = g.h4({
+const H4 = styled.h4({
   margin: 0,
 });
 
-const A = g.a(({ theme }) => ({
+const A = styled.a(({ theme }) => ({
   textDecoration: 'none',
   color: theme.textColor,
   transition: 'color 250ms linear',

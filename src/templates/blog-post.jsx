@@ -5,19 +5,20 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import dateformat from 'dateformat';
 import ReactDisqusComments from 'react-disqus-comments';
-import g from 'glamorous';
+import styled from '@emotion/styled';
 import site from '../shapes/site';
 import Layout from '../components/layout';
 import TagsList from '../components/tags-list';
 import PostNav from '../components/post-nav';
+import CodeStyle from '../emotion/code';
 import pageContextShape from '../shapes/page-context';
 import postShape from '../shapes/post';
 
-const Main = g.main(({ theme }) => ({
+const Main = styled.main(({ theme }) => ({
   color: theme.textColor,
 }));
 
-const Header = g.header(({ theme }) => ({
+const Header = styled.header(({ theme }) => ({
   ...theme.centerPadding,
   display: 'flex',
   flexDirection: 'row',
@@ -30,7 +31,7 @@ const Header = g.header(({ theme }) => ({
   },
 }));
 
-const HeaderTitle = g.h1(({ theme }) => ({
+const HeaderTitle = styled.h1(({ theme }) => ({
   width: '85%',
   marginBottom: theme.spacing,
   [theme.smallMedia]: {
@@ -40,7 +41,7 @@ const HeaderTitle = g.h1(({ theme }) => ({
   },
 }));
 
-const HeaderDate = g.time(({ theme }) => ({
+const HeaderDate = styled.time(({ theme }) => ({
   width: '15%',
   textAlign: 'right',
   [theme.smallMedia]: {
@@ -49,11 +50,11 @@ const HeaderDate = g.time(({ theme }) => ({
   },
 }));
 
-const Footer = g.footer(({ theme }) => ({
+const Footer = styled.footer(({ theme }) => ({
   ...theme.centerPadding,
 }));
 
-const PostWrap = g.section(({ theme }) => ({
+const PostWrap = styled.section(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -75,7 +76,7 @@ const PostWrap = g.section(({ theme }) => ({
   },
 }));
 
-const PostNavWrap = g.div(({ theme }) => ({
+const PostNavWrap = styled.div(({ theme }) => ({
   ...theme.centerPadding,
   display: 'flex',
   justifyContent: 'space-between',
@@ -93,6 +94,7 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <CodeStyle />
       <Main>
         <Helmet>
           <title>
