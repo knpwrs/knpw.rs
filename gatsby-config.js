@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     author: 'Ken Powers',
     title: 'Ken Powers',
-    siteUrl: 'http://knpw.rs',
+    siteUrl: 'https://knpw.rs',
     description: 'With Ken Powers Comes Ken Responsibility',
   },
   plugins: [
