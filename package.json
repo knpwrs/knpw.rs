@@ -2,7 +2,7 @@
   "name": "knpw.rs",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.jsx src",
+    "lint": "eslint --ext .js,.jsx src gatsby-config.js gatsby-node.js",
     "build": "gatsby build",
     "clean": "rimraf public .cache",
     "dev": "gatsby develop",
