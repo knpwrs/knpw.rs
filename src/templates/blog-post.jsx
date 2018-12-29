@@ -1,15 +1,16 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import graphql from 'graphql-tag';
 import dateformat from 'dateformat';
-import ReactDisqusThread from 'react-disqus-thread';
+import ReactDisqusComments from 'react-disqus-comments';
 import g from 'glamorous';
 import site from '../shapes/site';
+import Layout from '../components/layout';
 import TagsList from '../components/tags-list';
 import PostNav from '../components/post-nav';
-import pathContextShape from '../shapes/path-context';
+import pageContextShape from '../shapes/page-context';
 import postShape from '../shapes/post';
 
 const Main = g.main(({ theme }) => ({
@@ -82,59 +83,61 @@ const PostNavWrap = g.div(({ theme }) => ({
   marginTop: theme.spacing,
 }));
 
-const BlogPost = ({ data, pathContext }) => {
+const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
   const { title, siteUrl } = data.site.siteMetadata;
-  const { next, prev } = pathContext;
+  const { next, prev } = pageContext;
 
   const isProduction = process.env.NODE_ENV === 'production';
   const fullUrl = `${siteUrl}${post.frontmatter.path}`;
 
   return (
-    <Main>
-      <Helmet>
-        <title>{post.frontmatter.title} &middot; {title}</title>
-      </Helmet>
-      <article>
-        <Header>
-          <HeaderTitle>
-            {post.frontmatter.title}
-          </HeaderTitle>
-          <HeaderDate dateTime={dateformat(post.frontmatter.date, 'isoDateTime')}>
-            {dateformat(post.frontmatter.date, 'mmmm d, yyyy')}
-          </HeaderDate>
-          <TagsList tags={post.frontmatter.tags} />
-        </Header>
-        <PostWrap dangerouslySetInnerHTML={{ __html: post.html }} />
-        <Footer>
-          {isProduction &&
-            <ReactDisqusThread
-              shortname="kenpowers"
-              identifier={post.frontmatter.path}
-              title={post.frontmatter.title}
-              url={fullUrl}
-            />}
-        </Footer>
-      </article>
-      <PostNavWrap>
-        <PostNav prev post={prev} />
-        <PostNav next post={next} />
-      </PostNavWrap>
-    </Main>
+    <Layout>
+      <Main>
+        <Helmet>
+          <title>{post.frontmatter.title} &middot; {title}</title>
+        </Helmet>
+        <article>
+          <Header>
+            <HeaderTitle>
+              {post.frontmatter.title}
+            </HeaderTitle>
+            <HeaderDate dateTime={dateformat(post.frontmatter.date, 'isoDateTime')}>
+              {dateformat(post.frontmatter.date, 'mmmm d, yyyy')}
+            </HeaderDate>
+            <TagsList tags={post.frontmatter.tags} />
+          </Header>
+          <PostWrap dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Footer>
+            {isProduction &&
+              <ReactDisqusComments
+                shortname="kenpowers"
+                identifier={post.frontmatter.path}
+                title={post.frontmatter.title}
+                url={fullUrl}
+              />}
+          </Footer>
+        </article>
+        <PostNavWrap>
+          <PostNav prev post={prev} />
+          <PostNav next post={next} />
+        </PostNavWrap>
+      </Main>
+    </Layout>
   );
 };
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
     site,
-    allMarkdownRemark: postShape,
+    markdownRemark: postShape,
   }).isRequired,
-  pathContext: pathContextShape.isRequired,
+  pageContext: pageContextShape.isRequired,
 };
 
 export default BlogPost;
 
-export const pageQuery = graphql`
+export const query = graphql`
   query BlogPostByPath($refPath: String!) {
     site {
       siteMetadata {

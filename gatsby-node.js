@@ -1,9 +1,7 @@
 const path = require('path');
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
-
-  return graphql(`{
+exports.createPages = async ({ actions: { createPage }, graphql }) => {
+  const result = await graphql(`{
     site {
       siteMetadata {
         siteUrl
@@ -29,8 +27,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
       }
     }
-  }`)
-    .then(result => generateContent(createPage, result))
+  }`);
+  generateContent(createPage, result);
 };
 
 function generateContent(createPage, graphqlResults) {
@@ -49,11 +47,15 @@ function generateContent(createPage, graphqlResults) {
     const next = index === 0 ? false : posts[index - 1].node;
     createPage({
       path: node.frontmatter.path,
-      refPath: node.frontmatter.path,
       component: blogPostTemplate,
       context: {
-        prev,
-        next,
+        refPath: node.frontmatter.path,
+        prev: prev && {
+          frontmatter: prev.frontmatter,
+        },
+        next: next && {
+          frontmatter: next.frontmatter,
+        },
       },
     });
   });
@@ -62,7 +64,7 @@ function generateContent(createPage, graphqlResults) {
 /**
  * Create pages for tags
  */
-function createTagPages (createPage, edges) {
+function createTagPages(createPage, edges) {
   const tagTemplate = path.resolve('src/templates/tags.jsx');
   const posts = {};
 
@@ -93,7 +95,7 @@ function createTagPages (createPage, edges) {
             posts: posts[tagName],
             tag: tagName,
             pagesSum,
-            page
+            page,
           }
         })
       }
