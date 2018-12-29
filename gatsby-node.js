@@ -1,4 +1,5 @@
 const path = require('path');
+const { pick } = require('lodash');
 
 function createTagPages(createPage, edges) {
   const tagTemplate = path.resolve('src/templates/tags.jsx');
@@ -56,12 +57,8 @@ async function generateContent(createPage, graphqlResults) {
       component: blogPostTemplate,
       context: {
         refPath: node.frontmatter.path,
-        prev: prev && {
-          frontmatter: prev.frontmatter,
-        },
-        next: next && {
-          frontmatter: next.frontmatter,
-        },
+        prev: prev && pick(prev, ['frontmatter.title', 'frontmatter.path']),
+        next: next && pick(next, ['frontmatter.title', 'frontmatter.path']),
       },
     });
   });

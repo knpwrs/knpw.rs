@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import g from 'glamorous';
-import postShape from '../shapes/post';
+import { context } from '../shapes/page-context';
 
 const Wrap = g.div(({ prev }) => ({
   textAlign: prev ? 'left' : 'right',
@@ -41,7 +41,7 @@ const PostNav = ({ prev, post }) => {
 
 PostNav.propTypes = {
   prev: PropTypes.bool,
-  post: PropTypes.oneOfType([postShape, PropTypes.bool]).isRequired,
+  post: context.isRequired,
 };
 
 PostNav.defaultProps = {

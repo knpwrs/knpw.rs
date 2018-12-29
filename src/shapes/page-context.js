@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types';
-import frontmatter from './frontmatter';
 
-const context = PropTypes.oneOfType([PropTypes.bool, PropTypes.shape({
-  frontmatter,
-})]);
+export const context = PropTypes.oneOfType([
+  PropTypes.bool,
+  PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+    }),
+  }),
+]);
 
 export default PropTypes.shape({
   next: context,
