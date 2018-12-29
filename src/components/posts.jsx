@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import groupBy from 'lodash/groupBy';
 import last from 'lodash/last';
+import { Link as GatsbyLink } from 'gatsby';
 import TagsList from './tags-list';
 
 const groupPosts = posts => groupBy(posts, p => last(p.frontmatter.date.split(' ')));
@@ -31,7 +32,7 @@ const H4 = styled.h4({
   margin: 0,
 });
 
-const A = styled.a(({ theme }) => ({
+const Link = styled(GatsbyLink)(({ theme }) => ({
   textDecoration: 'none',
   color: theme.textColor,
   transition: 'color 250ms linear',
@@ -52,9 +53,9 @@ const Posts = ({ posts }) => {
             <Article key={post.frontmatter.path}>
               <Header>
                 <H4>
-                  <A href={post.frontmatter.path}>
+                  <Link to={post.frontmatter.path}>
                     {post.frontmatter.title}
-                  </A>
+                  </Link>
                 </H4>
                 <time dateTime={dateformat(post.frontmatter.date, 'isoDateTime')}>
                   {dateformat(post.frontmatter.date, 'mmmm d, yyyy')}

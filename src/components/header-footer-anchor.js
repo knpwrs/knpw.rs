@@ -1,7 +1,7 @@
+import { Link as GatsbyLink } from 'gatsby';
 import styled from '@emotion/styled';
 
-export default styled.a(({ inline, theme }) => ({
-  marginLeft: inline ? null : theme.spacing,
+export const Link = styled(GatsbyLink)(({ theme }) => ({
   textDecoration: 'none',
   color: theme.textColor,
   transition: 'color 250ms linear',
@@ -9,3 +9,5 @@ export default styled.a(({ inline, theme }) => ({
     color: theme.accentColor,
   },
 }));
+
+export const A = Link.withComponent('a');

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { Link as GatsbyLink } from 'gatsby';
 import { context } from '../shapes/page-context';
 
 const Wrap = styled.div(({ prev }) => ({
@@ -17,7 +18,7 @@ const Span = styled.span(({ theme }) => ({
   fontWeight: 'bold',
 }));
 
-const A = styled.a(({ theme }) => ({
+const Link = styled(GatsbyLink)(({ theme }) => ({
   color: theme.textColor,
   textDecoration: 'none',
   fontWeight: 'bold',
@@ -29,7 +30,7 @@ const A = styled.a(({ theme }) => ({
 
 const PostNav = ({ prev, post }) => {
   const link = post
-    ? <A href={post.frontmatter.path}>{prev ? 'Previous Post' : 'Next Post'}</A>
+    ? <Link to={post.frontmatter.path}>{prev ? 'Previous Post' : 'Next Post'}</Link>
     : <Span>{prev ? 'Previous Post' : 'Next Post'}</Span>;
   return (
     <Wrap prev={prev}>

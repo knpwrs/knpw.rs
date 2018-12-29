@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 import styled from '@emotion/styled';
-import A from './header-footer-anchor';
+import { Link, A } from './header-footer-anchor';
 
 const Header = styled.header(({ theme }) => ({
   padding: `0 ${theme.spacing}`,
@@ -36,25 +36,28 @@ const Small = styled.small({
   opacity: 0.35,
 });
 
-const Nav = styled.nav({
+const Nav = styled.nav(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
   textTransform: 'uppercase',
-});
+  a: {
+    marginLeft: theme.spacing,
+  },
+}));
 
 const SiteHeader = () => (
   <Header>
     <H1>
       <Small>With</Small>
       {' '}
-      <A inline href="/">Ken Powers</A>
+      <Link to="/">Ken Powers</Link>
       {' '}
       <Small>comes Ken Responsibility</Small>
     </H1>
     <Nav>
-      <A href="/">Blog</A>
-      <A href="/about">About</A>
+      <Link to="/">Blog</Link>
+      <Link to="/about">About</Link>
       <A href="https://github.com/knpwrs">GitHub</A>
       <A href="https://twitter.com/knpwrs">Twitter</A>
     </Nav>

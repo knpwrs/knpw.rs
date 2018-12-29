@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 
 const Small = styled.small({
   textTransform: 'uppercase',
 });
 
-const A = styled.a(({ theme }) => ({
+const A = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   color: theme.textColor,
   transition: 'color 250ms linear',
@@ -22,7 +23,7 @@ const CommaSeparatedTags = ({ tags }) => (
     {' '}
     {tags.split(', ').map((tag, index, array) => (
       <span key={tag}>
-        <A href={`/tag/${tag}/`}>{tag}</A>
+        <A to={`/tag/${tag}/`}>{tag}</A>
         {index < array.length - 1 ? ', ' : ''}
       </span>
     ))}
