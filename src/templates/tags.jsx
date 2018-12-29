@@ -12,11 +12,24 @@ const Tags = ({ pageContext: { posts, tag }, data: { site: { siteMetadata: site 
   <Layout>
     <CenterWrap>
       <Helmet>
-        <title>{tag} &middot; {site.title}</title>
+        <title>
+          {tag}
+          {' '}
+          &middot;
+          {' '}
+          {site.title}
+        </title>
       </Helmet>
       <h2>{tag}</h2>
       <section>
-        {posts.length} {posts.length !== 1 ? 'posts' : 'post'} in {tag}.
+        {posts.length}
+        {' '}
+        {posts.length !== 1 ? 'posts' : 'post'}
+        {' '}
+        in
+        {' '}
+        {tag}
+        .
       </section>
       <section>
         <Posts posts={posts} />

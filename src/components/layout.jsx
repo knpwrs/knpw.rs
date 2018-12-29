@@ -6,8 +6,8 @@ import { css } from 'glamor';
 import { ThemeProvider } from 'glamorous';
 import 'sanitize.css/sanitize.css';
 import 'lato-font/css/lato-font.css';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from './header';
+import Footer from './footer';
 import '../glamor/code';
 
 css.global('html, body', {
@@ -85,7 +85,13 @@ const Layout = ({ children }) => (
       {({ site: { siteMetadata: site } }) => (
         <main>
           <Helmet>
-            <title>{site.title} &middot; {site.description}</title>
+            <title>
+              {site.title}
+              {' '}
+              &middot;
+              {' '}
+              {site.description}
+            </title>
             <meta charSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />

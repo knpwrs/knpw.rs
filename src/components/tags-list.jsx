@@ -17,7 +17,9 @@ const A = g.a(({ theme }) => ({
 }));
 
 const CommaSeparatedTags = ({ tags }) => (
-  <Small>Topics:{' '}
+  <Small>
+    Topics:
+    {' '}
     {tags.split(', ').map((tag, index, array) => (
       <span key={tag}>
         <A href={`/tag/${tag}/`}>{tag}</A>

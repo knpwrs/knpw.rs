@@ -46,8 +46,10 @@ const Nav = g.nav({
 const SiteHeader = () => (
   <Header>
     <H1>
-      <Small>With</Small>{' '}
-      <A inline href="/">Ken Powers</A>{' '}
+      <Small>With</Small>
+      {' '}
+      <A inline href="/">Ken Powers</A>
+      {' '}
       <Small>comes Ken Responsibility</Small>
     </H1>
     <Nav>

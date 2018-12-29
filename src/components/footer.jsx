@@ -24,8 +24,11 @@ const SiteFooter = () => (
     <P>&copy; 2018 Kenneth Powers</P>
     <P>
       <small>
-        This site is built with <A inline href="https://www.gatsbyjs.org/">GatsbyJS</A>.
-        You can find the <A inline href="https://github.com/knpwrs/knpw.rs">source code on GitHub</A>.
+        This site is built with
+        <A inline href="https://www.gatsbyjs.org/">GatsbyJS</A>
+        . You can find the
+        <A inline href="https://github.com/knpwrs/knpw.rs">source code on GitHub</A>
+        .
       </small>
     </P>
   </Footer>

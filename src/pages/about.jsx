@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, react/jsx-one-expression-per-line */
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
@@ -49,7 +49,13 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
   <Layout>
     <main>
       <Helmet>
-        <title>About &middot; {site.title}</title>
+        <title>
+          About
+          {' '}
+          &middot;
+          {' '}
+          {site.title}
+        </title>
       </Helmet>
       <H2>About</H2>
       <blockquote>
@@ -116,7 +122,8 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <li>Worked with React, Redux, Dojo, and OpenSocial, continually integrating bleeding-edge web technologies.</li>
         <li>Focused on modular, high-performance code capable of running in varying environments with varying content security policies.</li>
         <li>Developed front-end request layer mimicking Dojo’s request API providing automatic reauthentication with no changes required to
-          client code.</li>
+          client code.
+        </li>
         <li>Automated builds and deployments with Jenkins.</li>
         <li>Conducted technical interviews for intern and new hire candidates.</li>
         <li>Contributed Less Compilation to OpenNTF JavaScript Aggregator.</li>

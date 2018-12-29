@@ -95,7 +95,13 @@ const BlogPost = ({ data, pageContext }) => {
     <Layout>
       <Main>
         <Helmet>
-          <title>{post.frontmatter.title} &middot; {title}</title>
+          <title>
+            {post.frontmatter.title}
+            {' '}
+            &middot;
+            {' '}
+            {title}
+          </title>
         </Helmet>
         <article>
           <Header>
@@ -109,13 +115,14 @@ const BlogPost = ({ data, pageContext }) => {
           </Header>
           <PostWrap dangerouslySetInnerHTML={{ __html: post.html }} />
           <Footer>
-            {isProduction &&
+            {isProduction && (
               <ReactDisqusComments
                 shortname="kenpowers"
                 identifier={post.frontmatter.path}
                 title={post.frontmatter.title}
                 url={fullUrl}
-              />}
+              />
+            )}
           </Footer>
         </article>
         <PostNavWrap>
