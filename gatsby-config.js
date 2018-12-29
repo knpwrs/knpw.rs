@@ -40,7 +40,7 @@ module.exports = {
     }, {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'http://knpw.rs',
+        siteUrl: 'https://knpw.rs',
       },
     }, {
       resolve: 'gatsby-plugin-feed',
