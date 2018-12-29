@@ -14,7 +14,6 @@
   "dependencies": {
     "dateformat": "^2.0.0",
     "gatsby": "^2.0.77",
-    "gatsby-link": "^2.0.0-rc.4",
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
     "lato-font": "^3.0.0",
