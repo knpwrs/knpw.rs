@@ -6,7 +6,6 @@ export default () => (
   <Global
     styles={{
       'code[class*="language-"],pre[class*="language-"]': {
-        color: '#f8f8f2',
         background: 'none',
         textShadow: '0 1px rgba(0, 0, 0, 0.3)',
         fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
@@ -21,12 +20,10 @@ export default () => (
       },
 
       'pre[class*="language-"]': {
+        color: '#f8f8f2',
+        background: '#272822',
         margin: '.5em 0',
         overflow: 'auto',
-      },
-
-      ':not(pre) > code[class*="language-"], pre[class*="language-"]': {
-        background: '#272822',
       },
 
       ':not(pre) > code[class*="language-"]': {
