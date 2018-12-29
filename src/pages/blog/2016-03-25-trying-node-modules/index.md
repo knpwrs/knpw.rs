@@ -61,7 +61,7 @@ where you can try out Lodash:
 
 <div id="tonic-lodash">
   // Require everything, or you can `require` individual functions
-  // See http://knpw.rs/blog/using-lodash
+  // See https://knpw.rs/blog/using-lodash
   const _ = require('lodash');
   _.add(3, 5);
 </div>
@@ -79,7 +79,7 @@ where you can try out Lodash:
 * You have to wait on the server to evaluate your code. It isn't terribly slow,
   but there is a noticeable delay.
 * No tab completion.
-  
+
 ## Option 3: [repl'em]
 
 [repl'em] is basically a node REPL which lets you pre-install and require
