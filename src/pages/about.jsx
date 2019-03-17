@@ -99,7 +99,8 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <li>Designed and implemented WebSocket communication layer with sagas.</li>
         <li>Designed and implemented generic upload queueing system with sagas.</li>
         <li>Designed and implemented SVG-based annotation tools.</li>
-        <li>Mentored junior engineers and presented multiple talks about advanced concepts in JavaScript.</li>
+        <li>Designed and implemented cross-window Redux store sync for Electron.</li>
+        <li>Mentored junior engineers and presented multiple talks about advanced concepts in JavaScript and React/Redux.</li>
         <li>Hired as Senior Software Engineer. Promoted to Lead Software Engineer in March 2018.</li>
       </Ul>
       <ResumeHeader>
