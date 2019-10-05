@@ -91,8 +91,17 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       </Ul>
       <H4>Experience</H4>
       <ResumeHeader>
+        <h5>Signal Messenger &middot; Desktop Developer &middot; Remote</h5>
+        <h5>April 2019 - Present</h5>
+      </ResumeHeader>
+      <Ul>
+        <li>Progressively ported features from Backbone and JavaScript to React/Redux and TypeScript.</li>
+        <li>Implemented virtualized, fuzzy-searchable emoji picker.</li>
+        <li>Implemented inline emoji typeahead with fuzzy search.</li>
+      </Ul>
+      <ResumeHeader>
         <h5>SHIFT Media &middot; Front End Lead &middot; Boston, MA</h5>
-        <h5>September 2017 - Present</h5>
+        <h5>September 2017 - April 2019</h5>
       </ResumeHeader>
       <Ul>
         <li>Worked with React, Redux, Electron, and modern JavaScript (TypeScript, Flow, JSX).</li>
