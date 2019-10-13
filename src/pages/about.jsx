@@ -179,12 +179,12 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       <H4>Volunteer Work</H4>
       <ResumeHeader>
         <h5>ExcelChurch &middot; Technical Director &middot; Leominster, MA</h5>
-        <h5>February 2014 - Present</h5>
+        <h5>February 2014 - July 2019</h5>
       </ResumeHeader>
       <Ul>
         <li>Designed and implemented live production setup using ProPresenter, Reaper, Lightkey, and Wirecast.</li>
         <li>Set up electronic drums to trigger sounds with Superior Drummer and set up external MIDI controller running through the drums to control click tracks, backing tracks, lights, projection, and recording.</li>
-        <li>Performed weekly setup and teardown of professional A/V equipment including sound, recording, and projection.</li>
+        <li>Performed weekly setup and teardown of professional A/V equipment including sound, recording, video, live streaming, and projection.</li>
         <li>Provided hands-on training, recorded instructional videos, and wrote documentation for other volunteers.</li>
         <li>See {esdLink}.</li>
       </Ul>
