@@ -182,7 +182,8 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <h5>February 2014 - July 2019</h5>
       </ResumeHeader>
       <Ul>
-        <li>Designed and implemented live production setup using ProPresenter, Reaper, Lightkey, and Wirecast.</li>
+        <li>Designed and implemented live production setup using ProPresenter, Reaper, Lightkey, Wirecast, and dedicated production hardware.</li>
+        <li>Designed and implemented an RTMP streaming relay in the cloud with Docker, Nginx, and Stunnel.</li>
         <li>Set up electronic drums to trigger sounds with Superior Drummer and set up external MIDI controller running through the drums to control click tracks, backing tracks, lights, projection, and recording.</li>
         <li>Performed weekly setup and teardown of professional A/V equipment including sound, recording, video, live streaming, and projection.</li>
         <li>Provided hands-on training, recorded instructional videos, and wrote documentation for other volunteers.</li>
