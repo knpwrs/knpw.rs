@@ -8,7 +8,6 @@ import Layout from '../components/layout';
 import siteShape from '../shapes/site';
 import excelSetupPng from '../images/excel-setup-diagram.png';
 
-const maLink = <a href="https://www.youtube.com/watch?v=JvUMV1N7eGM">Massachusetts</a>;
 const ghLink = <a href="https://github.com/knpwrs">my GitHub</a>;
 const patsLink = <a href="http://www.patriots.com/">New England Patriots</a>;
 const cdpLink = <a href="http://cursordanceparty.com">Cursor Dance Party</a>;
@@ -60,14 +59,14 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       <H2>About</H2>
       <blockquote>
         <P>
-          &quot;Far away across the oceans. An undiscovered paradise. Forget New
-          York and California. There’s a better place – now close your eyes. Take
-          my hand.  We are almost there. Our favorite place on Earth.&quot; -
-          Ylvis
+          &quot;But the Holy Spirit produces this kind of fruit in our lives:
+          love, joy, peace, patience, kindness, goodness, faithfulness,
+          gentleness, and self-control. There is no law against these
+          things!&quot; - The Apostle Paul, to the Galatians
         </P>
       </blockquote>
       <P>
-        I am a software engineer living and working in {maLink}. I work
+        I am a software engineer living and working in Massachusetts. I work
         extensively in Universal JavaScript and HTML5 and have experience in many
         other technologies. Take a look at {ghLink} to see my personal projects.
       </P>
