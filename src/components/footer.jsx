@@ -21,7 +21,7 @@ const P = styled.p(({ theme }) => ({
 
 const SiteFooter = () => (
   <Footer>
-    <P>&copy; 2018 Kenneth Powers</P>
+    <P>&copy; 2019 Kenneth Powers</P>
     <P>
       <small>
         This site is built with
