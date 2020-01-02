@@ -19,6 +19,13 @@ module.exports = {
         name: 'pages',
       },
     }, {
+      resolve: 'gatsby-plugin-build-date',
+      options: {
+        formatting: {
+          format: 'YYYY',
+        },
+      },
+    }, {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [{

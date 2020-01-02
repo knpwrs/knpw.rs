@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { A } from './header-footer-anchor';
 
@@ -19,21 +20,37 @@ const P = styled.p(({ theme }) => ({
   margin: `${theme.spacingPx / 2}px 0`,
 }));
 
-const SiteFooter = () => (
-  <Footer>
-    <P>&copy; 2019 Kenneth Powers</P>
-    <P>
-      <small>
-        This site is built with
+const SiteFooter = () => {
+  const { currentBuildDate } = useStaticQuery(graphql`
+    query {
+      currentBuildDate {
+        currentDate
+      }
+    }
+  `);
+
+  return (
+    <Footer>
+      <P>
+        &copy;
         {' '}
-        <A inline href="https://www.gatsbyjs.org/">GatsbyJS</A>
-        . You can find the
+        {currentBuildDate.currentDate}
         {' '}
-        <A inline href="https://github.com/knpwrs/knpw.rs">source code on GitHub</A>
-        .
-      </small>
-    </P>
-  </Footer>
-);
+        Kenneth Powers
+      </P>
+      <P>
+        <small>
+          This site is built with
+          {' '}
+          <A inline href="https://www.gatsbyjs.org/">GatsbyJS</A>
+          . You can find the
+          {' '}
+          <A inline href="https://github.com/knpwrs/knpw.rs">source code on GitHub</A>
+          .
+        </small>
+      </P>
+    </Footer>
+  );
+};
 
 export default SiteFooter;
