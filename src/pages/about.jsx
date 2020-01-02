@@ -94,9 +94,14 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <h5>April 2019 - Present</h5>
       </ResumeHeader>
       <Ul>
+        <li>Worked with React, Redux, Electron, TypeScript with legacy and modern features.</li>
+        <li>Worked with SQLite and SQLCipher.</li>
         <li>Progressively ported features from Backbone and JavaScript to React/Redux and TypeScript.</li>
         <li>Implemented virtualized, fuzzy-searchable emoji picker.</li>
         <li>Implemented inline emoji typeahead with fuzzy search.</li>
+        <li>Implemented sticker creator for Signal Desktop utilizing native libraries for conversion and encryption.</li>
+        <li>Implemented protocols with low-level encryption primitives.</li>
+        <li>Triaged issues on public GitHub repository.</li>
       </Ul>
       <ResumeHeader>
         <h5>SHIFT Media &middot; Front End Lead &middot; Boston, MA</h5>
