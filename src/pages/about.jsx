@@ -83,7 +83,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       </Ul>
       <H4>Software</H4>
       <Ul>
-        <li>Database: PostgreSQL, MySQL, SQL Server, MongoDB, Redis</li>
+        <li>Database: PostgreSQL, MySQL, SQL Server, SQLite/SQLCipher, MongoDB, Redis</li>
         <li>Server: nginx, Apache httpd</li>
         <li>Tools: Docker, Git, Jenkins, Travis CI</li>
         <li>Platforms: macOS, Linux / Unix, Microsoft Windows</li>
