@@ -79,7 +79,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       <H4>Languages</H4>
       <Ul>
         <li>Proficient in: JavaScript (Universal Node / Browser, TypeScript, React), HTML5, CSS3 (SCSS)</li>
-        <li>Familiar with: C# and .NET Framework, Java, Scala, Ruby, Swift, Rust, SQL</li>
+        <li>Familiar with: Rust, C# and .NET Framework, Java, Kotlin, Swift, SQL</li>
       </Ul>
       <H4>Software</H4>
       <Ul>
@@ -94,13 +94,15 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <h5>April 2019 - Present</h5>
       </ResumeHeader>
       <Ul>
-        <li>Worked with React, Redux, Electron, TypeScript with legacy and modern features.</li>
+        <li>Worked with React, Redux, Electron, and TypeScript with legacy and modern features.</li>
         <li>Worked with SQLite and SQLCipher.</li>
+        <li>Worked with and designed for systems involving distributed state.</li>
+        <li>Implemented features with keyboard accessibility in mind.</li>
         <li>Progressively ported features from Backbone and JavaScript to React/Redux and TypeScript.</li>
-        <li>Implemented virtualized, fuzzy-searchable emoji picker.</li>
-        <li>Implemented inline emoji typeahead with fuzzy search.</li>
+        <li>Implemented virtualized, fuzzy-searchable emoji picker and inline emoji typeahead with fuzzy search.</li>
         <li>Implemented sticker creator for Signal Desktop utilizing native libraries for conversion and encryption.</li>
         <li>Implemented protocols with low-level encryption primitives.</li>
+        <li>Refactored the application to support different addressing schemes.</li>
         <li>Triaged issues on public GitHub repository.</li>
       </Ul>
       <ResumeHeader>
