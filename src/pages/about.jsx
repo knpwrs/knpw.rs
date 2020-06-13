@@ -9,7 +9,6 @@ import siteShape from '../shapes/site';
 import excelSetupPng from '../images/excel-setup-diagram.png';
 
 const ghLink = <a href="https://github.com/knpwrs">my GitHub</a>;
-const patsLink = <a href="http://www.patriots.com/">New England Patriots</a>;
 const cdpLink = <a href="http://cursordanceparty.com">Cursor Dance Party</a>;
 const esdLink = <a href={excelSetupPng}>full setup diagram</a>;
 
@@ -59,10 +58,8 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       <H2>About</H2>
       <blockquote>
         <P>
-          &quot;But the Holy Spirit produces this kind of fruit in our lives:
-          love, joy, peace, patience, kindness, goodness, faithfulness,
-          gentleness, and self-control. There is no law against these
-          things!&quot; - The Apostle Paul, to the Galatians
+          &quot;So far as it depends on you, live peaceably with
+          everyone.&quot; - The Apostle Paul, to the Romans
         </P>
       </blockquote>
       <P>
@@ -71,9 +68,9 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         other technologies. Take a look at {ghLink} to see my personal projects.
       </P>
       <P>
-        I also enjoy music, play drums and bass guitar, and am a big time fan of
-        the {patsLink}. Feel free to take a look around and contact me with any
-        questions.
+        I also enjoy music, have been known to play drums and bass guitar, and
+        enjoy solving Rubik's cubes of all sizes! Feel free to take a look
+        around and contact me with any questions!
       </P>
       <H3>Résumé</H3>
       <H4>Languages</H4>
