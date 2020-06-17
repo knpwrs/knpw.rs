@@ -92,7 +92,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       </ResumeHeader>
       <Ul>
         <li>Worked with React, Redux, Electron, and TypeScript with legacy and modern features.</li>
-        <li>Worked with SQLite and SQLCipher.</li>
+        <li>Worked with SQLite, SQLCipher, and Protobufs.</li>
         <li>Worked with and designed for systems involving distributed state.</li>
         <li>Implemented features with keyboard accessibility in mind.</li>
         <li>Progressively ported features from Backbone and JavaScript to React/Redux and TypeScript.</li>
