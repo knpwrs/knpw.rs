@@ -100,7 +100,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <li>Implemented sticker creator for Signal Desktop utilizing native libraries for conversion and encryption.</li>
         <li>Implemented protocols with low-level encryption primitives.</li>
         <li>Refactored the application to support different addressing schemes.</li>
-        <li>Triaged issues on public GitHub repository.</li>
+        <li>Worked extensively in open source and worked directly with our users.</li>
       </Ul>
       <ResumeHeader>
         <h5>SHIFT Media &middot; Front End Lead &middot; Boston, MA</h5>
