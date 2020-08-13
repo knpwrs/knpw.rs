@@ -58,8 +58,8 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       <H2>About</H2>
       <blockquote>
         <P>
-          &quot;So far as it depends on you, live peaceably with
-          everyone.&quot; - The Apostle Paul, to the Romans
+          &quot;Whatever you do, work heartily, as for the Lord and not for
+          men.&quot; - The Apostle Paul, to the Church at Colossae
         </P>
       </blockquote>
       <P>
