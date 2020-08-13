@@ -69,7 +69,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       </P>
       <P>
         I also enjoy music, have been known to play drums and bass guitar, and
-        enjoy solving Rubik's cubes of all sizes! Feel free to take a look
+        enjoy solving Rubik&apos;s cubes of all sizes! Feel free to take a look
         around and contact me with any questions!
       </P>
       <H3>Résumé</H3>
