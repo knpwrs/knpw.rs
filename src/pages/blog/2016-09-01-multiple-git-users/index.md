@@ -26,16 +26,19 @@ commit through environment variables. For instance:
 ```sh
 $ export GIT_AUTHOR_NAME="Foo Barrington"
 $ export GIT_AUTHOR_EMAIL="bears@banana.dev"
+$ export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+$ export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 $ git commit -am "Foo"
 [master b51714c] Foo
  Author: Foo Barrington <bears@banana.dev>
  1 file changed, 21 insertions(+)
 ```
 
-`GIT_AUTHOR_NAME` and `GIT_AUTHOR_EMAIL` are now set for that shell session.
-All commits until the shell exits  will use the name `Foo Barrington` and the
-email `bears@banana.dev` for their user configuration. What we need is a way to
-make sure we always have these variables set for a given set of projects.
+`GIT_{AUTHOR,COMMITTER}_NAME` and `GIT_{AUTHOR,COMMITTER}_EMAIL` are now set
+for that shell session.  All commits until the shell exits  will use the name
+`Foo Barrington` and the email `bears@banana.dev` for their user configuration.
+What we need is a way to make sure we always have these variables set for a
+given set of projects.
 
 ## Introducing [`direnv`]
 
@@ -78,8 +81,8 @@ contents:
 ```sh
 export GIT_AUTHOR_NAME="Foo Barrington"
 export GIT_AUTHOR_EMAIL="bears@banana.dev"
-export GIT_COMMITTER_NAME="Foo Barrington"
-export GIT_COMMITTER_EMAIL="bears@banana.dev"
+export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 ```
 
 Now whenever we change in to this directory, *or any directory underneath this
