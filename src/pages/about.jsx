@@ -88,8 +88,15 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
       </Ul>
       <H4>Experience</H4>
       <ResumeHeader>
+        <h5>Hummingbird &middot; Senior Software Engineer &middot; Remote</h5>
+        <h5>August 2020 - Present</h5>
+      </ResumeHeader>
+      <Ul>
+        <li>Worked with React, Apollo, TypeScript, and Ruby on Rails.</li>
+      </Ul>
+      <ResumeHeader>
         <h5>Signal Messenger &middot; Desktop Developer &middot; Remote</h5>
-        <h5>April 2019 - Present</h5>
+        <h5>April 2019 - June 2020</h5>
       </ResumeHeader>
       <Ul>
         <li>Worked with React, Redux, Electron, and TypeScript with legacy and modern features.</li>
