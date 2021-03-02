@@ -64,7 +64,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         </P>
       </blockquote>
       <P>
-        I am a software engineer living and working in Massachusetts. I work
+        I am a software engineer living and working in Tennessee. I work
         extensively in Universal JavaScript and HTML5 and have experience in many
         other technologies. Take a look at {ghLink} to see my personal projects.
       </P>
