@@ -95,7 +95,6 @@ const Layout = ({ children }) => (
             <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
             <meta name="HandheldFriendly" content="True" />
             <meta name="description" content={site.description} />
-            <meta name="theme-color" content="#f9f9f9" />
           </Helmet>
           <Header />
           {children}
