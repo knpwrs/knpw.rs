@@ -92,7 +92,11 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <h5>August 2020 - Present</h5>
       </ResumeHeader>
       <Ul>
-        <li>Worked with React, Apollo, TypeScript, and Ruby on Rails.</li>
+        <li>Worked with React, Apollo, TypeScript, GraphQL, PostgreSQL, and Ruby on Rails.</li>
+        <li>Worked extensively with ElasticSearch.</li>
+        <li>Managed AWS infrastructure across multiple environments using Terraform.</li>
+        <li>Prototyped a migration from Webpack to Vite.</li>
+        <li>Improved developer productivity with Nix, Navi, and direnv.</li>
       </Ul>
       <ResumeHeader>
         <h5>Signal Messenger &middot; Desktop Developer &middot; Remote</h5>
