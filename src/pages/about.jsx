@@ -95,6 +95,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <li>Worked with React, Apollo, TypeScript, GraphQL, PostgreSQL, and Ruby on Rails.</li>
         <li>Worked extensively with ElasticSearch.</li>
         <li>Managed AWS infrastructure across multiple environments using Terraform.</li>
+        <li>Worked with systems designed to protect PII.</li>
         <li>Prototyped a migration from Webpack to Vite.</li>
         <li>Improved developer productivity with Nix, Navi, and direnv.</li>
       </Ul>
