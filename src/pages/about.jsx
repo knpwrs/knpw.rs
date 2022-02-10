@@ -190,7 +190,7 @@ const About = ({ data: { site: { siteMetadata: site } } }) => (
         <h5>Personal Projects &middot; github.com/knpwrs &middot; knpw.rs</h5>
       </ResumeHeader>
       <Ul>
-        <li>My personal GitHub profile contains personal projects and contributions to various open source projects. Notable open-source contributions include the MongoDB NodeJS Driver, JSDom, and the Frontend Maven Plugin.</li>
+        <li>My personal GitHub profile contains personal projects and contributions to various open source projects. Notable open-source contributions include the MongoDB NodeJS Driver, immer, JSDom, and the Frontend Maven Plugin.</li>
         <li>{ibLink} is a Bible search engine which delivers results instantly as you type. The engine is written in Rust and has native clients written in Swift (FFI), Kotlin (JNI), and TypeScript/React (WASM).</li>
         <li>{cdpLink} is a tech demo of WebSockets and HTML5 Canvas. Users see the cursors of all other connected users as they move around. Survived the front page of reddit.</li>
       </Ul>
