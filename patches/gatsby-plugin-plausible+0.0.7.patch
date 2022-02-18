@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-plugin-plausible/gatsby-ssr.js b/node_modules/gatsby-plugin-plausible/gatsby-ssr.js
+index c00d563..31efcd5 100755
+--- a/node_modules/gatsby-plugin-plausible/gatsby-ssr.js
++++ b/node_modules/gatsby-plugin-plausible/gatsby-ssr.js
+@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
+ 
+ var getOptions = function getOptions(pluginOptions) {
+   var plausibleDomain = pluginOptions.customDomain || 'plausible.io';
+-  var scriptURI = plausibleDomain === 'plausible.io' ? '/js/plausible.js' : '/js/index.js';
++  var scriptURI = plausibleDomain === 'plausible.io' ? '/js/plausible.outbound-links.js' : '/js/index.js';
+   var domain = pluginOptions.domain;
+   var excludePaths = pluginOptions.excludePaths || [];
+   var trackAcquisition = pluginOptions.trackAcquisition || false;

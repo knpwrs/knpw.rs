@@ -45,9 +45,9 @@ module.exports = {
         }],
       },
     }, {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-plausible',
       options: {
-        trackingId: 'UA-46190412-1',
+        domain: 'knpw.rs',
       },
     }, {
       resolve: 'gatsby-plugin-sitemap',

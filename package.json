@@ -7,7 +7,8 @@
     "clean": "rimraf public .cache",
     "dev": "gatsby develop",
     "preserve": "npm run build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "postinstall": "patch-package"
   },
   "author": "Kenneth Powers <ken@kenpowers.net>",
   "license": "MIT",
@@ -17,8 +18,10 @@
     "dateformat": "^2.0.0",
     "emotion-theming": "^10.0.5",
     "gatsby": "^2.18.17",
+    "gatsby-plugin-plausible": "^0.0.7",
     "lato-font": "^3.0.0",
     "lodash": "^4.17.15",
+    "patch-package": "^6.4.7",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.12.0",
@@ -41,7 +44,6 @@
     "gatsby-plugin-emotion": "^4.0.1",
     "gatsby-plugin-favicon": "^3.1.5",
     "gatsby-plugin-feed": "^2.0.11",
-    "gatsby-plugin-google-analytics": "^2.0.8",
     "gatsby-plugin-netlify": "^2.1.30",
     "gatsby-plugin-react-helmet": "^3.0.5",
     "gatsby-plugin-sharp": "^2.3.10",
