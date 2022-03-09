@@ -1,6 +1,3 @@
 node_modules
-public
-rclone.conf
 .cache
-.gatsby-context.js
-*.log
+public

@@ -1,1 +1,19 @@
-extends: airbnb
+extends:
+  - plugin:@typescript-eslint/recommended
+env:
+  browser: true
+plugins:
+  - react-hooks
+rules:
+  '@typescript-eslint/ban-ts-ignore': off
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/no-unused-vars': off
+  '@typescript-eslint/prefer-interface': off
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn
+overrides:
+  - files: ['*.{test,config}.ts{,x}', '*.stories.ts{,x}', '*/opt/*']
+    env:
+      jest: true,
+    rules:
+      import/no-extraneous-dependencies: 'off'
