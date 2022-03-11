@@ -1,20 +1,12 @@
 import { styled } from 'linaria/react';
 import type { PropsWithChildren } from 'react';
-import Theme, { car } from '../util/theme';
+import ThemeWrapper, { car } from '../util/theme';
 import { Logo } from './logo';
 
 const Header = styled.header`
-  display: grid;
-  grid-template-columns:
-    minmax(${car('spacing')}, 1fr) [content] minmax(
-      auto,
-      ${car('headerMaxWidth')}
-    )
-    minmax(${car('spacing')}, 1fr);
-`;
-
-const HeaderContent = styled.div`
-  grid-area: content;
+  width: 100vw;
+  max-width: ${car('maxWidthHeader')};
+  padding: 0 ${car('spacing')};
 `;
 
 const Footer = styled.footer``;
@@ -23,15 +15,13 @@ export type Props = PropsWithChildren<Record<string, unknown>>;
 
 function Layout({ children }: Props) {
   return (
-    <Theme>
+    <ThemeWrapper>
       <Header>
-        <HeaderContent>
-          <Logo />
-        </HeaderContent>
+        <Logo />
       </Header>
       <main>{children}</main>
       <Footer>CC0</Footer>
-    </Theme>
+    </ThemeWrapper>
   );
 }
 

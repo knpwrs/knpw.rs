@@ -8,16 +8,19 @@ const theme = {
   colorTextPrimary: '#353535',
   colorLogoSub: '#CCC',
   fontFamily: 'Poppins',
-  headerMaxWidth: '1740px',
+  maxWidthHeader: '1740px',
 };
 
-const Theme = styled.div`
+const ThemeWrapper = styled.div`
   ${Object.entries(theme)
     .map(([key, val]) => `--${kebabCase(key)}: ${val};`)
     .join('\n')}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-export default Theme;
+export default ThemeWrapper;
 
 export function car(name: keyof typeof theme) {
   return `var(--${kebabCase(name)})`;
