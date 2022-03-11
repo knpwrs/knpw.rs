@@ -1,6 +1,6 @@
+import { resolve } from 'node:path';
 import type { GatsbyNode } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
-import { resolve } from 'node:path';
 import gql from 'gql-tag';
 import type {
   BlogPostsQuery,

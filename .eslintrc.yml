@@ -3,12 +3,14 @@ extends:
 env:
   browser: true
 plugins:
+  - import
   - react-hooks
 rules:
   '@typescript-eslint/ban-ts-ignore': off
   '@typescript-eslint/explicit-function-return-type': off
   '@typescript-eslint/no-unused-vars': off
   '@typescript-eslint/prefer-interface': off
+  import/order: error
   react-hooks/rules-of-hooks: error
   react-hooks/exhaustive-deps: warn
 overrides:
