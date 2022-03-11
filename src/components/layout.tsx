@@ -9,6 +9,12 @@ const Header = styled.header`
   padding: 0 ${car('spacing')};
 `;
 
+const Main = styled.main`
+  width: 100vw;
+  max-width: calc(${car('maxWidthContent')} + 2 * ${car('spacing')});
+  padding: 0 ${car('spacing')};
+`;
+
 const Footer = styled.footer``;
 
 export type Props = PropsWithChildren<Record<string, unknown>>;
@@ -19,7 +25,7 @@ function Layout({ children }: Props) {
       <Header>
         <Logo />
       </Header>
-      <main>{children}</main>
+      <Main>{children}</Main>
       <Footer>CC0</Footer>
     </ThemeWrapper>
   );

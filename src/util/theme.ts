@@ -9,6 +9,7 @@ const theme = {
   colorLogoSub: '#CCC',
   fontFamily: 'Poppins',
   maxWidthHeader: '1740px',
+  maxWidthContent: '1140px',
 };
 
 const ThemeWrapper = styled.div`
