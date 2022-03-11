@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import { BlogPostRow } from '../components/blog/post-row';
+import Layout from '../components/layout';
 import type { BlogQuery } from '../__generated__/types';
 
 export type Props = {
@@ -9,7 +10,7 @@ export type Props = {
 
 export const Blog = ({ data, pageContext: { tag } }: Props) => {
   return (
-    <>
+    <Layout>
       <h1>Tag: {tag}</h1>
       <h2>{data.allFile?.nodes?.length ?? 0} posts</h2>
       <ul>
@@ -19,7 +20,7 @@ export const Blog = ({ data, pageContext: { tag } }: Props) => {
           ) : null,
         )}
       </ul>
-    </>
+    </Layout>
   );
 };
 

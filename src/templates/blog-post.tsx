@@ -1,5 +1,6 @@
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Layout from '../components/layout';
 import type { BlogPostQuery } from '../__generated__/types';
 
 export type Props = {
@@ -14,26 +15,28 @@ const BlogPostTemplate = ({ data }: Props) => {
   if (!body) return null;
 
   return (
-    <article>
-      <h1>{data.post?.childMdx?.frontmatter?.title}</h1>
-      {previous.fields?.slug ? (
-        <h2>
-          Previous:
-          <Link to={`/blog/${previous.fields?.slug}`}>
-            {previous.frontmatter?.title}
-          </Link>
-        </h2>
-      ) : null}
-      {next.fields?.slug ? (
-        <h2>
-          Next:
-          <Link to={`/blog/${next.fields?.slug}`}>
-            {next.frontmatter?.title}
-          </Link>
-        </h2>
-      ) : null}
-      <MDXRenderer>{body}</MDXRenderer>
-    </article>
+    <Layout>
+      <article>
+        <h1>{data.post?.childMdx?.frontmatter?.title}</h1>
+        {previous.fields?.slug ? (
+          <h2>
+            Previous:
+            <Link to={`/blog/${previous.fields?.slug}`}>
+              {previous.frontmatter?.title}
+            </Link>
+          </h2>
+        ) : null}
+        {next.fields?.slug ? (
+          <h2>
+            Next:
+            <Link to={`/blog/${next.fields?.slug}`}>
+              {next.frontmatter?.title}
+            </Link>
+          </h2>
+        ) : null}
+        <MDXRenderer>{body}</MDXRenderer>
+      </article>
+    </Layout>
   );
 };
 

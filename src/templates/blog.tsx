@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import { BlogPostRow } from '../components/blog/post-row';
+import Layout from '../components/layout';
 import type { BlogQuery } from '../__generated__/types';
 
 export type Props = {
@@ -8,13 +9,15 @@ export type Props = {
 
 export const Blog = ({ data }: Props) => {
   return (
-    <ul>
-      {data.allFile?.nodes?.map((node) =>
-        node.childMdx ? (
-          <BlogPostRow key={node.id} data={node.childMdx} />
-        ) : null,
-      )}
-    </ul>
+    <Layout>
+      <ul>
+        {data.allFile?.nodes?.map((node) =>
+          node.childMdx ? (
+            <BlogPostRow key={node.id} data={node.childMdx} />
+          ) : null,
+        )}
+      </ul>
+    </Layout>
   );
 };
 

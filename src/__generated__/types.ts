@@ -563,14 +563,18 @@ export enum FileFieldsEnum {
   ChildMdxChildrenInternalType = 'childMdx___children___internal___type',
   ChildMdxChildrenParentChildren = 'childMdx___children___parent___children',
   ChildMdxChildrenParentId = 'childMdx___children___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxExcerpt = 'childMdx___excerpt',
   ChildMdxFieldsDate = 'childMdx___fields___date',
   ChildMdxFieldsSlug = 'childMdx___fields___slug',
   ChildMdxFileAbsolutePath = 'childMdx___fileAbsolutePath',
   ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
   ChildMdxFrontmatterTitle = 'childMdx___frontmatter___title',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxHeadings = 'childMdx___headings',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxHeadingsDepth = 'childMdx___headings___depth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxHeadingsValue = 'childMdx___headings___value',
   ChildMdxHtml = 'childMdx___html',
   ChildMdxId = 'childMdx___id',
@@ -599,6 +603,7 @@ export enum FileFieldsEnum {
   ChildMdxParentParentId = 'childMdx___parent___parent___id',
   ChildMdxRawBody = 'childMdx___rawBody',
   ChildMdxSlug = 'childMdx___slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxTableOfContents = 'childMdx___tableOfContents',
   ChildMdxTimeToRead = 'childMdx___timeToRead',
   ChildMdxWordCountParagraphs = 'childMdx___wordCount___paragraphs',
@@ -622,14 +627,18 @@ export enum FileFieldsEnum {
   ChildrenMdxChildrenInternalType = 'childrenMdx___children___internal___type',
   ChildrenMdxChildrenParentChildren = 'childrenMdx___children___parent___children',
   ChildrenMdxChildrenParentId = 'childrenMdx___children___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxExcerpt = 'childrenMdx___excerpt',
   ChildrenMdxFieldsDate = 'childrenMdx___fields___date',
   ChildrenMdxFieldsSlug = 'childrenMdx___fields___slug',
   ChildrenMdxFileAbsolutePath = 'childrenMdx___fileAbsolutePath',
   ChildrenMdxFrontmatterTags = 'childrenMdx___frontmatter___tags',
   ChildrenMdxFrontmatterTitle = 'childrenMdx___frontmatter___title',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxHeadings = 'childrenMdx___headings',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxHeadingsDepth = 'childrenMdx___headings___depth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxHeadingsValue = 'childrenMdx___headings___value',
   ChildrenMdxHtml = 'childrenMdx___html',
   ChildrenMdxId = 'childrenMdx___id',
@@ -658,6 +667,7 @@ export enum FileFieldsEnum {
   ChildrenMdxParentParentId = 'childrenMdx___parent___parent___id',
   ChildrenMdxRawBody = 'childrenMdx___rawBody',
   ChildrenMdxSlug = 'childrenMdx___slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxTableOfContents = 'childrenMdx___tableOfContents',
   ChildrenMdxTimeToRead = 'childrenMdx___timeToRead',
   ChildrenMdxWordCountParagraphs = 'childrenMdx___wordCount___paragraphs',
@@ -1065,14 +1075,18 @@ export enum MdxFieldsEnum {
   ChildrenParentInternalType = 'children___parent___internal___type',
   ChildrenParentParentChildren = 'children___parent___parent___children',
   ChildrenParentParentId = 'children___parent___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   Excerpt = 'excerpt',
   FieldsDate = 'fields___date',
   FieldsSlug = 'fields___slug',
   FileAbsolutePath = 'fileAbsolutePath',
   FrontmatterTags = 'frontmatter___tags',
   FrontmatterTitle = 'frontmatter___title',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   Headings = 'headings',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   HeadingsDepth = 'headings___depth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   HeadingsValue = 'headings___value',
   Html = 'html',
   Id = 'id',
@@ -1125,6 +1139,7 @@ export enum MdxFieldsEnum {
   ParentParentParentId = 'parent___parent___parent___id',
   RawBody = 'rawBody',
   Slug = 'slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   TableOfContents = 'tableOfContents',
   TimeToRead = 'timeToRead',
   WordCountParagraphs = 'wordCount___paragraphs',

@@ -4,14 +4,13 @@ const config: GatsbyConfig = {
   jsxRuntime: 'automatic',
   jsxImportSource: 'react',
   siteMetadata: {
-    title: 'With Ken Powers Comes Ken Responsibility',
+    title: 'Ken Powers',
+    description: 'With Ken Powers Comes Ken Responsibility',
     siteUrl: 'https://www.knpw.rs',
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-schema-export',
-      options: { dest: './src/__generated__/schema.graphql' },
-    },
+    'gatsby-plugin-typescript', // Must come before linaria
+    'gatsby-plugin-linaria',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-mdx',
@@ -35,6 +34,10 @@ const config: GatsbyConfig = {
       options: {
         gatsbyRemarkPlugins: ['gatsby-remark-images', 'gatsby-remark-prismjs'],
       },
+    },
+    {
+      resolve: 'gatsby-plugin-schema-export',
+      options: { dest: './src/__generated__/schema.graphql' },
     },
   ],
 };
