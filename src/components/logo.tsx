@@ -7,14 +7,14 @@ import { car } from '../util/theme';
 const Base = styled.h1`
   font-family: ${car('fontFamily')};
   font-size: 22px;
-  font-weight: ExtraBold;
+  font-weight: ${car('fontWeightHeader')};
   letter-spacing: -0.5px;
 `;
 
 const Small = styled.small`
   font-size: 75%;
   color: ${car('colorLogoSub')};
-  font-weight: 600;
+  font-weight: ${car('fontWeightHeaderSecondary')};
 `;
 
 export function Logo() {

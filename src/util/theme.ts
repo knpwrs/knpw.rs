@@ -1,6 +1,7 @@
 import { styled } from 'linaria/react';
 import { kebabCase } from 'lodash';
 import '@fontsource/poppins';
+import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/800.css';
 
 const theme = {
@@ -8,6 +9,8 @@ const theme = {
   colorTextPrimary: '#353535',
   colorLogoSub: '#CCC',
   fontFamily: 'Poppins',
+  fontWeightHeader: 800,
+  fontWeightHeaderSecondary: 600,
   maxWidthHeader: '1740px',
   maxWidthContent: '1140px',
 };
