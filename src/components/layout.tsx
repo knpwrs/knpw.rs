@@ -2,27 +2,46 @@ import { Link } from 'gatsby';
 import { css } from 'linaria';
 import { styled } from 'linaria/react';
 import type { PropsWithChildren } from 'react';
+import { FaGithub, FaTwitter, FaCreativeCommonsZero } from 'react-icons/fa';
 import ThemeWrapper, { car } from '../util/theme';
+import { mq } from './base';
 import { Logo } from './logo';
 
 const Header = styled.header`
   width: 100vw;
+  height: 75px;
   max-width: ${car('maxWidthHeader')};
-  padding: 0 ${car('spacing')};
+  ${mq.sm} {
+    padding: 0 ${car('spacing')};
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  ${mq.sm} {
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const NavUl = styled.ul`
   display: flex;
   flex-grow: 1;
   justify-content: flex-end;
+  align-items: center;
+  margin: 0;
   & > li {
     flex-shrink: 1;
     margin-left: calc(${car('spacing')} / 3);
+    &.icon {
+      position: relative;
+      bottom: 2px;
+    }
   }
 `;
 
@@ -39,7 +58,15 @@ const Main = styled.main`
   padding: 0 ${car('spacing')};
 `;
 
-const Footer = styled.footer``;
+const Footer = styled.footer`
+  width: 100vw;
+  max-width: calc(${car('maxWidthContent')} + 2 * ${car('spacing')});
+  padding: 0 ${car('spacing')};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
 
 export type Props = PropsWithChildren<Record<string, unknown>>;
 
@@ -48,7 +75,14 @@ function Layout({ children }: Props) {
     <ThemeWrapper>
       <Header>
         <Nav role="navigation">
-          <Logo />
+          <Logo
+            className={css`
+              line-height: 60px;
+              ${mq.md} {
+                line-height: 75px;
+              }
+            `}
+          />
           <NavUl>
             <li>
               <Link className={navLink} to={'/'}>
@@ -60,21 +94,30 @@ function Layout({ children }: Props) {
                 About
               </Link>
             </li>
-            <li>
+            <li className="icon">
               <a className={navLink} href={'https://github.com/knpwrs'}>
-                Github
+                <FaGithub size="22" />
               </a>
             </li>
-            <li>
+            <li className="icon">
               <a className={navLink} href={'https://twitter.com/knpwrs'}>
-                Twitter
+                <FaTwitter size="22" />
               </a>
             </li>
           </NavUl>
         </Nav>
       </Header>
       <Main>{children}</Main>
-      <Footer>CC0</Footer>
+      <Footer>
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+          <FaCreativeCommonsZero size={22} />
+        </a>
+        <p>
+          To the extent possible under law, <Link to="/">Ken Powers</Link> has
+          waived all copyright and related or neighboring rights to this
+          website. This work is published from The United States.
+        </p>
+      </Footer>
     </ThemeWrapper>
   );
 }

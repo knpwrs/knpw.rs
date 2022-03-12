@@ -1,3 +1,4 @@
+import type { HTMLProps } from 'react';
 import { Link } from 'gatsby';
 import { styled } from 'linaria/react';
 import { css } from 'linaria';
@@ -6,9 +7,10 @@ import { car } from '../util/theme';
 
 const Base = styled.h1`
   font-family: ${car('fontFamily')};
-  font-size: 22px;
+  font-size: 20px;
   font-weight: ${car('fontWeightHeader')};
   letter-spacing: -0.5px;
+  margin: 0;
 `;
 
 const Small = styled.small`
@@ -17,9 +19,11 @@ const Small = styled.small`
   font-weight: ${car('fontWeightHeaderSecondary')};
 `;
 
-export function Logo() {
+export function Logo({
+  className,
+}: Pick<HTMLProps<HTMLHeadingElement>, 'className'>) {
   return (
-    <Base>
+    <Base className={className}>
       <Small>With</Small>{' '}
       <Link
         className={css`

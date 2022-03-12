@@ -22,6 +22,9 @@ const ThemeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  a {
+    color: ${car('colorTextPrimary')};
+  }
 `;
 
 export default ThemeWrapper;
