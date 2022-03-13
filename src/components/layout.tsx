@@ -65,6 +65,7 @@ const Footer = styled.footer`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  font-size: 12px;
 `;
 
 export type Props = PropsWithChildren<Record<string, unknown>>;
