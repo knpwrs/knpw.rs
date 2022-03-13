@@ -46,7 +46,6 @@ const NavUl = styled.ul`
 `;
 
 const navLink = css`
-  font-family: ${car('fontFamily')};
   font-weight: ${car('fontWeightHeaderSecondary')};
   text-decoration: none;
   color: ${car('colorTextPrimary')};

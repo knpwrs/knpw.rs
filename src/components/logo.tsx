@@ -6,7 +6,6 @@ import '@fontsource/poppins/600.css';
 import { car } from '../util/theme';
 
 const Base = styled.h1`
-  font-family: ${car('fontFamily')};
   font-size: 20px;
   font-weight: ${car('fontWeightHeader')};
   letter-spacing: -0.5px;

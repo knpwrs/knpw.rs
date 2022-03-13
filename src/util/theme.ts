@@ -7,6 +7,7 @@ import '@fontsource/poppins/800.css';
 const theme = {
   spacing: '30px',
   colorTextPrimary: '#353535',
+  colorTextAccent: '#ba181b',
   colorLogoSub: '#CCC',
   fontFamily: 'Poppins',
   fontWeightHeader: 800,
@@ -22,8 +23,19 @@ const ThemeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  font-family: ${car('fontFamily')};
+  color: ${car('colorTextPrimary')};
   a {
     color: ${car('colorTextPrimary')};
+    text-decoration: none;
+    font-weight: 600;
+    transition: color ease 2s;
+
+    &:hover {
+      color: ${car('colorTextAccent')};
+      transition: color cubic-bezier(0.19, 1, 0.22, 1) 200ms;
+    }
   }
 `;
 
