@@ -29,8 +29,9 @@ export const query = graphql`
     }
     fields {
       slug
-      date(formatString: "MMMM Do, YYYY")
+      year: date(formatString: "YYYY")
       shortDate: date(formatString: "MMM D")
+      date(formatString: "MMMM Do, YYYY")
     }
   }
 `;

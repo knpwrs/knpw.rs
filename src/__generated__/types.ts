@@ -2743,7 +2743,7 @@ export type OtherPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type OtherPagesQuery = { __typename?: 'Query', allFile: { __typename?: 'FileConnection', nodes: Array<{ __typename?: 'File', id: string, childMdx?: { __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', slug?: string | null } | null } | null }> } };
 
-export type BlogPostRowInfoFragment = { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, shortDate?: any | null } | null };
+export type BlogPostRowInfoFragment = { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, year?: any | null, shortDate?: any | null } | null };
 
 export type BlogPostQueryVariables = Exact<{
   id: Scalars['String'];
@@ -2759,12 +2759,12 @@ export type BlogTagQueryVariables = Exact<{
 }>;
 
 
-export type BlogTagQuery = { __typename?: 'Query', allFile: { __typename?: 'FileConnection', nodes: Array<{ __typename?: 'File', id: string, childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, shortDate?: any | null } | null } | null }> } };
+export type BlogTagQuery = { __typename?: 'Query', allFile: { __typename?: 'FileConnection', nodes: Array<{ __typename?: 'File', id: string, childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, year?: any | null, shortDate?: any | null } | null } | null }> } };
 
 export type BlogQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BlogQuery = { __typename?: 'Query', allFile: { __typename?: 'FileConnection', nodes: Array<{ __typename?: 'File', id: string, childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, shortDate?: any | null } | null } | null }> } };
+export type BlogQuery = { __typename?: 'Query', allFile: { __typename?: 'FileConnection', nodes: Array<{ __typename?: 'File', id: string, childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, year?: any | null, shortDate?: any | null } | null } | null }> } };
 
 export type PageByIdQueryVariables = Exact<{
   id: Scalars['String'];
