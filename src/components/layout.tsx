@@ -66,6 +66,7 @@ const Footer = styled.footer`
   align-items: center;
   text-align: center;
   font-size: 12px;
+  margin-top: auto;
 `;
 
 export type Props = PropsWithChildren<Record<string, unknown>>;

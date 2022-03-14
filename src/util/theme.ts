@@ -23,6 +23,7 @@ const ThemeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 
   font-family: ${car('fontFamily')};
   color: ${car('colorTextPrimary')};
