@@ -8,7 +8,7 @@ const theme = {
   spacing: '30px',
   colorTextPrimary: '#353535',
   colorTextAccent: '#ba181b',
-  colorLogoSub: '#CCC',
+  colorTextSecondary: '#CCC',
   fontFamily: 'Poppins',
   fontWeightHeader: 800,
   fontWeightHeaderSecondary: 600,
@@ -26,15 +26,18 @@ const ThemeWrapper = styled.div`
 
   font-family: ${car('fontFamily')};
   color: ${car('colorTextPrimary')};
-  a {
-    color: ${car('colorTextPrimary')};
-    text-decoration: none;
-    font-weight: 600;
-    transition: color ease 2s;
 
-    &:hover {
-      color: ${car('colorTextAccent')};
-      transition: color cubic-bezier(0.19, 1, 0.22, 1) 200ms;
+  :global() {
+    a {
+      color: ${car('colorTextPrimary')};
+      text-decoration: none;
+      font-weight: 600;
+      transition: color ease 2s;
+
+      &:hover {
+        color: ${car('colorTextAccent')};
+        transition: color cubic-bezier(0.19, 1, 0.22, 1) 200ms;
+      }
     }
   }
 `;

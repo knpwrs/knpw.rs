@@ -13,20 +13,18 @@ export const Blog = ({ data }: Props) => {
 
   return (
     <Layout>
-      <ul>
-        {data.allFile?.nodes?.flatMap((node) => {
-          const res: Array<ReactChild> = [];
-          if (!node.childMdx) {
-            return res;
-          }
-          if (node.childMdx.fields?.year !== groupYear) {
-            groupYear = node.childMdx.fields?.year;
-            res.push(<h2 key={groupYear}>{groupYear}</h2>);
-          }
-          res.push(<BlogPostRow key={node.id} data={node.childMdx} />);
+      {data.allFile?.nodes?.flatMap((node) => {
+        const res: Array<ReactChild> = [];
+        if (!node.childMdx) {
           return res;
-        })}
-      </ul>
+        }
+        if (node.childMdx.fields?.year !== groupYear) {
+          groupYear = node.childMdx.fields?.year;
+          res.push(<h2 key={groupYear}>{groupYear}</h2>);
+        }
+        res.push(<BlogPostRow key={node.id} data={node.childMdx} />);
+        return res;
+      })}
     </Layout>
   );
 };

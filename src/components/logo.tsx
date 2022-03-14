@@ -14,7 +14,7 @@ const Base = styled.h1`
 
 const Small = styled.small`
   font-size: 75%;
-  color: ${car('colorLogoSub')};
+  color: ${car('colorTextSecondary')};
   font-weight: ${car('fontWeightHeaderSecondary')};
 `;
 
