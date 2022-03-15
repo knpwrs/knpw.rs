@@ -3,6 +3,7 @@ import { kebabCase } from 'lodash';
 import '@fontsource/poppins';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/800.css';
+import background from './background';
 
 const theme = {
   spacing: '30px',
@@ -24,6 +25,7 @@ const ThemeWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  background: ${background};
 
   font-family: ${car('fontFamily')};
   color: ${car('colorTextPrimary')};
