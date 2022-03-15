@@ -1,5 +1,6 @@
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { css } from 'linaria';
 import { styled } from 'linaria/react';
 import { FaRegCalendarAlt, FaRegClock } from 'react-icons/fa';
 import Layout from '../components/layout';
@@ -9,6 +10,7 @@ import type { BlogPostQuery } from '../__generated__/types';
 const MetaContainer = styled.aside`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   & > svg {
     margin-right: calc(${car('spacing')} / 3);
@@ -64,6 +66,19 @@ const BlogPostTemplate = ({ data }: Props) => {
           <MetaMidDot />
           <FaRegCalendarAlt />
           <span>{data.post?.childMdx?.fields?.date}</span>
+          <MetaMidDot />
+          {data.post?.childMdx?.frontmatter?.tags?.map((tag) => (
+            <Link
+              key={tag}
+              to={`/blog/tag/${tag}`}
+              className={css`
+                font-weight: 400;
+                margin-right: calc(${car('spacing')} / 3);
+              `}
+            >
+              #{tag}
+            </Link>
+          ))}
         </MetaContainer>
         <MDXRenderer>{body}</MDXRenderer>
         <OtherPosts>

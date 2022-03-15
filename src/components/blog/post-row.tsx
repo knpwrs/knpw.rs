@@ -22,7 +22,7 @@ export const BlogPostRow = ({ data: { frontmatter, fields } }: Props) => {
         {fields?.shortDate} &middot;
       </span>{' '}
       <Link to={`/blog/${fields?.slug}`}>{frontmatter?.title}</Link>
-      <div>
+      <aside>
         {frontmatter?.tags?.flatMap((tag) => [
           <Link
             key={tag}
@@ -36,7 +36,7 @@ export const BlogPostRow = ({ data: { frontmatter, fields } }: Props) => {
           </Link>,
           ' ',
         ])}
-      </div>
+      </aside>
     </div>
   );
 };
