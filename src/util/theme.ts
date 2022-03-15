@@ -49,6 +49,11 @@ const ThemeWrapper = styled.div`
       padding: 0 ${car('spacing')};
     }
   }
+
+  .prism-code {
+    padding: calc(${car('spacing')} / 2);
+    border-radius: 3px;
+  }
 `;
 
 export default ThemeWrapper;

@@ -3,9 +3,11 @@ import { css } from 'linaria';
 import { styled } from 'linaria/react';
 import type { HTMLProps, PropsWithChildren } from 'react';
 import { FaGithub, FaTwitter, FaCreativeCommonsZero } from 'react-icons/fa';
+import { MDXProvider } from '@mdx-js/react';
 import ThemeWrapper, { car } from '../util/theme';
 import { mq } from './base';
 import { Logo } from './logo';
+import CodeBlock from './codeblock';
 
 const Header = styled.header`
   width: 100vw;
@@ -123,7 +125,11 @@ function Layout({ children, title, className }: Props) {
       </Header>
       <Main>
         {title ? <PageTitle>{title}</PageTitle> : null}
-        {children}
+        <MDXProvider
+          components={{ code: CodeBlock, pre: (props) => <div {...props} /> }}
+        >
+          {children}
+        </MDXProvider>
       </Main>
       <Footer>
         <a href="https://creativecommons.org/publicdomain/zero/1.0/">

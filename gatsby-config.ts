@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        gatsbyRemarkPlugins: ['gatsby-remark-images', 'gatsby-remark-prismjs'],
+        gatsbyRemarkPlugins: ['gatsby-remark-images'],
       },
     },
     {
