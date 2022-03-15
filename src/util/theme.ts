@@ -3,13 +3,14 @@ import { kebabCase } from 'lodash';
 import '@fontsource/poppins';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/800.css';
-import background from './background';
+import background, { dark as darkBackground } from './background';
 
 const theme = {
-  spacing: '30px',
   colorTextPrimary: '#353535',
   colorTextAccent: '#ba181b',
-  colorTextSecondary: '#CCC',
+  colorTextSecondary: '#ccc',
+  background,
+  spacing: '30px',
   fontFamily: 'Poppins',
   fontWeightHeader: 800,
   fontWeightHeaderSecondary: 600,
@@ -17,15 +18,28 @@ const theme = {
   maxWidthContent: '1140px',
 };
 
+const darkTheme: Partial<typeof theme> = {
+  colorTextPrimary: '#fcfcfc',
+  colorTextSecondary: '#cacaca',
+  background: darkBackground,
+};
+
 const ThemeWrapper = styled.div`
   ${Object.entries(theme)
     .map(([key, val]) => `--${kebabCase(key)}: ${val};`)
     .join('\n')}
+
+  @media(prefers-color-scheme: dark) {
+    ${Object.entries(darkTheme)
+      .map(([key, val]) => `--${kebabCase(key)}: ${val};`)
+      .join('\n')}
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: ${background};
+  background: ${car('background')};
 
   font-family: ${car('fontFamily')};
   color: ${car('colorTextPrimary')};
