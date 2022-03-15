@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import { css } from 'linaria';
 import { styled } from 'linaria/react';
-import type { PropsWithChildren } from 'react';
+import type { HTMLProps, PropsWithChildren } from 'react';
 import { FaGithub, FaTwitter, FaCreativeCommonsZero } from 'react-icons/fa';
 import ThemeWrapper, { car } from '../util/theme';
 import { mq } from './base';
@@ -80,11 +80,13 @@ const Footer = styled.footer`
   margin-top: auto;
 `;
 
-export type Props = PropsWithChildren<{ title?: string }>;
+export type Props = PropsWithChildren<
+  { title?: string } & Pick<HTMLProps<HTMLDivElement>, 'className'>
+>;
 
-function Layout({ children, title }: Props) {
+function Layout({ children, title, className }: Props) {
   return (
-    <ThemeWrapper>
+    <ThemeWrapper className={className}>
       <Header>
         <Nav role="navigation">
           <Logo

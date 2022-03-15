@@ -42,6 +42,12 @@ const ThemeWrapper = styled.div`
         transition: color cubic-bezier(0.19, 1, 0.22, 1) 200ms;
       }
     }
+
+    blockquote {
+      border-left: 2px solid ${car('colorTextSecondary')};
+      margin: 0;
+      padding: 0 ${car('spacing')};
+    }
   }
 `;
 
