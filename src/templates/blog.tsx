@@ -12,7 +12,7 @@ export const Blog = ({ data }: Props) => {
   let groupYear: string | null = null;
 
   return (
-    <Layout>
+    <Layout title="Blog">
       {data.allFile?.nodes?.flatMap((node) => {
         const res: Array<ReactChild> = [];
         if (!node.childMdx) {

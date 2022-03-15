@@ -8,6 +8,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "exactOptionalPropertyTypes": false,
     "skipLibCheck": true
   },
   "include": ["./src/**/*", "./gatsby-*.ts"]

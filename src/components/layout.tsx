@@ -57,6 +57,17 @@ const Main = styled.main`
   padding: 0 ${car('spacing')};
 `;
 
+export const PageTitle = styled.h1`
+  font-size: 36px;
+  font-weight: ExtraBold;
+  letter-spacing: -0.5px;
+
+  ${mq.sm} {
+    margin: 0;
+    font-size: 48px;
+  }
+`;
+
 const Footer = styled.footer`
   width: 100vw;
   max-width: calc(${car('maxWidthContent')} + 2 * ${car('spacing')});
@@ -69,9 +80,9 @@ const Footer = styled.footer`
   margin-top: auto;
 `;
 
-export type Props = PropsWithChildren<Record<string, unknown>>;
+export type Props = PropsWithChildren<{ title?: string }>;
 
-function Layout({ children }: Props) {
+function Layout({ children, title }: Props) {
   return (
     <ThemeWrapper>
       <Header>
@@ -108,7 +119,10 @@ function Layout({ children }: Props) {
           </NavUl>
         </Nav>
       </Header>
-      <Main>{children}</Main>
+      <Main>
+        {title ? <PageTitle>{title}</PageTitle> : null}
+        {children}
+      </Main>
       <Footer>
         <a href="https://creativecommons.org/publicdomain/zero/1.0/">
           <FaCreativeCommonsZero size={22} />

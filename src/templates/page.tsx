@@ -15,9 +15,8 @@ const BlogPostTemplate = ({ data }: Props) => {
   const { title } = data.file?.childMdx?.frontmatter ?? {};
 
   return (
-    <Layout>
+    <Layout title={title}>
       <main>
-        {title ? <h1>{data.file?.childMdx?.frontmatter?.title}</h1> : null}
         <MDXRenderer>{body}</MDXRenderer>
       </main>
     </Layout>
