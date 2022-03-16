@@ -95,8 +95,8 @@ const BlogPostTemplate = ({ data }: Props) => {
           <Giscus
             repo="knpwrs/knpw.rs"
             repoId="MDEwOlJlcG9zaXRvcnkxMDE1ODg2ODE="
-            category="General"
-            categoryId="DIC_kwDOBg4eyc4COHsy"
+            category="Blog Post"
+            categoryId="DIC_kwDOBg4eyc4COHt1"
             mapping="og:title"
             reactionsEnabled="1"
             emitMetadata="0"
