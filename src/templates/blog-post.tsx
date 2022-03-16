@@ -1,7 +1,9 @@
+import { Giscus } from '@giscus/react';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { css } from 'linaria';
 import { styled } from 'linaria/react';
+import { Helmet } from 'react-helmet';
 import { FaRegCalendarAlt, FaRegClock } from 'react-icons/fa';
 import Layout from '../components/layout';
 import { car } from '../util/theme';
@@ -27,6 +29,10 @@ const MetaMidDot = styled.span`
 
 MetaMidDot.defaultProps = { role: 'presentation' };
 
+const CommentsWrapper = styled.div`
+  margin: ${car('spacing')} 0;
+`;
+
 const OtherPosts = styled.aside`
   display: flex;
   flex-direction: row;
@@ -51,15 +57,19 @@ export type Props = {
 };
 
 const BlogPostTemplate = ({ data }: Props) => {
-  const { body } = data.post?.childMdx ?? {};
+  const { body, frontmatter } = data.post?.childMdx ?? {};
+  const { title } = frontmatter ?? {};
   const previous = data?.previousPost?.childMdx ?? {};
   const next = data?.nextPost?.childMdx ?? {};
 
-  if (!body) return null;
+  if (!body || !title) return null;
 
   return (
     <Layout>
       <article>
+        <Helmet>
+          <meta property="og:title" content={title} />
+        </Helmet>
         <h1>{data.post?.childMdx?.frontmatter?.title}</h1>
         <MetaContainer>
           <FaRegClock /> <span>{data.post?.childMdx?.timeToRead} min</span>
@@ -81,6 +91,20 @@ const BlogPostTemplate = ({ data }: Props) => {
           ))}
         </MetaContainer>
         <MDXRenderer>{body}</MDXRenderer>
+        <CommentsWrapper>
+          <Giscus
+            repo="knpwrs/knpw.rs"
+            repoId="MDEwOlJlcG9zaXRvcnkxMDE1ODg2ODE="
+            category="General"
+            categoryId="DIC_kwDOBg4eyc4COHsy"
+            mapping="og:title"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="bottom"
+            theme="preferred_color_scheme"
+            lang="en"
+          />
+        </CommentsWrapper>
         <OtherPosts>
           {previous.fields?.slug ? (
             <OtherPost dir="prev">
