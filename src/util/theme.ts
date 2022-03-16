@@ -5,6 +5,9 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/800.css';
 import background, { dark as darkBackground } from './background';
 
+export const lightThemeColor = '#FCFCFC';
+export const darkThemeColor = '#030303';
+
 const theme = {
   colorTextPrimary: '#353535',
   colorTextAccent: '#ba181b',
@@ -20,6 +23,7 @@ const theme = {
 
 const darkTheme: Partial<typeof theme> = {
   colorTextPrimary: '#fcfcfc',
+  colorTextAccent: '#e32427',
   colorTextSecondary: '#cacaca',
   background: darkBackground,
 };

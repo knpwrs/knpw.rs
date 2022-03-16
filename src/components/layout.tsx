@@ -1,10 +1,18 @@
-import { Link } from 'gatsby';
+import { useMemo } from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { css } from 'linaria';
 import { styled } from 'linaria/react';
+import { Helmet } from 'react-helmet';
 import type { HTMLProps, PropsWithChildren } from 'react';
 import { FaGithub, FaTwitter, FaCreativeCommonsZero } from 'react-icons/fa';
 import { MDXProvider } from '@mdx-js/react';
-import ThemeWrapper, { car } from '../util/theme';
+import { useColorScheme } from '@mantine/hooks';
+import ThemeWrapper, {
+  car,
+  darkThemeColor,
+  lightThemeColor,
+} from '../util/theme';
+import type { IconQuery } from '../__generated__/types';
 import { mq } from './base';
 import { Logo } from './logo';
 import CodeBlock from './codeblock';
@@ -87,8 +95,49 @@ export type Props = PropsWithChildren<
 >;
 
 function Layout({ children, title, className }: Props) {
+  const colorScheme = useColorScheme();
+
+  const icons = useStaticQuery<IconQuery>(graphql`
+    query Icon {
+      svgIcon: file(name: { eq: "icon" }, ext: { eq: ".svg" }) {
+        url: publicURL
+      }
+      lightIcon: file(name: { eq: "icon-light" }, ext: { eq: ".png" }) {
+        url: publicURL
+      }
+      darkIcon: file(name: { eq: "icon-dark" }, ext: { eq: ".png" }) {
+        url: publicURL
+      }
+    }
+  `);
+
+  const iconUrl = useMemo(() => {
+    const userAgent = global.navigator?.userAgent ?? '';
+    const isSafari =
+      userAgent.includes('Safari') && !userAgent.includes('Chrome');
+
+    if (isSafari) {
+      return icons[`${colorScheme}Icon`]?.url ?? '';
+    }
+
+    return icons.svgIcon?.url ?? '';
+  }, [colorScheme, icons]);
+
   return (
     <ThemeWrapper className={className}>
+      <Helmet>
+        <link rel="shortcut icon" href={iconUrl} />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content={lightThemeColor}
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content={darkThemeColor}
+        />
+      </Helmet>
       <Header>
         <Nav role="navigation">
           <Logo
@@ -103,7 +152,7 @@ function Layout({ children, title, className }: Props) {
             <li>
               <Link className={navLink} to={'/'}>
                 Blog
-              </Link>
+              </Link>{' '}
             </li>
             <li>
               <Link className={navLink} to={'/about'}>

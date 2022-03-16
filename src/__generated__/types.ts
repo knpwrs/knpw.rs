@@ -2745,6 +2745,11 @@ export type OtherPagesQuery = { __typename?: 'Query', allFile: { __typename?: 'F
 
 export type BlogPostRowInfoFragment = { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, year?: any | null, shortDate?: any | null } | null };
 
+export type IconQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IconQuery = { __typename?: 'Query', svgIcon?: { __typename?: 'File', url?: string | null } | null, lightIcon?: { __typename?: 'File', url?: string | null } | null, darkIcon?: { __typename?: 'File', url?: string | null } | null };
+
 export type BlogPostQueryVariables = Exact<{
   id: Scalars['String'];
   previousPostId?: InputMaybe<Scalars['String']>;
