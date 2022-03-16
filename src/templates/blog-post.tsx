@@ -69,6 +69,7 @@ const BlogPostTemplate = ({ data }: Props) => {
       <article>
         <Helmet>
           <meta property="og:title" content={title} />
+          <title>{title}</title>
         </Helmet>
         <h1>{data.post?.childMdx?.frontmatter?.title}</h1>
         <MetaContainer>
