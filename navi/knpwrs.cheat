@@ -1,0 +1,16 @@
+% knpw.rs
+
+# Run Development Server
+npm run dev
+
+# Run Build
+npm run build
+
+# Serve Build
+npm run serve
+
+# Run Checks
+npm run check
+
+# Generate GraphQL Types
+graphql-codegen

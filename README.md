@@ -7,8 +7,8 @@ and deployed to [Netlify].
 
 ## License
 
-**MIT**
+**CC0**
 
-[GatsbyJS]: https://www.gatsbyjs.org/ "GatsbyJS: Blazing-fast static site generator for React"
-[Netlify]: https://www.netlify.com/ "Netlify: All-in-one platform for automating modern web projects."
-[web]: https://knpw.rs "knpwrs"
+[gatsbyjs]: https://www.gatsbyjs.org/ 'GatsbyJS: Blazing-fast static site generator for React'
+[netlify]: https://www.netlify.com/ 'Netlify: All-in-one platform for automating modern web projects.'
+[web]: https://knpw.rs 'knpwrs'
