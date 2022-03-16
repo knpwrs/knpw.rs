@@ -6,13 +6,14 @@ import type { BlogQuery } from '../__generated__/types';
 
 export type Props = {
   data: BlogQuery;
+  title?: string;
 };
 
-export const Blog = ({ data }: Props) => {
+export const Blog = ({ data, title = 'Blog' }: Props) => {
   let groupYear: string | null = null;
 
   return (
-    <Layout title="Blog">
+    <Layout title={title}>
       {data.allFile?.nodes?.flatMap((node) => {
         const res: Array<ReactChild> = [];
         if (!node.childMdx) {

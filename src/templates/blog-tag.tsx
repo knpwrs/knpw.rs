@@ -1,30 +1,17 @@
 import { graphql } from 'gatsby';
-import { BlogPostRow } from '../components/blog/post-row';
-import Layout from '../components/layout';
 import type { BlogQuery } from '../__generated__/types';
+import Blog from './blog';
 
 export type Props = {
   data: BlogQuery;
   pageContext: { tag: string };
 };
 
-export const Blog = ({ data, pageContext: { tag } }: Props) => {
-  return (
-    <Layout>
-      <h1>Tag: {tag}</h1>
-      <h2>{data.allFile?.nodes?.length ?? 0} posts</h2>
-      <ul>
-        {data.allFile?.nodes?.map((node) =>
-          node.childMdx ? (
-            <BlogPostRow key={node.id} data={node.childMdx} />
-          ) : null,
-        )}
-      </ul>
-    </Layout>
-  );
+export const BlogTag = ({ data, pageContext: { tag } }: Props) => {
+  return <Blog data={data} title={`Tag: ${tag}`} />;
 };
 
-export const BlogPosts = graphql`
+export const BlogTagPosts = graphql`
   query BlogTag($tag: String!) {
     allFile(
       filter: {
@@ -45,4 +32,4 @@ export const BlogPosts = graphql`
   }
 `;
 
-export default Blog;
+export default BlogTag;

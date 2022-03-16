@@ -1484,6 +1484,7 @@ export type QueryMdxArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   jsxImportSource?: InputMaybe<StringQueryOperatorInput>;
@@ -1491,6 +1492,7 @@ export type QuerySiteArgs = {
   parent?: InputMaybe<NodeFilterInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
   trailingSlash?: InputMaybe<StringQueryOperatorInput>;
 };
@@ -1555,6 +1557,7 @@ export type Site = Node & {
   __typename?: 'Site';
   buildTime?: Maybe<Scalars['Date']>;
   children: Array<Node>;
+  host?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   internal: Internal;
   jsxImportSource?: Maybe<Scalars['String']>;
@@ -1562,6 +1565,7 @@ export type Site = Node & {
   parent?: Maybe<Node>;
   pathPrefix?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
+  port?: Maybe<Scalars['Int']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
   trailingSlash?: Maybe<Scalars['String']>;
 };
@@ -1871,6 +1875,7 @@ export enum SiteFieldsEnum {
   ChildrenParentInternalType = 'children___parent___internal___type',
   ChildrenParentParentChildren = 'children___parent___parent___children',
   ChildrenParentParentId = 'children___parent___parent___id',
+  Host = 'host',
   Id = 'id',
   InternalContent = 'internal___content',
   InternalContentDigest = 'internal___contentDigest',
@@ -1922,6 +1927,7 @@ export enum SiteFieldsEnum {
   ParentParentParentId = 'parent___parent___parent___id',
   PathPrefix = 'pathPrefix',
   Polyfill = 'polyfill',
+  Port = 'port',
   SiteMetadataDescription = 'siteMetadata___description',
   SiteMetadataSiteUrl = 'siteMetadata___siteUrl',
   SiteMetadataTitle = 'siteMetadata___title',
@@ -1931,6 +1937,7 @@ export enum SiteFieldsEnum {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   jsxImportSource?: InputMaybe<StringQueryOperatorInput>;
@@ -1938,6 +1945,7 @@ export type SiteFilterInput = {
   parent?: InputMaybe<NodeFilterInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
   trailingSlash?: InputMaybe<StringQueryOperatorInput>;
 };
