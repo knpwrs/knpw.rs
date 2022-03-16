@@ -39,7 +39,7 @@
     "gatsby-plugin-sharp": "^4.9.0",
     "gatsby-plugin-sitemap": "^5.9.0",
     "gatsby-plugin-typescript": "^4.9.0",
-    "gatsby-remark-images": "^6.9.0",
+    "gatsby-remark-images": "^6.9.1",
     "gatsby-source-filesystem": "^4.9.0",
     "gql-tag": "^1.0.1",
     "linaria": "^2.3.1",
