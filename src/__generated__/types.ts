@@ -2745,10 +2745,10 @@ export type OtherPagesQuery = { __typename?: 'Query', allFile: { __typename?: 'F
 
 export type BlogPostRowInfoFragment = { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null, year?: any | null, shortDate?: any | null } | null };
 
-export type IconQueryVariables = Exact<{ [key: string]: never; }>;
+export type LayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IconQuery = { __typename?: 'Query', svgIcon?: { __typename?: 'File', url?: string | null } | null, lightIcon?: { __typename?: 'File', url?: string | null } | null, darkIcon?: { __typename?: 'File', url?: string | null } | null };
+export type LayoutQuery = { __typename?: 'Query', svgIcon?: { __typename?: 'File', url?: string | null } | null, lightIcon?: { __typename?: 'File', url?: string | null } | null, darkIcon?: { __typename?: 'File', url?: string | null } | null, site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', title?: string | null, description?: string | null } | null } | null };
 
 export type BlogPostQueryVariables = Exact<{
   id: Scalars['String'];
@@ -2757,7 +2757,7 @@ export type BlogPostQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostQuery = { __typename?: 'Query', post?: { __typename?: 'File', childMdx?: { __typename?: 'Mdx', timeToRead?: number | null, body: string, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', date?: any | null, shortDate?: any | null } | null } | null } | null, previousPost?: { __typename?: 'File', childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string } | null, fields?: { __typename?: 'MdxFields', slug?: string | null } | null } | null } | null, nextPost?: { __typename?: 'File', childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string } | null, fields?: { __typename?: 'MdxFields', slug?: string | null } | null } | null } | null };
+export type BlogPostQuery = { __typename?: 'Query', post?: { __typename?: 'File', childMdx?: { __typename?: 'Mdx', timeToRead?: number | null, excerpt: string, body: string, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, tags?: Array<string | null> | null } | null, fields?: { __typename?: 'MdxFields', date?: any | null, shortDate?: any | null, isoDate?: any | null } | null } | null } | null, previousPost?: { __typename?: 'File', childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string } | null, fields?: { __typename?: 'MdxFields', slug?: string | null } | null } | null } | null, nextPost?: { __typename?: 'File', childMdx?: { __typename?: 'Mdx', frontmatter?: { __typename?: 'MdxFrontmatter', title: string } | null, fields?: { __typename?: 'MdxFields', slug?: string | null } | null } | null } | null };
 
 export type BlogTagQueryVariables = Exact<{
   tag: Scalars['String'];

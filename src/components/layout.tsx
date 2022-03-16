@@ -12,7 +12,7 @@ import ThemeWrapper, {
   darkThemeColor,
   lightThemeColor,
 } from '../util/theme';
-import type { IconQuery } from '../__generated__/types';
+import type { LayoutQuery } from '../__generated__/types';
 import { mq } from './base';
 import { Logo } from './logo';
 import CodeBlock from './codeblock';
@@ -97,8 +97,8 @@ export type Props = PropsWithChildren<
 function Layout({ children, title, className }: Props) {
   const colorScheme = useColorScheme();
 
-  const icons = useStaticQuery<IconQuery>(graphql`
-    query Icon {
+  const metadata = useStaticQuery<LayoutQuery>(graphql`
+    query Layout {
       svgIcon: file(name: { eq: "icon" }, ext: { eq: ".svg" }) {
         url: publicURL
       }
@@ -107,6 +107,12 @@ function Layout({ children, title, className }: Props) {
       }
       darkIcon: file(name: { eq: "icon-dark" }, ext: { eq: ".png" }) {
         url: publicURL
+      }
+      site {
+        siteMetadata {
+          title
+          description
+        }
       }
     }
   `);
@@ -117,11 +123,11 @@ function Layout({ children, title, className }: Props) {
       userAgent.includes('Safari') && !userAgent.includes('Chrome');
 
     if (isSafari) {
-      return icons[`${colorScheme}Icon`]?.url ?? '';
+      return metadata[`${colorScheme}Icon`]?.url ?? '';
     }
 
-    return icons.svgIcon?.url ?? '';
-  }, [colorScheme, icons]);
+    return metadata.svgIcon?.url ?? '';
+  }, [colorScheme, metadata]);
 
   return (
     <ThemeWrapper className={className}>
@@ -136,6 +142,33 @@ function Layout({ children, title, className }: Props) {
           name="theme-color"
           media="(prefers-color-scheme: dark)"
           content={darkThemeColor}
+        />
+        <title>
+          {metadata.site?.siteMetadata?.title} &middot;{' '}
+          {metadata.site?.siteMetadata?.description}
+        </title>
+        <meta
+          property="og:title"
+          content={metadata.site?.siteMetadata?.title ?? ''}
+        />
+        <meta
+          property="og:site_name"
+          content={metadata.site?.siteMetadata?.title ?? ''}
+        />
+        <meta
+          property="og:description"
+          content={metadata.site?.siteMetadata?.description ?? ''}
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="profile:first_name" content="Ken" />
+        <meta property="profile:last_name" content="Powers" />
+        <meta property="profile:username" content="knpwrs" />
+        <meta property="profile:gender" content="male" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:description"
+          content={metadata.site?.siteMetadata?.description ?? ''}
         />
       </Helmet>
       <Header>

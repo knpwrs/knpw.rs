@@ -57,18 +57,32 @@ export type Props = {
 };
 
 const BlogPostTemplate = ({ data }: Props) => {
-  const { body, frontmatter } = data.post?.childMdx ?? {};
-  const { title } = frontmatter ?? {};
+  const { body, excerpt, frontmatter, fields } = data.post?.childMdx ?? {};
+  const { title, tags = [] } = frontmatter ?? {};
+  const { isoDate } = fields ?? {};
   const previous = data?.previousPost?.childMdx ?? {};
   const next = data?.nextPost?.childMdx ?? {};
 
-  if (!body || !title) return null;
+  if (!body || !title || !excerpt || !isoDate) return null;
 
   return (
     <Layout>
       <article>
         <Helmet>
           <meta property="og:title" content={title} />
+          <meta property="og:description" content={excerpt} />
+          <meta property="og:type" content="article" />
+          <meta property="article:published_time" content={isoDate} />
+          <meta property="article:author" content="https://knpw.rs" />
+          {tags
+            ?.filter((t): t is string => !!t)
+            .map((tag) => (
+              <meta key={tag} property="article:tag" content={tag} />
+            ))}
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={excerpt} />
+          <meta name="twitter:site" content="@knpwrs" />
+          <meta name="twitter:creator" content="@knpwrs" />
           <title>{title}</title>
         </Helmet>
         <h1>{data.post?.childMdx?.frontmatter?.title}</h1>
@@ -138,6 +152,7 @@ export const BlogPostById = graphql`
     post: file(id: { eq: $id }) {
       childMdx {
         timeToRead
+        excerpt
         body
         frontmatter {
           title
@@ -146,6 +161,7 @@ export const BlogPostById = graphql`
         fields {
           date(formatString: "MMMM Do, YYYY")
           shortDate: date(formatString: "DD MMM")
+          isoDate: date(formatString: "YYYY-MM-DD")
         }
       }
     }
