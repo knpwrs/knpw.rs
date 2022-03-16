@@ -17,7 +17,7 @@ const theme = {
   fontFamily: 'Poppins',
   fontWeightHeader: 800,
   fontWeightHeaderSecondary: 600,
-  maxWidthHeader: '1740px',
+  maxWidthHeader: '1440px',
   maxWidthContent: '1140px',
 };
 
