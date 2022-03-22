@@ -2733,6 +2733,16 @@ export type StringQueryOperatorInput = {
   regex?: InputMaybe<Scalars['String']>;
 };
 
+export type FeedBaseQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FeedBaseQuery = { __typename?: 'Query', site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', title?: string | null, description?: string | null, siteUrl?: string | null, site_url?: string | null } | null } | null };
+
+export type FeedQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FeedQuery = { __typename?: 'Query', allFile: { __typename?: 'FileConnection', nodes: Array<{ __typename?: 'File', childMdx?: { __typename?: 'Mdx', excerpt: string, html?: string | null, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } | null, fields?: { __typename?: 'MdxFields', slug?: string | null, date?: any | null } | null } | null }> } };
+
 export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
