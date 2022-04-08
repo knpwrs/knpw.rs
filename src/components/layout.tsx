@@ -4,7 +4,12 @@ import { css } from 'linaria';
 import { styled } from 'linaria/react';
 import { Helmet } from 'react-helmet';
 import type { HTMLProps, PropsWithChildren } from 'react';
-import { FaGithub, FaTwitter, FaCreativeCommonsZero } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaTwitter,
+  FaLinkedin,
+  FaCreativeCommonsZero,
+} from 'react-icons/fa';
 import { MDXProvider } from '@mdx-js/react';
 import { useColorScheme } from '@mantine/hooks';
 import ThemeWrapper, {
@@ -183,23 +188,28 @@ function Layout({ children, title, className }: Props) {
           />
           <NavUl>
             <li>
-              <Link className={navLink} to={'/'}>
+              <Link className={navLink} to="/">
                 Blog
-              </Link>{' '}
+              </Link>
             </li>
             <li>
-              <Link className={navLink} to={'/about'}>
+              <Link className={navLink} to="/about">
                 About
               </Link>
             </li>
             <li className="icon">
-              <a className={navLink} href={'https://github.com/knpwrs'}>
+              <a className={navLink} href="https://github.com/knpwrs">
                 <FaGithub size="22" />
               </a>
             </li>
             <li className="icon">
-              <a className={navLink} href={'https://twitter.com/knpwrs'}>
+              <a className={navLink} href="https://twitter.com/knpwrs">
                 <FaTwitter size="22" />
+              </a>
+            </li>
+            <li className="icon">
+              <a className={navLink} href="https://www.linkedin.com/in/knpwrs/">
+                <FaLinkedin size="22" />
               </a>
             </li>
           </NavUl>
