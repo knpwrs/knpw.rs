@@ -175,6 +175,7 @@ function Layout({ children, title, className }: Props) {
           name="twitter:description"
           content={metadata.site?.siteMetadata?.description ?? ''}
         />
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="ef3850ed-862d-4727-8f83-193e588032ce" />
       </Helmet>
       <Header>
         <Nav role="navigation">
