@@ -1,0 +1,18 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+export type Props = {
+  class?: string;
+};
+
+const { class: classStr } = Astro.props;
+---
+
+<div
+  class={twMerge(
+    'hover:shadow-comic size-32 overflow-hidden rounded-full border-4 border-black object-cover transition-shadow md:size-48 lg:size-64',
+    classStr,
+  )}
+>
+  <slot />
+</div>

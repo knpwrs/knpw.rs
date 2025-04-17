@@ -1,0 +1,32 @@
+---
+import Card from './card.astro';
+
+export type Props = {
+  name: string;
+  subtitle: string;
+  quote: string;
+};
+
+const { name, subtitle, quote } = Astro.props;
+---
+
+<Card
+  class="flex flex-col items-center justify-center space-y-6 text-center md:flex-row md:items-start md:space-y-0 md:space-x-8 md:text-left"
+>
+  <div>
+    <slot name="avatar" />
+  </div>
+  <div class="grow">
+    <h3
+      class="font-comic max-w-full overflow-hidden text-4xl font-bold tracking-wider text-ellipsis whitespace-nowrap text-[length] uppercase md:text-3xl"
+    >
+      {name}
+    </h3>
+    <h4 class="font-comic text-xl font-bold">{subtitle}</h4>
+    <blockquote
+      class="mt-3 border-l-4 border-black pl-4 italic dark:border-white"
+    >
+      <p>{quote}</p>
+    </blockquote>
+  </div>
+</Card>

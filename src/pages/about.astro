@@ -4,10 +4,14 @@ import MapPin from '@tabler/icons/outline/map-pin.svg';
 import Download from '@tabler/icons/outline/download.svg';
 import Layout from '../layouts/main.astro';
 import Card from '../components/card.astro';
-import Avatar from '../components/avatar.astro';
 import Button from '../components/button.astro';
 import CardHeader from '../components/card-header.astro';
 import AboutJob from '../components/about-job.astro';
+import Testimonial from '../components/testimonial.astro';
+import AvatarKen from '../components/avatar-ken.astro';
+import AvatarConley from '../components/avatar-conley.astro';
+import AvatarGen from '../components/avatar-gen.astro';
+import AvatarCory from '../components/avatar-cory.astro';
 ---
 
 <Layout>
@@ -16,7 +20,7 @@ import AboutJob from '../components/about-job.astro';
       class="flex flex-col items-center justify-center space-y-6 text-center md:flex-row md:items-start md:space-y-0 md:space-x-8 md:text-left"
     >
       <div>
-        <Avatar />
+        <AvatarKen />
       </div>
       <div class="space-y-4">
         <div>
@@ -33,9 +37,13 @@ import AboutJob from '../components/about-job.astro';
         </div>
 
         <div class="max-w-2xl">
-          <blockquote class="border-l-4 border-black pl-4 dark:border-white">
-            "Whatever you do, work heartily, as for the Lord and not for men." -
-            The Apostle Paul, to the Church at Colossae
+          <blockquote
+            class="border-l-4 border-black pl-4 italic dark:border-white"
+          >
+            <p>
+              "Whatever you do, work heartily, as for the Lord and not for men."
+              - The Apostle Paul, to the Church at Colossae
+            </p>
           </blockquote>
 
           <p class="mt-4 text-gray-700 dark:text-white">
@@ -72,6 +80,33 @@ import AboutJob from '../components/about-job.astro';
       </div>
     </div>
   </Card>
+
+  <div id="testimonials">
+    <h2 class="font-comic text-3xl font-bold uppercase">Testimonials</h2>
+    <div class="grid gap-x-6 gap-y-2 lg:grid-cols-2">
+      <Testimonial
+        name="Conley Owens"
+        subtitle="Google, Docusign"
+        quote="Ken is a high-octane engineer. Also, Ken and Saitama have the same hair style for the same reason."
+      >
+        <AvatarConley slot="avatar" />
+      </Testimonial>
+      <Testimonial
+        name="Gen Edwards"
+        subtitle="IBM, Google"
+        quote="Ken has an amazing instinct for tech, the way he follows and knows about new trends is really amazing."
+      >
+        <AvatarGen slot="avatar" />
+      </Testimonial>
+      <Testimonial
+        name="Cory Gorman"
+        subtitle="IBM, Noom"
+        quote="Ken is wicked smart and great to work with! Follow his advice because he's probably right."
+      >
+        <AvatarCory slot="avatar" />
+      </Testimonial>
+    </div>
+  </div>
 
   <div id="resume" class="scroll-mt-16">
     <div class="flex items-center justify-between">
