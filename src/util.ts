@@ -5,5 +5,8 @@ export function postPreview(post: string | undefined): string | undefined {
     return undefined;
   }
 
-  return removeMarkdown(post.split(/\n{2,}/g).find((p) => !p.startsWith('#'))!);
+  return removeMarkdown(post)
+    .split(/\n{2,}/g)
+    .find((p) => !p.startsWith('#'))
+    ?.replace(/[\[\]]/g, '');
 }
