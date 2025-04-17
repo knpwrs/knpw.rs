@@ -19,7 +19,7 @@ a {
 
 @layer components {
   article {
-    @apply prose max-w-full;
+    @apply prose dark:prose-invert max-w-full;
 
     :where(h1, h2, h3, h4, h5, h6) {
       font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
