@@ -1,3 +1,4 @@
 .astro
+.direnv
 dist
 node_modules
