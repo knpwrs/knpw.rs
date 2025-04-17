@@ -52,10 +52,12 @@ const menu = [
 </Card>
 
 <script>
-  const btn = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  btn?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+    btn?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
   });
 </script>
