@@ -1,0 +1,28 @@
+---
+import { twMerge } from 'tailwind-merge';
+import Calendar from '@tabler/icons/outline/calendar.svg';
+
+interface Props {
+  date: Date;
+  class?: string;
+}
+
+const { date, class: classStr } = Astro.props;
+---
+
+<time
+  datetime={date.toISOString()}
+  class={twMerge(
+    'text-muted-foreground inline-flex items-center gap-1 text-sm',
+    classStr,
+  )}
+>
+  <Calendar class="size-4" />
+  {
+    date.toLocaleDateString('en-us', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
+  }
+</time>

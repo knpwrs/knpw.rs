@@ -1,0 +1,32 @@
+---
+import Calendar from '@tabler/icons/outline/calendar.svg';
+
+export type Props = {
+  company: string;
+  location: string;
+  title: string;
+  from: string;
+  to?: string;
+  points: Array<string>;
+};
+
+const { company, location, title, from, to = 'Present', points } = Astro.props;
+---
+
+<div class="pb-6 last:pb-0">
+  <div class="mb-2 flex flex-col justify-between sm:flex-row sm:items-center">
+    <h3 class="text-xl font-bold">{company}</h3>
+    <div class="flex items-center text-gray-600 dark:text-white">
+      <Calendar class="mr-1 size-4" />
+      <span>{from} - {to}</span>
+    </div>
+  </div>
+  <p class="mb-2 font-medium">{title} &middot; {location}</p>
+  <ul class="ml-6 list-disc space-y-1 text-gray-700 dark:text-white">
+    {
+      points.map((point) => (
+        <li class="text-gray-700 dark:text-white" set:html={point} />
+      ))
+    }
+  </ul>
+</div>

@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import '@fontsource/comic-mono';
+import ArrowLeft from '@tabler/icons/outline/arrow-left.svg';
+import Layout from './main.astro';
+import Card from '../components/card.astro';
+import FormattedDate from '../components/formatted-date.astro';
+import Tags from '../components/tags.astro';
+import Button from '../components/button.astro';
+
+type Props = CollectionEntry<'blog'>['data'] & { preview?: string };
+
+const { title, date, tags, preview } = Astro.props;
+---
+
+<Layout title={title} description={preview}>
+  <Card>
+    <article>
+      <FormattedDate date={date} />
+      <h1>
+        {title}
+      </h1>
+      <Tags tags={tags} />
+      <slot />
+    </article>
+  </Card>
+  <div>
+    <Button as="a" href="/blog"><ArrowLeft /> Back to all posts</Button>
+  </div>
+</Layout>

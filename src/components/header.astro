@@ -1,0 +1,61 @@
+---
+import Home from '@tabler/icons/outline/home.svg';
+import User from '@tabler/icons/outline/user.svg';
+import Pencil from '@tabler/icons/outline/pencil.svg';
+import Menu from '@tabler/icons/outline/menu-2.svg';
+import ThemeToggle from './theme-toggle.astro';
+import Card from './card.astro';
+
+const menu = [
+  { href: '/', label: 'Home', icon: Home },
+  { href: '/about', label: 'About', icon: User },
+  { href: '/blog', label: 'Blog', icon: Pencil },
+];
+---
+
+<Card as="header">
+  <div class="flex items-center justify-between">
+    <a href="/" class="font-comic text-2xl font-bold uppercase">Ken Powers</a>
+    <div class="flex items-center gap-3">
+      <div class="hidden md:contents">
+        {
+          menu.map(({ href, label, icon: Icon }) => (
+            <a href={href} class="font-comic flex items-center gap-1 font-bold">
+              <Icon /> {label}
+            </a>
+          ))
+        }
+      </div>
+      <ThemeToggle />
+      <button id="menu-toggle" class="cursor-pointer md:hidden">
+        <Menu />
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" class="mt-4 hidden md:hidden">
+    <ul class="flex flex-col space-y-4 pb-2">
+      {
+        menu.map(({ href, label, icon: Icon }) => (
+          <li>
+            <a
+              href={href}
+              class="flex items-center space-x-2 font-medium hover:text-gray-600 dark:hover:text-white"
+            >
+              <Icon class="mr-2 size-5" />
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</Card>
+
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

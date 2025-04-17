@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import User from '@tabler/icons/outline/user.svg';
+import Pencil from '@tabler/icons/outline/pencil.svg';
+import removeMarkdown from 'remove-markdown';
+import Layout from '../layouts/main.astro';
+import Button from '../components/button.astro';
+import Avatar from '../components/avatar.astro';
+import Card from '../components/card.astro';
+import FormattedDate from '../components/formatted-date.astro';
+import { postPreview } from '../util';
+
+const post = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .at(0);
+---
+
+<Layout>
+  <Card as="section" class="flex flex-col items-center gap-6">
+    <Avatar />
+    <h1 class="font-comic text-4xl font-bold uppercase">Ken Powers</h1>
+    <span
+      class="font-comic block w-fit -rotate-[1deg] rounded-md bg-black px-4 py-2 text-sm text-white italic md:text-base dark:bg-white dark:text-black"
+    >
+      "With Ken Powers Comes Ken Responsibility"
+    </span>
+    <h2 class="text-xl font-medium">
+      Christian, Husband, Father, <em class="font-bold">Software Engineer</em>.
+    </h2>
+  </Card>
+  <section>
+    <div class="flex items-center justify-between">
+      <h2 class="font-comic text-2xl font-bold uppercase md:text-3xl">
+        Latest Post
+      </h2><a
+        href="/blog"
+        class="group flex items-center space-x-1 text-gray-700 hover:text-black dark:text-white dark:hover:text-white"
+        ><span class="text-sm font-medium">View All Posts &rarr;</span>
+      </a>
+    </div>
+  </section>
+  {
+    post ? (
+      <Card>
+        <div>
+          <h3 class="font-comic mb-2 text-2xl font-semibold tracking-tight">
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          </h3>
+          <FormattedDate date={post.data.date} />
+          <p class="my-4 line-clamp-3 text-gray-700 dark:text-white">
+            {postPreview(post.body)}
+          </p>
+          <Button as="a" href={`/blog/${post.id}`}>
+            Read More
+          </Button>
+        </div>
+      </Card>
+    ) : null
+  }
+  <section class="grid grid-cols-1 sm:grid-cols-2 sm:gap-6">
+    {
+      [
+        {
+          icon: <User class="size-10" />,
+          label: 'About',
+          href: '/about',
+        },
+        {
+          icon: <Pencil class="size-10" />,
+          label: 'Blog',
+          href: '/blog',
+        },
+      ].map((link) => (
+        <Card class="relative flex flex-col items-center gap-3">
+          {link.icon}
+          <a
+            href={link.href}
+            class="font-comic text-2xl font-bold before:absolute before:inset-0"
+          >
+            {link.label}
+          </a>
+        </Card>
+      ))
+    }
+  </section>
+</Layout>

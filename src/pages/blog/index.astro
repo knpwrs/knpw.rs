@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '../../components/card.astro';
+import Layout from '../../layouts/main.astro';
+import FormattedDate from '../../components/formatted-date.astro';
+import { postPreview } from '../../util';
+import Tags from '../../components/tags.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout>
+  <Card>
+    <h1
+      class="font-comic text-4xl font-bold tracking-wider uppercase md:text-5xl"
+    >
+      Blog
+    </h1>
+    <p class="mt-2 text-gray-700 dark:text-white">Read. Debug. Repeat.</p>
+  </Card>
+  <div class="grid gap-x-6 gap-y-2 md:grid-cols-2 lg:grid-cols-3">
+    {
+      posts.map((post) => (
+        <Card class="hover:shadow-comic-lg relative transition-all hover:-translate-y-1">
+          <FormattedDate date={post.data.date} class="mb-2" />
+          <h3 class="font-comic text-xl font-semibold tracking-tight">
+            <a href={`/blog/${post.id}`} class="before:absolute before:inset-0">
+              {post.data.title}
+            </a>
+          </h3>
+          <p class="my-4 line-clamp-3 text-gray-700 dark:text-white">
+            {postPreview(post.body)}
+          </p>
+          <Tags tags={post.data.tags} />
+        </Card>
+      ))
+    }
+  </div>
+</Layout>

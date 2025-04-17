@@ -1,0 +1,93 @@
+---
+title: Using Direnv to Automatically Manage Git Hooks
+date: 2020-11-14
+tags:
+  - git
+  - quick tip
+---
+
+The recent release of [npm@7 broke husky][npm], my git hook management tool of
+choice. When I was looking into why my git hooks had stopped working I came
+across [the docs for the next version of husky][docs] and saw that git hooks
+will now be stored in a committed directory rather than inside `package.json`.
+This got me thinking; do I really need husky? Surely there must be a simple
+method to manage a directory of git hooks inside your repository. I want
+something that's (mostly) automatic, safe, easy, and preferably uses tooling
+I'm already familiar with (installing a global dependency just to manage git
+hooks on a per-project basis is somewhat less than ideal).
+
+## TL;DR
+
+As the title suggests, I am now using [`direnv`] to manage my git hooks. What I
+landed on was adding the following line to a `.envrc` file in the root of my
+repositories:
+
+```sh
+git config --local core.hooksPath $PWD/.githooks
+```
+
+Now I just run `direnv allow` and place whatever hooks I want in the
+`.githooks` directory at the root of my project, e.g., an executable file at
+`.githooks/commit-msg`.
+
+Check out [knpwrs/instant.bible][ib] or [knpwrs/listenator][kl] on Github to
+see this setup in action.
+
+## How does this work?
+
+[I already use `direnv` for other things.][blog] It's a really handy tool for
+managing environment variables in a way that isn't tied to any specific
+framework or implementation, and additionally makes environment modifications
+available to all of your tooling. The trick is that `.envrc` is more than just
+a file which specifies variables for [`direnv`] to export -- it's a shell
+script which [`direnv`] executes inside of `bash` (even if you use another
+shell such as `zsh`). Our `git config` call configures the current git
+repository to look for hooks inside the `.githooks` directory inside our
+repository. Whereas most solutions involve symlinking or copying files into
+`.git/hooks`, we just reconfigure each individual git repository to tell it
+where to look for hooks.
+
+[`direnv`] works automatically, so that makes this setup easy to use. It also
+won't execute any `.envrc` files without explicit permission, so it's safe.
+Since [`direnv`] isn't tied to any specific framework or implementation, this
+setup for git hooks works great for polyglot monorepos (e.g., several
+microservices in a single git repository or multiple app implementations in a
+single repository).
+
+What I really would have liked is some sort of environment variable to
+configure where `git` should look for hooks. This works just as well, though.
+
+Note that passing `--local` isn't actually necessary, as `git config` is
+`--local` by default, and `--global` only if specified. That said, for this
+purpose I do like passing `--local` so our intentions are explicitly clear to
+anyone reading our code.
+
+## I want it to be less automated
+
+I hear you. Running non-exports in your `.envrc` isn't for everyone. If you
+would prefer manual hook initialization for your project, or if you would just
+like hooks to be opt-in, you can place the `git config` call above into a shell
+script or even a `Makefile` like such:
+
+```
+.PHONY: hooks
+
+hooks:
+ git config --local core.hooksPath $(shell pwd)/.githooks
+```
+
+Now just have people run `make hooks` and you're good to go!
+
+## Conclusion
+
+[`direnv`] just may now be my favorite way to manage git hooks now! It's simple,
+safe, framework-agnostic, and automatic. I haven't seen the `git config`
+approach discussed much elsewhere, so even if you prefer something more manual,
+hopefully this article was still helpful to you.
+
+[`direnv`]: https://direnv.net/
+[blog]: /blog/multiple-git-users
+[docs]: https://archive.is/y1uCz
+[ib]: https://github.com/knpwrs/instant.bible
+[kl]: https://github.com/knpwrs/listenator
+[npm]: https://github.com/typicode/husky/issues/776

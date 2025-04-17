@@ -1,0 +1,107 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Github from '@tabler/icons/outline/brand-github.svg';
+import X from '@tabler/icons/outline/brand-x.svg';
+import LinkedIn from '@tabler/icons/outline/brand-linkedin.svg';
+import Cc0 from '@tabler/icons/outline/creative-commons-zero.svg';
+import '../styles/global.css';
+import Header from '../components/header.astro';
+import Card from '../components/card.astro';
+
+export type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = 'Ken Powers · With Ken Powers Comes Ken Responsibility',
+  description = 'With Ken Powers Comes Ken Responsibility',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="knpw.rs"
+      href="/rss.xml"
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <script is:inline>
+      const theme = (document.documentElement.dataset.theme =
+        localStorage.theme ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'));
+      localStorage.theme = theme;
+
+      document.addEventListener('astro:after-swap', () => {
+        document.documentElement.dataset.theme = localStorage.theme;
+      });
+    </script>
+    <ClientRouter />
+  </head>
+  <body class="bg-gray-100 dark:bg-zinc-900 dark:text-white">
+    <div class="container mx-auto px-4">
+      <Header />
+      <main class="flex flex-col gap-2">
+        <slot />
+      </main>
+      <Card
+        as="footer"
+        class="flex flex-col items-center justify-between gap-2 sm:flex-row"
+      >
+        <div class="flex items-center gap-2 text-xs">
+          <Cc0 class="shrink-0" />
+          <p>
+            To the extent possible under law, Ken Powers has waived all
+            copyright and related or neighboring rights to this website. This
+            work is published from The United States.
+          </p>
+        </div>
+        <nav>
+          <ul class="flex gap-2">
+            {
+              [
+                {
+                  href: 'https://github.com/knpwrs',
+                  icon: <Github />,
+                },
+                { href: 'https://x.com/knpwrs', icon: <X /> },
+                { href: 'https://linkedin.com/in/knpwrs', icon: <LinkedIn /> },
+              ].map((e) => (
+                <li class="ring-offset-background focus-visible:ring-ring bg-background hover:shadow-comic-sm hover:text-accent-foreground rounded-full border-2 border-black p-2 transition-all hover:cursor-pointer hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-white dark:hover:bg-zinc-800">
+                  <a
+                    href={e.href}
+                    target={e.href.startsWith('https://') ? '_blank' : null}
+                  >
+                    {e.icon}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </Card>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+export type Props = {
+  as?: 'button' | 'li' | 'a';
+  href?: string;
+  class?: string;
+};
+
+const { as: As = 'button', class: classStr, href } = Astro.props;
+---
+
+<As
+  class={twMerge(
+    'ring-offset-background focus-visible:ring-ring bg-background hover:shadow-comic hover:text-accent-foreground inline-flex h-10 items-center justify-center gap-2 rounded-md border-2 border-black px-4 py-2 text-sm font-medium whitespace-nowrap transition-all hover:cursor-pointer hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:hover:bg-zinc-800 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+    classStr,
+  )}
+  href={href}><slot /></As
+>

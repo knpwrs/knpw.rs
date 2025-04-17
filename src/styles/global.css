@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --shadow-comic: 8px 8px 0px 0px #000;
+  --shadow-comic-sm: 4px 4px 0px 0px #000;
+  --shadow-comic-lg: 12px 12px 0px 0px #000;
+}
+
+.font-comic {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+a {
+  @apply font-bold decoration-dotted hover:no-underline;
+}
+
+@layer components {
+  article {
+    @apply prose max-w-full;
+
+    :where(h1, h2, h3, h4, h5, h6) {
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    :where(h1, h2, h3, h4, h5, h6) {
+      @apply mt-2 mb-4;
+    }
+
+    :where(h1) {
+      @apply text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl;
+    }
+
+    :where(code) {
+      font-family: monospace;
+    }
+
+    :where(.astro-code) {
+      @apply p-4;
+      code {
+        font-family: 'Comic Mono', monospace;
+      }
+    }
+  }
+}

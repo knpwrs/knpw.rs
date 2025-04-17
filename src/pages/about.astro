@@ -1,0 +1,296 @@
+---
+import Mail from '@tabler/icons/outline/mail.svg';
+import MapPin from '@tabler/icons/outline/map-pin.svg';
+import Download from '@tabler/icons/outline/download.svg';
+import Layout from '../layouts/main.astro';
+import Card from '../components/card.astro';
+import Avatar from '../components/avatar.astro';
+import Button from '../components/button.astro';
+import CardHeader from '../components/card-header.astro';
+import AboutJob from '../components/about-job.astro';
+---
+
+<Layout>
+  <Card>
+    <div
+      class="flex flex-col items-center justify-center space-y-6 text-center md:flex-row md:items-start md:space-y-0 md:space-x-8 md:text-left"
+    >
+      <div>
+        <Avatar />
+      </div>
+      <div class="space-y-4">
+        <div>
+          <h1
+            class="font-comic text-4xl font-bold tracking-wider uppercase md:text-5xl"
+          >
+            Ken Powers
+          </h1>
+          <p class="mt-2 text-xl font-medium text-gray-700 dark:text-white">
+            Christian, Husband, Father, <em class="font-bold"
+              >Software Engineer</em
+            >.
+          </p>
+        </div>
+
+        <div class="max-w-2xl">
+          <blockquote class="border-l-4 border-black pl-4 dark:border-white">
+            "Whatever you do, work heartily, as for the Lord and not for men." -
+            The Apostle Paul, to the Church at Colossae
+          </blockquote>
+
+          <p class="mt-4 text-gray-700 dark:text-white">
+            I am a software engineer living and working in Massachusetts. I work
+            extensively in Universal JavaScript and HTML5 and have experience in
+            many other technologies. Take a look at my GitHub to see my personal
+            projects.
+          </p>
+
+          <p class="mt-4 text-gray-700 dark:text-white">
+            I also enjoy music, have been known to play drums and bass guitar,
+            and enjoy solving Rubik's cubes of all sizes! Feel free to take a
+            look around and contact me with any questions!
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 md:justify-start">
+          <div
+            class="relative flex items-center space-x-1 rounded-full bg-gray-200 px-3 py-1 text-sm dark:text-black"
+          >
+            <Mail class="h-4 w-4" />
+            <a
+              href="mailto:ken@kenpowers.net"
+              class="before:absolute before:inset-0">ken@kenpowers.net</a
+            >
+          </div>
+          <div
+            class="flex items-center space-x-1 rounded-full bg-gray-200 px-3 py-1 text-sm dark:text-black"
+          >
+            <MapPin class="h-4 w-4" />
+            <span>Greater Boston, MA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Card>
+
+  <div id="resume" class="scroll-mt-16">
+    <div class="flex items-center justify-between">
+      <h2 class="font-comic text-3xl font-bold uppercase">Resume</h2>
+      <Button
+        variant="outline"
+        class="relative border-2 border-black font-medium hover:bg-gray-100"
+      >
+        <Download class="mr-2 h-4 w-4" />
+        <a href="/resume.pdf" class="before:absolute before:inset-0"
+          >Download PDF</a
+        >
+      </Button>
+    </div>
+  </div>
+
+  <Card>
+    <CardHeader>Work Experience</CardHeader>
+
+    <AboutJob
+      company="Hummingbird"
+      location="Remote"
+      title="Senior Software Engineer"
+      from="August 2020"
+      points={[
+        'Developed and maintained complex applications using React, Apollo, TypeScript, GraphQL, ElasticSearch, and PostgreSQL.',
+        'Built a type-safe automation platform trigger editor capable of managing deeply nested data structures.',
+        'Built a Liquid/Markdown editor with syntax highlighting, and a custom language service supporting autocomplete and linting.',
+        'Built a SQL editor with inline error reporting from remote (customer-hosted) data warehouses.',
+        'Led frontend migration from Webpack to Vite, reducing build times and improving developer productivity.',
+        'Prototyped AI/LLM RAG Q&A in Rust using OpenAI Embeddings and an HNSW index.',
+        'Managed AWS infrastructure across multiple environments using Terraform.',
+        'Worked with systems designed to protect PII.',
+        'Implemented custom linting rules to prevent database deadlocks and regex injection vectors.',
+        'Improved developer productivity with Nix, Navi, and direnv.',
+      ]}
+    />
+
+    <AboutJob
+      company="Signal Messenger"
+      location="Remote"
+      title="Desktop Developer"
+      from="April 2019"
+      to="June 2020"
+      points={[
+        'Modernized the desktop application by migrating from legacy Backbone.js to React/Redux with TypeScript.',
+        'Designed and implemented features like a virtualized, fuzzy-searchable emoji picker and inline emoji typeahead.',
+        'Built a cross-platform sticker creation tool with encryption and native library integrations.',
+        'Refactored the desktop application to support multiple addressing schemes.',
+        'Worked with and designed for systems involving distributed state.',
+        'Worked with SQLite, SQLCipher, and Protobufs.',
+        'Worked extensively in open source and worked directly with our users.',
+      ]}
+    />
+
+    <AboutJob
+      company="SHIFT Media"
+      location="Boston, MA"
+      title="Lead Frontend Engineer"
+      from="September 2017"
+      to="April 2019"
+      points={[
+        'Designed and implemented upload queueing, cross-window Redux store sync for Electron, and SVG-based annotation tools.',
+        'Mentored junior engineers and presented multiple talks about advanced concepts in JavaScript and React/Redux.',
+        'Hired as Senior Software Engineer. Promoted to Lead Software Engineer in March 2018.',
+      ]}
+    />
+
+    <AboutJob
+      company="Candescent Health"
+      location="Remote (Waltham, MA)"
+      title="Software Engineer"
+      from="April 2016"
+      to="August 2017"
+      points={[
+        'Built tools for distributing and monitoring doctor workloads across facilities using Angular and PHP.',
+        'Open-sourced a Babel plugin for automatic dependency injection in Angular projects.',
+        'Prototyped Electron applications with native integrations to radiology software.',
+        'Prototyped new projects with React and Vue.',
+        'Delivered internal tech talks on modern JavaScript and CSS best practices.',
+      ]}
+    />
+
+    <AboutJob
+      company="IBM"
+      location="Littleton, MA"
+      title="Lead Frontend Engineer"
+      from="January 2013"
+      to="April 2016"
+      points={[
+        'Developed high-performance front-end solutions using React, Redux, and the Dojo Toolkit.',
+        'Automated builds and deployments with Jenkins.',
+        'Contributed to open source software including the OpenNTF JavaScript Aggregator and the Frontend Maven Plugin.',
+        'Created a mock browser environment for load testing offline capabilities.',
+        'Created a shim for testing New Relic Synthetics offline.',
+      ]}
+    />
+
+    <AboutJob
+      company="IBM"
+      location="Remote (Raleigh, NC)"
+      title="Smarter Cities Technical Coop"
+      from="August 2012"
+      to="November 2012"
+      points={[
+        'Developed a prototype for an IBM Smarter Cities data visualization product using Dojo Toolkit and OpenLayers.',
+      ]}
+    />
+
+    <AboutJob
+      company="IBM"
+      location="Austin, TX"
+      title="Extreme Blue Innovation Lab Technical Intern"
+      from="May 2012"
+      to="August 2012"
+      points={[
+        'Led a cross-functional team to create a drag-and-drop mobile app development tool targeting non-technical users.',
+        'Presented technical project details to multiple IBM executives.',
+      ]}
+    />
+
+    <AboutJob
+      company="Big Y Foods, Inc"
+      location="Springfield, MA"
+      title="Technology Administrator / Systems Development"
+      from="January 2010"
+      to="May 2012"
+      points={[
+        'Built internal tools with ASP.NET MVC (C#) and Microsoft SQL Server to streamline corporate workflows.',
+        'Created stored procedures for Microsoft SQL Server to generate reports on various data collected from stores.',
+      ]}
+    />
+  </Card>
+
+  <Card>
+    <CardHeader>Personal Projects</CardHeader>
+    <p class="mb-2 font-medium">github.com/knpwrs &middot; knpw.rs</p>
+    <ul class="ml-6 list-disc space-y-1 text-gray-700 dark:text-white">
+      <li>
+        My <a href="https://github.com/knpwrs" class="font-bold" target="_blank"
+          >personal GitHub profile</a
+        > contains personal projects and contributions to various open source projects.
+        Notable open-source contributions include the MongoDB NodeJS Driver, immer,
+        JSDom, and the Frontend Maven Plugin.
+      </li>
+      <li>
+        <a href="https://instant.bible" class="font-bold" target="_blank"
+          >instant.bible</a
+        > is a Bible search engine which delivers results instantly as you type.
+        The engine is written in Rust and has native clients written in Swift (FFI),
+        Kotlin (JNI), and TypeScript/React (WASM).
+      </li>
+      <li>
+        <a href="https://cursordanceparty.com" class="font-bold" target="_blank"
+          >Cursor Dance Party</a
+        > is a tech demo of WebSockets and HTML5 Canvas. Users see the cursors of
+        all other connected users as they move around. Survived the front page of
+        reddit.
+      </li>
+    </ul>
+  </Card>
+
+  <Card>
+    <CardHeader>Volunteer Work</CardHeader>
+
+    <AboutJob
+      company="Let's Church"
+      location="lets.church"
+      title="Founder and Principal Engineer"
+      from="January 2023"
+      points={[
+        'Founded a 501(c)(3) nonprofit providing free technology resources for churches and ministries.',
+        'Designed and managed infrastructure for video transcription and transcoding, leveraging both cloud servers and bare-metal data centers.',
+        'Implemented transcript search functionality with ElasticSearch.',
+        'Built and deployed the Let’s Church website using SolidJS, Prisma, and Pothos, delivering a modern and efficient user experience.',
+      ]}
+    />
+
+    <AboutJob
+      company="ExcelChurch"
+      location="Leominster, MA"
+      title="Technical Director"
+      from="February 2014"
+      to="July 2019"
+      points={[
+        'Designed and implemented live production setup using ProPresenter, Reaper, Lightkey, and Wirecast. <a href="/excel-setup-diagram.png">See diagram.</a>',
+        'Implemented a MIDI-controlled automation system for seamless coordination of click tracks, backing tracks, lighting, and projection.',
+        'Oversaw weekly setup and teardown of professional A/V equipment including sound, recording, and projection.',
+        'Trained and mentored volunteers through hands-on sessions, instructional videos, and written documentation.',
+      ]}
+    />
+  </Card>
+
+  <Card>
+    <CardHeader>Education</CardHeader>
+
+    <AboutJob
+      company="University of Massachusetts Amherst"
+      location="Amherst, MA"
+      title="3.7 GPA"
+      from="2011"
+      to="2013"
+      points={[
+        'Earned two academic awards for outstanding performance in computer science courses.',
+        "Achieved Dean's List recognition for three out of four semesters.",
+      ]}
+    />
+
+    <AboutJob
+      company="Springfield Technical Community College"
+      location="Springfield, MA"
+      title="3.8 GPA"
+      from="2009"
+      to="2011"
+      points={[
+        'Received two annual awards for exceptional academic achievement.',
+        'Completed directed studies in Computer Science and Mathematics.',
+        'Achieved Dean’s List honors for all four semesters.',
+      ]}
+    />
+  </Card>
+</Layout>

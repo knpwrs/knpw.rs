@@ -2,13 +2,13 @@
 
 With Ken Powers comes Ken Responsibility.
 
-This is the source code for my [personal website][web]. Built with [GatsbyJS]
-and deployed to [Netlify].
+This is the source code for my [personal website][web]. Built with [Astro]
+and deployed to [Cloudflare].
 
 ## License
 
 **CC0**
 
-[gatsbyjs]: https://www.gatsbyjs.org/ 'GatsbyJS: Blazing-fast static site generator for React'
-[netlify]: https://www.netlify.com/ 'Netlify: All-in-one platform for automating modern web projects.'
+[Astro]: https://astro.build/ 'The web framework for content-driven websites'
+[Cloudflare]: https://www.cloudflare.com/ 'Connect, protect, and build everywhere | Cloudflare'
 [web]: https://knpw.rs 'knpwrs'

@@ -1,0 +1,19 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+export type Props = {
+  as?: 'div' | 'header' | 'section' | 'footer';
+  class?: string;
+};
+
+const { as: As = 'div', class: classStr } = Astro.props;
+---
+
+<As
+  class={twMerge(
+    'shadow-comic my-6 border-4 border-black bg-white p-4 dark:bg-zinc-700',
+    classStr,
+  )}
+>
+  <slot />
+</As>

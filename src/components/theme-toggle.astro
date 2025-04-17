@@ -1,0 +1,19 @@
+---
+import Brightness from '@tabler/icons/filled/brightness.svg';
+---
+
+<button id="theme-toggle" class="cursor-pointer" role="switch">
+  <Brightness class="text-zinc-500 dark:text-white" />
+</button>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const el = document.getElementById('theme-toggle');
+
+    el?.addEventListener('click', () => {
+      const theme = (localStorage.theme =
+        localStorage.theme === 'dark' ? 'light' : 'dark');
+      document.documentElement.dataset.theme = theme;
+    });
+  });
+</script>

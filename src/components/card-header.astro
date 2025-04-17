@@ -1,0 +1,19 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+export type Props = {
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  class?: string;
+};
+
+const { as: As = 'h3', class: classStr } = Astro.props;
+---
+
+<As
+  class={twMerge(
+    'font-comic mb-4 space-y-1.5 text-2xl font-semibold tracking-tight',
+    classStr,
+  )}
+>
+  <slot />
+</As>

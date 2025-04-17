@@ -1,0 +1,17 @@
+---
+export type Props = {
+  tags: Array<string>;
+};
+
+const { tags } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2">
+  {
+    tags.map((tag) => (
+      <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium dark:text-black">
+        {tag}
+      </span>
+    ))
+  }
+</div>
