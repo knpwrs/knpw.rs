@@ -7,6 +7,7 @@ import Card from '../components/card.astro';
 import FormattedDate from '../components/formatted-date.astro';
 import Tags from '../components/tags.astro';
 import Button from '../components/button.astro';
+import Giscus from '@giscus/solid';
 
 type Props = CollectionEntry<'blog'>['data'] & { preview?: string };
 
@@ -22,6 +23,19 @@ const { title, date, tags, preview } = Astro.props;
       </h1>
       <Tags tags={tags} />
       <slot />
+      <Giscus
+        client:only="solid-js"
+        repo="knpwrs/knpw.rs"
+        repoId="MDEwOlJlcG9zaXRvcnkxMDE1ODg2ODE="
+        category="Blog Post"
+        categoryId="DIC_kwDOBg4eyc4COHt1"
+        mapping="og:title"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="bottom"
+        theme="preferred_color_scheme"
+        lang="en"
+      />
     </article>
   </Card>
   <div>
