@@ -1,6 +1,7 @@
 ---
 import Mail from '@tabler/icons/outline/mail.svg';
 import MapPin from '@tabler/icons/outline/map-pin.svg';
+import ChevronCompactDown from '@tabler/icons/outline/chevron-compact-down.svg';
 import Download from '@tabler/icons/outline/download.svg';
 import Layout from '../layouts/main.astro';
 import Card from '../components/card.astro';
@@ -86,7 +87,7 @@ import AvatarJulian from '../components/avatar-julian.astro';
   </Card>
 
   <div id="testimonials">
-    <h2 class="font-comic text-3xl font-bold uppercase">Testimonials</h2>
+    <h2 class="font-comic mb-6 text-3xl font-bold uppercase">Testimonials</h2>
     <div class="grid gap-x-6 gap-y-2 lg:grid-cols-2">
       <Testimonial
         name="Conley Owens"
@@ -103,27 +104,6 @@ import AvatarJulian from '../components/avatar-julian.astro';
         <AvatarCorey slot="avatar" />
       </Testimonial>
       <Testimonial
-        name="Gen Edwards"
-        subtitle="IBM, Google"
-        quote="Ken has an amazing instinct for tech, the way he follows and knows about new trends is really amazing."
-      >
-        <AvatarGen slot="avatar" />
-      </Testimonial>
-      <Testimonial
-        name="Cory Gorman"
-        subtitle="IBM, Noom, Observe"
-        quote="Ken is wicked smart and great to work with! Follow his advice because he's probably right."
-      >
-        <AvatarCory slot="avatar" />
-      </Testimonial>
-      <Testimonial
-        name="Josh Perez"
-        subtitle="Airbnb, Signal, Discord"
-        quote="Ken is thoughtful, passionate, curious, and affable. All great qualities that integrate well into an engineering team."
-      >
-        <AvatarJosh slot="avatar" />
-      </Testimonial>
-      <Testimonial
         name="Simo Leone"
         subtitle="Hummingbird"
         quote="Ken is kind of like Willy Wonka for computers."
@@ -131,13 +111,45 @@ import AvatarJulian from '../components/avatar-julian.astro';
         <AvatarSimo slot="avatar" />
       </Testimonial>
       <Testimonial
-        name="Julian Coy"
-        subtitle="Hummingbird"
-        quote="If you gave Ken a broken toaster and 30 minutes, you'd have a crypto mining rig."
+        name="Gen Edwards"
+        subtitle="IBM, Google"
+        quote="Ken has an amazing instinct for tech, the way he follows and knows about new trends is really amazing."
       >
-        <AvatarJulian slot="avatar" />
+        <AvatarGen slot="avatar" />
       </Testimonial>
     </div>
+    <details class="group">
+      <summary
+        class="font-comic mt-6 flex list-none flex-col items-center text-center text-2xl font-bold uppercase select-none"
+      >
+        <span class="inline group-open:hidden"> Show more </span>
+        <ChevronCompactDown class="group-open:rotate-180" />
+        <span class="mb-6 hidden group-open:inline">Hide</span>
+      </summary>
+      <div class="mb-6 grid gap-x-6 gap-y-2 lg:grid-cols-2">
+        <Testimonial
+          name="Cory Gorman"
+          subtitle="IBM, Noom, Observe"
+          quote="Ken is wicked smart and great to work with! Follow his advice because he's probably right."
+        >
+          <AvatarCory slot="avatar" />
+        </Testimonial>
+        <Testimonial
+          name="Josh Perez"
+          subtitle="Airbnb, Signal, Discord"
+          quote="Ken is thoughtful, passionate, curious, and affable. All great qualities that integrate well into an engineering team."
+        >
+          <AvatarJosh slot="avatar" />
+        </Testimonial>
+        <Testimonial
+          name="Julian Coy"
+          subtitle="Hummingbird"
+          quote="If you gave Ken a broken toaster and 30 minutes, you'd have a crypto mining rig."
+        >
+          <AvatarJulian slot="avatar" />
+        </Testimonial>
+      </div>
+    </details>
   </div>
 
   <div id="resume" class="scroll-mt-16">
