@@ -17,6 +17,10 @@ a {
   @apply font-bold decoration-dotted hover:no-underline;
 }
 
+summary.list-none::-webkit-details-marker {
+  display: none;
+}
+
 @layer components {
   article {
     @apply prose dark:prose-invert max-w-full;
