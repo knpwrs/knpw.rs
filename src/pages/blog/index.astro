@@ -20,10 +20,10 @@ const posts = (await getCollection('blog')).sort(
     </h1>
     <p class="mt-2 text-gray-700 dark:text-white">Read. Debug. Repeat.</p>
   </Card>
-  <div class="grid gap-x-6 gap-y-2 md:grid-cols-2 lg:grid-cols-3">
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {
       posts.map((post) => (
-        <Card class="hover:shadow-comic-lg relative transition-all hover:-translate-y-1">
+        <Card class="hover:shadow-comic-lg relative my-0 transition-all hover:-translate-y-1">
           <FormattedDate date={post.data.date} class="mb-2" />
           <h3 class="font-comic text-xl font-semibold tracking-tight">
             <a href={`/blog/${post.id}`} class="before:absolute before:inset-0">
