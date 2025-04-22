@@ -91,6 +91,7 @@ const {
           <a
             href="https://creativecommons.org/publicdomain/zero/1.0/"
             target="_blank"
+            aria-label="CC0 1.0 Universal"
           >
             <Cc0 class="shrink-0" />
           </a>
@@ -107,16 +108,26 @@ const {
                 {
                   href: 'https://github.com/knpwrs',
                   icon: <Github />,
+                  label: 'knpwrs on Github',
                 },
-                { href: 'https://x.com/knpwrs', icon: <X /> },
-                { href: 'https://linkedin.com/in/knpwrs', icon: <LinkedIn /> },
-              ].map((e) => (
+                {
+                  href: 'https://x.com/knpwrs',
+                  icon: <X />,
+                  label: 'knpwrs on X',
+                },
+                {
+                  href: 'https://linkedin.com/in/knpwrs',
+                  icon: <LinkedIn />,
+                  label: 'Ken Powers on LinkedIn',
+                },
+              ].map((el) => (
                 <li class="ring-offset-background focus-visible:ring-ring bg-background hover:shadow-comic-sm rounded-full border-2 border-black p-2 transition-all hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-white">
                   <a
-                    href={e.href}
-                    target={e.href.startsWith('https://') ? '_blank' : null}
+                    href={el.href}
+                    target={el.href.startsWith('https://') ? '_blank' : null}
+                    aria-label={el.label}
                   >
-                    {e.icon}
+                    {el.icon}
                   </a>
                 </li>
               ))
