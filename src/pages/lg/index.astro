@@ -7,7 +7,7 @@ import FormattedDate from '../../components/formatted-date.astro';
 
 const logEntries = await Promise.all(
   (await getCollection('log'))
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
     .map(async (entry) => ({
       ...entry,
       Content: (await render(entry)).Content,
@@ -15,7 +15,7 @@ const logEntries = await Promise.all(
 );
 
 const title = 'Log · Ken Powers';
-const description = "A collection of interesting links I've found.";
+const description = "What I've been reading and find interesting.";
 ---
 
 <Layout title={title} description={description}>
