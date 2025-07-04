@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import Card from '../../components/card.astro';
 import Layout from '../../layouts/main.astro';
+import TitleCard from '../../components/title-card.astro';
+import Card from '../../components/card.astro';
 import FormattedDate from '../../components/formatted-date.astro';
 import { postPreview } from '../../util';
 import Tags from '../../components/tags.astro';
@@ -12,14 +13,7 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <Layout>
-  <Card>
-    <h1
-      class="font-comic text-4xl font-bold tracking-wider uppercase md:text-5xl"
-    >
-      Blog
-    </h1>
-    <p class="mt-2 text-gray-700 dark:text-white">Read. Debug. Repeat.</p>
-  </Card>
+  <TitleCard title="Blog" subTitle="Read. Debug. Repeat" />
   <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {
       posts.map((post) => (

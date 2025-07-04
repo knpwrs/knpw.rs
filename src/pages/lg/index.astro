@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/main.astro';
+import TitleCard from '../../components/title-card.astro';
+import Card from '../../components/card.astro';
+import FormattedDate from '../../components/formatted-date.astro';
+
+const logEntries = await Promise.all(
+  (await getCollection('log'))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .map(async (entry) => ({
+      ...entry,
+      Content: (await render(entry)).Content,
+    })),
+);
+
+const title = 'Log · Ken Powers';
+const description = "A collection of interesting links I've found.";
+---
+
+<Layout title={title} description={description}>
+  <TitleCard
+    title="Log"
+    subTitle="What I've been reading and find interesting."
+  />
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {
+      logEntries.map((entry) => (
+        <Card class="hover:shadow-comic-lg relative my-0 transition-all hover:-translate-y-1">
+          <div class="mb-2 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <span class="flex items-center gap-1">
+              <span>Logged:</span>
+              <FormattedDate date={entry.data.date} />
+            </span>
+            {entry.data.originalDate && (
+              <span class="flex items-center gap-1">
+                <span>· Original:</span>
+                <FormattedDate date={entry.data.originalDate} />
+              </span>
+            )}
+          </div>
+          <h3 class="font-comic text-xl font-semibold tracking-tight">
+            <a
+              href={entry.data.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="before:absolute before:inset-0"
+            >
+              {entry.data.title}
+            </a>
+          </h3>
+          {entry.body?.trim() ? (
+            <div class="my-4 text-gray-700 dark:text-white">
+              <entry.Content />
+            </div>
+          ) : null}
+        </Card>
+      ))
+    }
+  </div>
+</Layout>

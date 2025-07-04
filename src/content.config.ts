@@ -10,4 +10,14 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const log = defineCollection({
+  loader: glob({ base: './src/content/log', pattern: '**/*.{md,mdx}' }),
+  schema: z.object({
+    title: z.string(),
+    url: z.string().url(),
+    originalDate: z.coerce.date().optional(),
+    date: z.coerce.date(),
+  }),
+});
+
+export const collections = { blog, log };
