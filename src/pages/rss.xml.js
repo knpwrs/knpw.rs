@@ -14,7 +14,7 @@ export async function GET(context) {
     site: context.site,
     items: sortedPosts.map((post) => ({
       ...post.data,
-      link: `/blog/${post.id}/`,
+      link: `/blg/${post.id}/`,
     })),
   });
 }

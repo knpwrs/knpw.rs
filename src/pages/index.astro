@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import User from '@tabler/icons/outline/user.svg';
 import Pencil from '@tabler/icons/outline/pencil.svg';
-import Bookmark from '@tabler/icons/outline/bookmark.svg';
 import Layout from '../layouts/main.astro';
 import Button from '../components/button.astro';
 import Avatar from '../components/avatar-ken.astro';
@@ -33,7 +32,7 @@ const post = (await getCollection('blog'))
       <h2 class="font-comic text-2xl font-bold uppercase md:text-3xl">
         Latest Post
       </h2><a
-        href="/blog"
+        href="/blg"
         class="group flex items-center space-x-1 text-gray-700 hover:text-black dark:text-white dark:hover:text-white"
         ><span class="text-sm font-medium">View All Posts &rarr;</span>
       </a>
@@ -44,13 +43,13 @@ const post = (await getCollection('blog'))
       <Card>
         <div>
           <h3 class="font-comic mb-2 text-2xl font-semibold tracking-tight">
-            <a href={`/blog/${post.id}`}>{post.data.title}</a>
+            <a href={`/blg/${post.id}`}>{post.data.title}</a>
           </h3>
           <FormattedDate date={post.data.date} />
           <p class="my-4 line-clamp-3 text-gray-700 dark:text-white">
             {postPreview(post.body)}
           </p>
-          <Button as="a" href={`/blog/${post.id}`}>
+          <Button as="a" href={`/blg/${post.id}`}>
             Read More
           </Button>
         </div>
@@ -68,7 +67,7 @@ const post = (await getCollection('blog'))
         {
           icon: <Pencil class="size-10" />,
           label: 'Blog',
-          href: '/blog',
+          href: '/blg',
         },
       ].map((link) => (
         <Card class="relative flex flex-col items-center gap-3">

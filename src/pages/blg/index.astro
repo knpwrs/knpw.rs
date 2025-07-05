@@ -20,7 +20,7 @@ const posts = (await getCollection('blog')).sort(
         <Card class="hover:shadow-comic-lg relative my-0 transition-all hover:-translate-y-1">
           <FormattedDate date={post.data.date} class="mb-2" />
           <h3 class="font-comic text-xl font-semibold tracking-tight">
-            <a href={`/blog/${post.id}`} class="before:absolute before:inset-0">
+            <a href={`/blg/${post.id}`} class="before:absolute before:inset-0">
               {post.data.title}
             </a>
           </h3>

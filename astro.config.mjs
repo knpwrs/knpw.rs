@@ -9,8 +9,11 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://knpw.rs',
   integrations: [mdx(), sitemap(), solidJs()],
+  redirects: {
+    '/blog/[...slug]': '/blg/[...slug]',
+    '/log': '/lg',
+  },
   vite: {
     plugins: [tailwindcss()],
   },
 });
-
