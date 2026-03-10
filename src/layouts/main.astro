@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import Github from '@tabler/icons/outline/brand-github.svg';
 import X from '@tabler/icons/outline/brand-x.svg';
@@ -53,6 +54,7 @@ const {
       href="/lg/rss.xml"
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <Font cssVariable="--font-comic-mono" preload />
 
     <meta name="generator" content={Astro.generator} />
     <meta property="og:type" content="website" />

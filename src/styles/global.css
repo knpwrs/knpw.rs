@@ -45,7 +45,7 @@ summary.list-none::-webkit-details-marker {
     :where(.astro-code) {
       @apply p-4;
       code {
-        font-family: 'Comic Mono', monospace;
+        font-family: var(--font-comic-mono), monospace;
       }
     }
   }
