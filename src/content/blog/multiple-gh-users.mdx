@@ -1,0 +1,158 @@
+---
+title: 'Quick Tip: Multiple GitHub Accounts with gh and direnv'
+date: 2026-03-10
+tags:
+  - git
+  - github
+  - quick tip
+---
+
+If you've read my previous post on [using direnv to manage multiple git user
+configs][git-users], you might be wondering whether the same trick applies to
+the [GitHub CLI (`gh`)][gh]. It does, and the setup is almost identical.
+
+The problem is familiar: on my personal laptop I work across multiple GitHub
+accounts -- personal projects under my own handle and work projects under a
+different account. The `gh` CLI authenticates against a single active account
+at a time, so by default you have to manually run `gh auth switch` whenever
+you move between contexts. That gets old fast.
+
+## Authentication With Environment Variables
+
+A look at `gh help environment` shows that `gh` respects a `GH_TOKEN`
+environment variable:
+
+> `GH_TOKEN`, `GITHUB_TOKEN` (in order of precedence): an authentication token
+> that will be used when a command targets either `github.com` or a subdomain
+> of `ghe.com`. Setting this avoids being prompted to authenticate and takes
+> precedence over previously stored credentials.
+
+That last sentence is the key part: `GH_TOKEN` takes precedence over whatever
+account is currently active. All we need is a way to set it automatically per
+directory.
+
+## Getting Your Tokens
+
+First, make sure you've authenticated with each account you want to use:
+
+```sh
+gh auth login
+```
+
+Run this once per account. `gh` supports multiple authenticated accounts and
+will store credentials for all of them. You can verify with:
+
+```sh
+gh auth status
+```
+
+Once both accounts are set up, grab the token for each one:
+
+```sh
+gh auth token --user your-personal-handle
+gh auth token --user your-work-handle
+```
+
+Hold on to those -- you'll use them in the next step.
+
+## Setting Up direnv
+
+[I already use `direnv` for git user configuration.][git-users] It's a shell
+environment switcher that executes `.envrc` files as you change directories,
+making the exported variables available to all of your tooling. If you're not
+already using it, installation on macOS is straightforward:
+
+```sh
+brew install direnv
+```
+
+And the hook for `zsh` in your `.zshrc`:
+
+```sh
+if hash direnv 2>/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+```
+
+With `direnv` in place, create `.envrc` files in your workspace roots and set
+`GH_TOKEN` to the appropriate token for that context:
+
+```sh
+# ~/Workspace/github.com/your-personal-handle/.envrc
+export GH_TOKEN=<your-personal-token>
+```
+
+```sh
+# ~/Workspace/github.com/your-work-org/.envrc
+export GH_TOKEN=<your-work-token>
+```
+
+Run `direnv allow` in each directory the first time you encounter a new
+`.envrc` file and you're done. From that point on, `gh` will automatically
+use the right account whenever you're inside that directory tree.
+
+## Workspace Structure
+
+The setup relies on the same workspace structure I described in the git users
+post. The `.envrc` file cascades to any subdirectory beneath it, so you only
+need one file per organization or account root:
+
+```
+workspace
+├── github.com
+│   ├── your-personal-handle
+│   │   ├── .envrc       # GH_TOKEN for your personal account
+│   │   ├── proj1
+│   │   └── proj2
+│   └── your-work-org
+│       ├── .envrc       # GH_TOKEN for your work account
+│       ├── proj1
+│       └── proj2
+```
+
+Every `gh` command you run from inside `your-personal-handle/proj1` will
+authenticate as your personal account. Switch over to `your-work-org/proj2`
+and `gh` authenticates as your work account -- no manual switching required.
+
+## Nesting Configs
+
+If you already have a root-level `.envrc` for something else (like `GOPATH` or
+any other tool), child `.envrc` files won't automatically inherit it. Use
+`source_up` at the top of the child file to chain them:
+
+```sh
+# ~/Workspace/github.com/your-personal-handle/.envrc
+source_up
+export GH_TOKEN=<your-personal-token>
+```
+
+`source_up` is part of [`direnv-stdlib`][stdlib] and walks up the directory
+tree looking for parent `.envrc` files to source first.
+
+## A Note on Token Storage
+
+Storing tokens in plaintext `.envrc` files is convenient but worth thinking
+about. My `.envrc` files live outside of any git repository (they sit at the
+workspace level, above individual repos), so there's no risk of accidentally
+committing them. That said, if you'd prefer not to have raw tokens on disk at
+all, you can use `direnv`'s `direnv-stdlib` integration with a secrets manager
+or pull the token dynamically from the keychain:
+
+```sh
+# macOS Keychain example
+export GH_TOKEN=$(security find-generic-password -s "gh-personal" -w)
+```
+
+That keeps the token out of any file and avoids it ever appearing in your shell
+history.
+
+## Conclusion
+
+The `GH_TOKEN` environment variable combined with `direnv` gives you automatic,
+zero-friction GitHub account switching based on your current directory. If
+you're already using `direnv` for git user config, adding `gh` support is
+literally just one more line in your `.envrc` files.
+
+[git-users]: /blg/multiple-git-users
+[gh]: https://cli.github.com/
+[stdlib]: https://direnv.net/man/direnv-stdlib.1.html

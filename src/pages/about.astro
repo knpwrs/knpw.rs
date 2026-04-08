@@ -12,11 +12,12 @@ import Testimonial from '../components/testimonial.astro';
 import AvatarKen from '../components/avatar-ken.astro';
 import AvatarConley from '../components/avatar-conley.astro';
 import AvatarCorey from '../components/avatar-corey.astro';
-import AvatarTrevor from '../components/avatar-trevor.astro';
+import AvatarSimo from '../components/avatar-simo.astro';
+import AvatarAlexei from '../components/avatar-alexei.astro';
 import AvatarGen from '../components/avatar-gen.astro';
 import AvatarCory from '../components/avatar-cory.astro';
+import AvatarTrevor from '../components/avatar-trevor.astro';
 import AvatarJosh from '../components/avatar-josh.astro';
-import AvatarSimo from '../components/avatar-simo.astro';
 import AvatarJulian from '../components/avatar-julian.astro';
 ---
 
@@ -112,11 +113,11 @@ import AvatarJulian from '../components/avatar-julian.astro';
         <AvatarSimo slot="avatar" />
       </Testimonial>
       <Testimonial
-        name="Gen Edwards"
-        subtitle="IBM, Google"
-        quote="Ken has an amazing instinct for tech, the way he follows and knows about new trends is really amazing."
+        name="Alexei Diaz"
+        subtitle="Oscilar"
+        quote="I want to be like Ken when I grow up."
       >
-        <AvatarGen slot="avatar" />
+        <AvatarAlexei slot="avatar" />
       </Testimonial>
     </div>
     <details class="group">
@@ -128,6 +129,13 @@ import AvatarJulian from '../components/avatar-julian.astro';
         <span class="mb-6 hidden group-open:inline">Hide</span>
       </summary>
       <div class="mb-6 grid gap-x-6 gap-y-2 lg:grid-cols-2">
+        <Testimonial
+          name="Gen Edwards"
+          subtitle="IBM, Google"
+          quote="Ken has an amazing instinct for tech, the way he follows and knows about new trends is really amazing."
+        >
+          <AvatarGen slot="avatar" />
+        </Testimonial>
         <Testimonial
           name="Cory Gorman"
           subtitle="IBM, Noom, Observe"
