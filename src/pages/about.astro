@@ -334,9 +334,9 @@ import AvatarJulian from '../components/avatar-julian.astro';
       <li>
         <a href="https://instant.bible" class="font-bold" target="_blank"
           >instant.bible</a
-        > is a Bible search engine which delivers results instantly as you type.
-        The engine is written in Rust and has native clients written in Swift (FFI),
-        Kotlin (JNI), and TypeScript/React (WASM).
+        > is a Bible search engine which delivers results instantly as you type. The
+        engine is written in Rust and has native clients written in Swift (FFI), Kotlin
+        (JNI), and TypeScript/React (WASM).
       </li>
       <li>
         <a href="https://cursordanceparty.com" class="font-bold" target="_blank"
@@ -354,13 +354,14 @@ import AvatarJulian from '../components/avatar-julian.astro';
     <AboutJob
       company="Let's Church"
       location="lets.church"
-      title="Founder and Principal Engineer"
+      title="Founder and Principal Engineer (Volunteer)"
       from="January 2023"
       points={[
-        'Founded a 501(c)(3) nonprofit providing free technology resources for churches and ministries.',
-        'Designed and implemented video transcription and transcoding infrastructure using self-hosted Temporal on Kubernetes, with bare-metal worker nodes running specialized hardware.',
-        'Implemented transcript search functionality with ElasticSearch.',
-        'Built and deployed the Let’s Church website using SolidJS, Prisma, and Pothos (GraphQL), delivering a modern and efficient user experience.',
+        'Founded a 501(c)(3) nonprofit that provides churches and Christian ministries free media hosting, transcription, search, live streaming, and Bible-study tools.',
+        'Built the original MVP with SolidJS, Pothos/GraphQL, and Prisma, then rewrote it in React with TanStack Start, tRPC, and Drizzle.',
+        'Built and operate a Temporal media pipeline for hardware-accelerated HLS transcoding, GPU transcription, speaker diarization, LLM-generated summaries and chapters, search indexing, and archival.',
+        'Built OpenSearch-based hybrid lexical/vector search and cited AI Q&A across 90K+ long-form media files.',
+        'Moved production to two bare-metal k3s clusters across two sites; automated provisioning and GitOps delivery with Ansible, Kustomize, and Argo CD, and integrated NVIDIA GPUs and AMD MA35D accelerators as schedulable Kubernetes resources.',
       ]}
     />
 
